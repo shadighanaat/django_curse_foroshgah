@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
 ]
 
 SITE_ID = 1
@@ -159,6 +160,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+# cripy forms
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # all auth settings
 ACCOUNT_SESSION_REMEMBER = True
