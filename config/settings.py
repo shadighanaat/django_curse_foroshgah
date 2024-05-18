@@ -45,7 +45,9 @@ INSTALLED_APPS = [
 
     # local apps
     'accounts.apps.AccountsConfig',
+    'products.apps.ProductsConfig',
 
+    # third party apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -105,8 +107,6 @@ DATABASES = {
         'PASSWORD': 'postgres',
         'HOST': 'db',
         'PORT': 5432
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -181,3 +181,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
+
