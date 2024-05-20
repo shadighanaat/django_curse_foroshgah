@@ -141,14 +141,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
+# LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'en'
+
 
 LANGUAGES = (
     ('en', 'English'),
     ('fa', 'Persian'),
 )
 
-
+# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
@@ -190,6 +192,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
 
-LOCALE_PATHS = [
-os.path.join(BASE_DIR, 'product/locale'),
-]
+LOCALE_PATHS = (
+    'templates/locale',
+)
