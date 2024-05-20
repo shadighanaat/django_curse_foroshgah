@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path 
-from environs import Env
+from environs import Env 
 import os
-
 # for environment variables
 env = Env()
 env.read_env()
@@ -28,9 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  env("DJANGO_DEBUG")
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.liara.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'liara.com']
+
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
 
     # third party apps
+    'rosetta',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -134,19 +135,24 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     # django allauth
     'allauth.account.auth_backends.AuthenticationBackend',
-    ...
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
+
+
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
@@ -154,6 +160,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -162,8 +170,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # accounts config
 AUTH_USER_MODEL = 'accounts.CustomUser'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'product_list'
+LOGOUT_REDIRECT_URL = 'product_list'
 
 # cripy forms
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -182,3 +190,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
 
+LOCALE_PATHS = [
+os.path.join(BASE_DIR, 'product/locale'),
+]
