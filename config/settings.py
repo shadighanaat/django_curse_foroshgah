@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # local apps
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
+    'cart.apps.CartConfig',
 
     # third party apps
     'rosetta',
