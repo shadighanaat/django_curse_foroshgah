@@ -47,3 +47,13 @@ class CommentCreateView(generic.CreateView):
         messages.success(self.request, _('Comment successfully created'))
 
         return super().form_valid(form)
+
+class ProductListMenView(generic.ListView):
+    queryset = Product.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+class ProductListFeminineView(generic.ListView):
+    queryset = Product.objects.filter(active=True)
+    template_name = 'products/product_list_feminine.html'
+    context_object_name = 'products'    
