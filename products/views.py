@@ -5,18 +5,81 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 
 
-from .models import Product, Comment
+from .models import (Product,
+                     ProductMen,
+                     ProductFeminine,
+                     ProductChildish, 
+                     ProductRefriGerator,
+                     ProductWashing, 
+                     ProductCooking, 
+                     ProductLaptop,  
+                     ProductHeadphone, 
+                     ProductOffice, 
+                     ProductList,
+                     Comment,
+)
 from .forms import CommentForm
 
 
 class ProductListView(generic.ListView):
-    # model = Product
     queryset = Product.objects.filter(active=True)
     template_name = 'products/product_list.html'
     context_object_name = 'products'
 
-    # def get_queryset(self):
-    #
+
+class ProductListMenView(generic.ListView):
+    queryset = ProductMen.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+
+class ProductListFeminineView(generic.ListView):
+    queryset = ProductFeminine.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+
+class ProductListChildishView(generic.ListView):
+    queryset = ProductChildish.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+
+class ProductListRefrigeratorView(generic.ListView):
+    queryset = ProductRefriGerator.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+
+class ProductListWashingView(generic.ListView):
+    queryset = ProductWashing.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'
+
+
+class ProductListCookingView(generic.ListView):
+    queryset = ProductCooking.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'    
+
+
+class ProductListLaptopView(generic.ListView):
+    queryset = ProductLaptop.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'    
+
+
+class ProductListHeadphoneView(generic.ListView):
+    queryset = ProductHeadphone.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'    
+
+
+class ProductListOfficeView(generic.ListView):
+    queryset = ProductOffice.objects.filter(active=True)
+    template_name = 'products/product_list_men.html'
+    context_object_name = 'products'    
+            
 
 class ProductDetailView(generic.DetailView):
     model = Product
@@ -48,12 +111,4 @@ class CommentCreateView(generic.CreateView):
 
         return super().form_valid(form)
 
-class ProductListMenView(generic.ListView):
-    queryset = Product.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
-    context_object_name = 'products'
 
-class ProductListFeminineView(generic.ListView):
-    queryset = Product.objects.filter(active=True)
-    template_name = 'products/product_list_feminine.html'
-    context_object_name = 'products'    
