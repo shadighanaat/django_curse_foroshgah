@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import (Product, Comment, Category, ProductMen, 
+from .models import (Product, Comment, Category,
+                      ProductMen, 
                       ProductFeminine,
                       ProductChildish, 
                       ProductRefriGerator, 
@@ -7,6 +8,7 @@ from .models import (Product, Comment, Category, ProductMen,
                       ProductLaptop, 
                       ProductHeadphone, 
                       ProductOffice, 
+                      ProductList,
                       
 )
 
@@ -59,7 +61,7 @@ class ProductRefrigeatorAdmin(admin.ModelAdmin):
 
 
 @admin.register(ProductWashing)
-class ProductFeminineAdmin(admin.ModelAdmin):
+class ProductWashigAdmin(admin.ModelAdmin):
     list_display = ['title', 'price', 'active']
     inlines = [
         CommentInline
@@ -86,8 +88,13 @@ class ProductOfficeAdmin(admin.ModelAdmin):
         CommentInline
     ]     
 
+@admin.register(ProductList)
+class ProductListAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price', 'active']
+    inlines = [
+        CommentInline
+    ]         
+
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['product', 'body', 'author', 'stars', 'active']
-
-
