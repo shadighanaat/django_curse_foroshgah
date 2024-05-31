@@ -224,17 +224,17 @@ class Comment(models.Model):
         ('4', _('Good')),
         ('5', _('Very Good')),
     ]
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', )
-    productlist = models.ForeignKey(ProductList, on_delete=models.CASCADE, related_name='comments' , null=True, )
-    productmen = models.ForeignKey(ProductMen, on_delete=models.CASCADE, related_name='comments',  null=True, )
-    productfeminine = models.ForeignKey(ProductFeminine, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productchildish = models.ForeignKey(ProductChildish, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productrefrigerator = models.ForeignKey(ProductRefriGerator, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productWashing = models.ForeignKey(ProductWashing, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productcooking = models.ForeignKey(ProductCooking, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productlaptop = models.ForeignKey(ProductLaptop, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productheadphone = models.ForeignKey(ProductHeadphone, on_delete=models.CASCADE, related_name='comments', null=True, )
-    productoffice = models.ForeignKey(ProductOffice, on_delete=models.CASCADE, related_name='comments', null=True, )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productlist = models.ForeignKey(ProductList, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productmen = models.ForeignKey(ProductMen, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productfeminine = models.ForeignKey(ProductFeminine, on_delete=models.CASCADE, related_name='comments',blank=True, null= True, )
+    productchildish = models.ForeignKey(ProductChildish, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productrefrigerator = models.ForeignKey(ProductRefriGerator, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productWashing = models.ForeignKey(ProductWashing, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productcooking = models.ForeignKey(ProductCooking, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productlaptop = models.ForeignKey(ProductLaptop, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productheadphone = models.ForeignKey(ProductHeadphone, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productoffice = models.ForeignKey(ProductOffice, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
     author = models.ForeignKey(get_user_model(),
                                on_delete=models.CASCADE,
                                related_name='comments',
@@ -253,3 +253,32 @@ class Comment(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.product.id])
 
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productlist.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productmen.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productfeminine.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productrefrigerator.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productoffice.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productlaptop.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productchildish.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productcooking.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productWashing.id])
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.productheadphone.id])
