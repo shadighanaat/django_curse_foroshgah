@@ -35,49 +35,49 @@ class ProductListMenView(generic.ListView):
 
 class ProductListFeminineView(generic.ListView):
     queryset = ProductFeminine.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_feminine.html'
     context_object_name = 'products'
 
 
 class ProductListChildishView(generic.ListView):
     queryset = ProductChildish.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_childish.html'
     context_object_name = 'products'
 
 
 class ProductListRefrigeratorView(generic.ListView):
     queryset = ProductRefriGerator.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_refrigerator.html'
     context_object_name = 'products'
 
 
 class ProductListWashingView(generic.ListView):
     queryset = ProductWashing.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_washing.html'
     context_object_name = 'products'
 
 
 class ProductListCookingView(generic.ListView):
     queryset = ProductCooking.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_cooking.html'
     context_object_name = 'products'    
 
 
 class ProductListLaptopView(generic.ListView):
     queryset = ProductLaptop.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_laptop.html'
     context_object_name = 'products'    
 
 
 class ProductListHeadphoneView(generic.ListView):
     queryset = ProductHeadphone.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_headphone.html'
     context_object_name = 'products'    
 
 
 class ProductListOfficeView(generic.ListView):
     queryset = ProductOffice.objects.filter(active=True)
-    template_name = 'products/product_list_men.html'
+    template_name = 'products/product_list_office.html'
     context_object_name = 'products'    
             
 
