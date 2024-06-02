@@ -203,5 +203,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
 
 LOCALE_PATHS = (
-    'templates/locale',
+   ('templates', 'locale', )
 )
