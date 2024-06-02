@@ -15,7 +15,7 @@ from .models import (Product,
                      ProductLaptop,  
                      ProductHeadphone, 
                      ProductOffice, 
-                     ProductList,
+                     ProductListblog,
                      Comment,
 )
 from .forms import CommentForm
@@ -92,12 +92,12 @@ class ProductDetailView(generic.DetailView):
         context['comment_form'] = CommentForm()
         return context
 
-class ProductBlogeView(generic.ListView):
-    queryset = Product.objects.filter(active=True)
+class ProductBlogView(generic.ListView):
+    queryset = ProductListblog.objects.filter(active=True)
     template_name = 'products/product_list_blog.html'
     context_object_name = 'products'
 
-class ProductDetaiBlogelView(generic.DetailView):
+class ProductDetaiBloglView(generic.DetailView):
     model = Product
     template_name = 'products/product_detail_bloge.html'
     context_object_name = 'product'

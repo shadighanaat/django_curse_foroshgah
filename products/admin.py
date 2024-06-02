@@ -8,7 +8,7 @@ from .models import (Product, Comment, Category,
                       ProductLaptop, 
                       ProductHeadphone, 
                       ProductOffice, 
-                      ProductList,
+                      ProductListblog,
                       
 )
 
@@ -88,9 +88,9 @@ class ProductOfficeAdmin(admin.ModelAdmin):
         CommentInline
     ]     
 
-@admin.register(ProductList)
+@admin.register(ProductListblog)
 class ProductListAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'active']
+    list_display = ['title',]
     inlines = [
         CommentInline
     ]         

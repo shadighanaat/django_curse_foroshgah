@@ -193,7 +193,7 @@ class ProductOffice(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.pk])  
     
-class ProductList(models.Model):
+class ProductListblog(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -208,7 +208,7 @@ class ProductList(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])      
+        return reverse('product_detail_blog', args=[self.pk])      
 
 class ActiveCommentsManager(models.Manager):
     def get_queryset(self):
@@ -225,7 +225,7 @@ class Comment(models.Model):
         ('5', _('Very Good')),
     ]
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
-    productlist = models.ForeignKey(ProductList, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
+    productlistblog = models.ForeignKey(ProductListblog, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
     productmen = models.ForeignKey(ProductMen, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
     productfeminine = models.ForeignKey(ProductFeminine, on_delete=models.CASCADE, related_name='comments',blank=True, null= True, )
     productchildish = models.ForeignKey(ProductChildish, on_delete=models.CASCADE, related_name='comments', blank=True, null=True, )
