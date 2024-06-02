@@ -48,19 +48,19 @@ class ProductListChildishView(generic.ListView):
 
 class ProductListRefrigeratorView(generic.ListView):
     queryset = ProductRefriGerator.objects.filter(active=True)
-    template_name = 'products/product_list_refrigerator.html'
+    template_name = 'products/product_list_Refrigerator freezer.html'
     context_object_name = 'products'
 
 
 class ProductListWashingView(generic.ListView):
     queryset = ProductWashing.objects.filter(active=True)
-    template_name = 'products/product_list_washing.html'
+    template_name = 'products/product_list_washing machine.html'
     context_object_name = 'products'
 
 
 class ProductListCookingView(generic.ListView):
     queryset = ProductCooking.objects.filter(active=True)
-    template_name = 'products/product_list_cooking.html'
+    template_name = 'products/product_list_Cooking utensils.html'
     context_object_name = 'products'    
 
 
@@ -78,7 +78,7 @@ class ProductListHeadphoneView(generic.ListView):
 
 class ProductListOfficeView(generic.ListView):
     queryset = ProductOffice.objects.filter(active=True)
-    template_name = 'products/product_list_office.html'
+    template_name = 'products/product_list_Office machines.html'
     context_object_name = 'products'    
             
 
@@ -92,6 +92,20 @@ class ProductDetailView(generic.DetailView):
         context['comment_form'] = CommentForm()
         return context
 
+class ProductBlogeView(generic.ListView):
+    queryset = Product.objects.filter(active=True)
+    template_name = 'products/product_list_blog.html'
+    context_object_name = 'products'
+
+class ProductDetaiBlogelView(generic.DetailView):
+    model = Product
+    template_name = 'products/product_detail_bloge.html'
+    context_object_name = 'product'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
 class CommentCreateView(generic.CreateView):
     model = Comment
@@ -112,4 +126,8 @@ class CommentCreateView(generic.CreateView):
 
         return super().form_valid(form)
 
+
+def Product404View(request, pk):
+    post = get_object_or_404(Product, pk=pk)
+    return render(request, 'blog/404_page.html', {'post': post})
 
