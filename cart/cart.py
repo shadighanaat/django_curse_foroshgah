@@ -19,7 +19,7 @@ class Cart:
 
         self.cart = cart
 
-    def add(self, product, quantity=1, replace_current_quantity=False):
+    def add(self, product, quantity=1, replace_current_quantity=False, ):
         """
         Add the specified product to the cart if it exists
         """
@@ -32,7 +32,7 @@ class Cart:
             self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
-
+        
         messages.success(self.request, _('Product successfully added to cart'))
 
         self.save()

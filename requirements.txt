@@ -1,13 +1,15 @@
 asgiref==3.8.1
 certifi==2024.2.2
 charset-normalizer==3.3.2
+crispy-bootstrap4==2024.1
+crispy-bootstrap5==2024.2
 dj-database-url==2.1.0
 dj-email-url==1.0.6
 Django==4.2.13
 django-allauth==0.62.1
 django-cache-url==3.4.5
 django-ckeditor==6.7.1
-django-crispy-forms==1.14.0
+django-crispy-forms==2.1
 django-environ==0.11.2
 django-jalali-date==0.2.0
 django-js-asset==2.2.0
