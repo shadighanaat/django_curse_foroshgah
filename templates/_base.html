@@ -174,68 +174,58 @@
 						</li>
 						<li><a href="#">pages</a>
 							<ul id="sub-menu5">
-								<li><a href="category-1.html">Shop Page With Filter</a></li>
-								<li><a href="category-2.html">Shop Page Without Filter</a></li>
 								<li><a href="checkout.html">Checkout page</a></li>
-								<li><a href="cart.html">Cart page</a></li>
-								<li><a href="single-blog.html">Blog single</a></li>
+								<li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
 								<li><a href="contact.html">Contact page</a></li>
-								<li><a href="{% url '404_page' %}">404 page</a></li>
+								<li><a href="{% url '404_page' product.id %}">404 page</a></li>
 							</ul>
 						</li>
-						<li><a href="{% url 'product_list_blog' %}">{% trans 'Blog' %}</a></li>
+						<li><a href="{% url 'product_list_blog' %}">{% trans 'Blog' %}</a></li> 
 					</ul>
 				</nav>
 			</div>
 			<div class="nav_right floatright">
-				<a href="cart.html"><img src="{% static 'images/bag.png' %}" alt="Bag" />cart: 2 items</a>
+				<a href="{% url 'cart:cart_detail' %}"><img src="{% static 'images/bag.png' %}" alt="Bag"/>
+					{% trans 'cart' %}: {{ item.product_obj.cart_add.all|length }} {% trans 'items' %}</a>
 				<div class="cart_menu">
+				{% for item in cart %}
 					<div class="cart_items">
 						<div class="c_item_img floatleft">
-							<a href="product-detail.html"><img src="images/c_item1.jpg" alt="" /></a>
+							<a href="{{ item.product_obj.get_absolute_url }}">
+								{% if item.product_obj.image %}
+								<img src="{{ item.product_obj.image.url }}" alt="" />
+								{% endif %}
+							</a>
 						</div>
-						<div class="c_item_totals floatleft">
-							<div class="c_item_totals_detail floatleft">
-								<a href="product-detail.html"><h5>men’s fashion blue jean coat</h5></a>
-								<span>2 x $ 130.00</span>
-							</div>
-							<div class="close_icon_cart floatleft">
-								<img src="images/close.png" alt="" />
-							</div>
-						</div>
+						    <div class="c_item_totals floatleft">
+							   <div class="c_item_totals_detail floatleft">
+								   <a href="{{ item.product_obj.get_absolute_url}}"><h5>{{ item.product_obj.title }}</h5></a>
+								  <span>{{ item.product_obj.price|translate_number }} {% trans '$' %}</span>
+							    </div>
+						    </div>
+					
+					
+			                <div class="cart_totals">
+						       <div class="c_totals_left floatleft">
+							       <p>{% trans 'Free shipping' %}</p>
+					             </div>
+					        <div class="c_totals_right floatleft">
+						        <p>{{ item.product_obj.total_price|translate_number }} {% trans '$' %}</p>
+					         </div>
+					
 					</div>
-					<div class="cart_items">
-						<div class="c_item_img floatleft">
-							<a href="product-detail.html"><img src="images/c_item2.jpg" alt="" /></a>
-						</div>
-						<div class="c_item_totals floatleft">
-							<div class="c_item_totals_detail floatleft">
-								<a href="product-detail.html"><h5>men’s fashion blue jean coat</h5></a>
-								<span>2 x $ 130.00</span>
-							</div>
-							<div class="close_icon_cart floatleft">
-								<img src="images/close.png" alt="" />
-							</div>
-						</div>
-					</div>
-					<div class="cart_totals">
-						<div class="c_totals_left floatleft">
-							<p>Free shipping</p>
-						</div>
-						<div class="c_totals_right floatleft">
-							<p>total   $350</p>
-						</div>
-					</div>
-					<div class="cart_view_bottom">
-						<div class="c_totals_left floatleft">
-							<a href="cart.html">View Cart</a>
-						</div>
-						<div class="c_totals_right floatleft">
-							<a href="checkout.html">Check Out</a>
-						</div>
-					</div>
-				</div>
-			</div>
+				{% endfor %}
+				           <div class="cart_view_bottom">
+					           <div class="c_totals_left floatleft">
+						        <a href="{% url 'cart:cart_detail' %}">{% trans 'View Cart' %}</a>
+					           </div>
+				        	<div class="c_totals_right floatleft">
+					        	<a href="checkout.html">{% trans 'Check Out' %}</a>
+					        </div>
+						
+			  	     </div>
+		       	</div>
+		    </div>
 		
 		
 			<!-- MOBILE ONLY CONTENT -->
@@ -401,29 +391,30 @@
 			slideMargin: 10
 		  });
 		});
-	</script>
-    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
-	<script src="{% static 'js/rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
-	<script src="{% static 'js/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
-	<script src="{% static 'js/rs-plugin/rs.home.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<!--Opacity & Other IE fix for older browser-->
-	<!--[if lte IE 8]>
-		<script type="text/javascript" src="js/ie-opacity-polyfill.js"></script>
-	<![endif]-->
-    <script src="{% static 'js/main.js' %}"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	 <!-- carousel -->
-	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
-	<script>
-		// Initiate zoom effect:
-		imageZoom("myimage", "myresult");
-	</script>
+		<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+		<script src="{% static 'js/rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+		<script src="{% static 'js/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+		<script src="{% static 'js/rs-plugin/rs.home.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<!--Opacity & Other IE fix for older browser-->
+		<!--[if lte IE 8]>
+			<script type="text/javascript" src="js/ie-opacity-polyfill.js"></script>
+		<![endif]-->
+		<script src="{% static 'js/main.js' %}"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		 <!-- carousel -->
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+		<script>
+			// Initiate zoom effect:
+			imageZoom("myimage", "myresult");
+		</script>
+			
+   
 		
 </body>
 

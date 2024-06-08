@@ -1,5 +1,6 @@
 from django.views import generic
-from django.shortcuts import get_object_or_404, reverse, render
+from django.shortcuts import get_object_or_404
+from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
 from django.contrib import messages
@@ -18,8 +19,8 @@ from .models import (Product,
                      ProductListblog,
                      Comment,
 )
-from .forms import CommentForm
-
+from .forms import CommentForm, ProductmenForm
+from cart.forms import AddToCartProductForm
 
 class ProductListView(generic.ListView):
     queryset = Product.objects.filter(active=True)
@@ -32,8 +33,8 @@ class ProductListMenView(generic.ListView):
     queryset = ProductMen.objects.filter(active=True)
     template_name = 'products/product_list_men.html'
     context_object_name = 'products'
-
-
+    
+   
 class ProductListFeminineView(generic.ListView):
     queryset = ProductFeminine.objects.filter(active=True)
     template_name = 'products/product_list_feminine.html'
@@ -84,12 +85,18 @@ class ProductListOfficeView(generic.ListView):
 
 class ProductDetailView(generic.DetailView):
     model = Product
+    buycolor = "green"
+    holdcolor = "yellow"
+    sellcolor = "red"
     template_name = 'products/product_detail.html'
+      
     context_object_name = 'product'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
+        context['add_to_cart_form'] = AddToCartProductForm()
+        context['productmen_form'] = ProductmenForm()
         return context
 
 class ProductBlogView(generic.ListView):
@@ -97,9 +104,9 @@ class ProductBlogView(generic.ListView):
     template_name = 'products/product_list_blog.html'
     context_object_name = 'products'
 
-class ProductDetaiBloglView(generic.DetailView):
-    model = Product
-    template_name = 'products/product_detail_bloge.html'
+class ProductDetailBloglView(generic.DetailView):
+    model = ProductListblog
+    template_name = 'products/product_detail_blog.html'
     context_object_name = 'product'
 
     def get_context_data(self, **kwargs):
@@ -127,7 +134,8 @@ class CommentCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
-def Product404View(request, pk):
-    post = get_object_or_404(Product, pk=pk)
-    return render(request, 'blog/404_page.html', {'post': post})
-
+  
+class ProductDeleteView(generic.DeleteView):
+    model = Product
+    template_name = 'products/404_page.html'
+    success_url = reverse_lazy('product_list')

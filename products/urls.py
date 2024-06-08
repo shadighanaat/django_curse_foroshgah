@@ -13,9 +13,9 @@ from .views import (ProductListView,
                     ProductDetailView,
                     CommentCreateView,
                     ProductBlogView,
-                    ProductDetaiBloglView,
-                    Product404View,
-)
+                    ProductDetailBloglView,
+                    ProductDeleteView,
+                    )
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='product_list'),
@@ -30,7 +30,7 @@ urlpatterns = [
     path('office/', ProductListOfficeView.as_view(), name='product_list_office'),
     path('blog/',  ProductBlogView.as_view(), name='product_list_blog'),
     path('<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
-    path('<int:pk>/', ProductDetaiBloglView.as_view(), name='product_detail_bloge'),
+    path('blog/<int:pk>/', ProductDetailBloglView.as_view(), name='product_detail_blog'),
     path('comment/<int:product_id>/', CommentCreateView.as_view(), name='comment_create'),
-    path('404/', Product404View, name='404_page'),
+     path('delete/<int:pk>/', ProductDeleteView.as_view(), name='404_page'),
 ]

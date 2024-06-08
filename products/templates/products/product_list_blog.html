@@ -50,29 +50,23 @@
                         <h4>By <span>Admin</span>,   comments  <span>23</span>,   summer special</h4>
                         <p>{{ product.discreption }}</p>
                         <div class="read_more">
-                            <a class="read_more_blog" href="">{% trans 'Read more' %}</a>
+                            <a class="read_more_blog" href="{% url 'product_detail_blog' product.id %}">{% trans 'Read more' %}</a>
                         </div>
                     </div>
                 </div>
             {% endfor %} 
             </div>
-            <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="pagi_line"></div>
-                        <div class="pagi_ul">
-                            <ul id="pagination">
-                                <li><a href="">Previous</a></li>
-                                <li><a href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">4</a></li>
-                                <li><a href="">5 ...</a></li>
-                                <li><a href="">Next</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <nav aria-label="Page navigation ">
+                <ul class="pagination justify-content-center mt-3">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
            
         </div>
     </div>

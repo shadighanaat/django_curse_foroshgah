@@ -33,21 +33,21 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ProductMen)
 class ProductMenAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'active']
+    list_display = ['title', 'price', 'active', 'color', ]
     inlines = [
         CommentInline
     ]
 
 @admin.register(ProductFeminine)
 class ProductFeminineAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'active']
+    list_display = ['title', 'price', 'active', 'color', ]
     inlines = [
         CommentInline
     ]    
 
 @admin.register(ProductChildish)
 class ProductChildishAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'active']
+    list_display = ['title', 'price', 'active', 'color', ]
     inlines = [
         CommentInline
     ]            

@@ -2,6 +2,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from colorfield.fields import ColorField
 
 
 class Category(models.Model):
@@ -48,6 +49,12 @@ class ProductMen(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
+    COLOR_CHOICES = [
+        ("#8b0000", "red"),
+        ("#ffff00", "yellow"),
+        ("#006400","green")
+    ]
+    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
@@ -65,6 +72,12 @@ class ProductFeminine(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
+    COLOR_CHOICES = [
+        ("#8b0000", "red"),
+        ("#ffff00", "yellow"),
+        ("#006400","green")
+    ]
+    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
@@ -82,7 +95,13 @@ class ProductChildish(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-
+    COLOR_CHOICES = [
+        ("#8b0000", "red"),
+        ("#ffff00", "yellow"),
+        ("#006400","green")
+    ]
+    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
+       
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
 
@@ -207,8 +226,7 @@ class ProductListblog(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('product_detail_blog', args=[self.pk])      
+    
 
 class ActiveCommentsManager(models.Manager):
     def get_queryset(self):

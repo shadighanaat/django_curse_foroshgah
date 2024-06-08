@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
+
     # local apps
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
@@ -56,6 +59,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap4',
+    'colorfield',
 ]
 
 SITE_ID = 1
