@@ -27,7 +27,7 @@
                 <div class="bread_box">
                     <ul class="breadcumb">
                         <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
-                        <li class="active"><a href="{% url '404_page' %}">404</a></li>
+                        <li class="active"><a href="">404</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,8 +41,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="error_not_found">
                     <img src="images/not_found.png" alt="" />
-                    <h2>Ohh! Page Not Found</h2>
-                    <p>This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling.</p>
+                    <h2>{% trans 'Ohh! Page Not Found' %}</h2>
+                    <p>{% trans 'This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling.' %}</p>
                     <input type="text" placeholder="search again..." />
                     <i class="fa fa-search"></i>
                 </div>
