@@ -1,16 +1,18 @@
 {% extends '_base.html' %}
 {% load i18n %}
 {% load persian_translation_tags %}
-{% block title %}cart{% endblock title %}
+{% block title %}{% trans 'cart' %}{% endblock title %}
 {% block content %}
+{% load humanize %}
+
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="bread_box">
                     <ul class="breadcumb">
-                        <li><a href="{% url 'product_list' %}">home <span>|</span></a></li>
-                        <li class="active"><a href="">cart</a></li>
+                        <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
+                        <li class="active"><a href="">{% trans 'cart' %}</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,16 +51,20 @@
                         <div class="cart_price">
                             <p>{{ item.product_obj.price|translate_number }} {% trans '$' %}</p>
                         </div>
+                       
                         <div class="cart_quantity">
-                            <ul>
-                                <li><a href=""><i class="fa fa-minus"></i></a></li>
-                                <li><a  class="quantity-input" href="{% url 'cart:cart_add' item.product_obj.id %}">{{ item.quantity }}</a></li>
-                                <li><a href=""><i class="fa fa-plus"></i></a></li>
+                            <form class="d-flex" method="POST" action="{% url 'cart:cart_add' item.product_obj.id %}">
+                                {% csrf_token %}
+                            <div class="input-group quantity-selector quantity-selector-sm">
+                                <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ item.quantity }}" min="0" max="30"  aria-label="Quantity selector">
                                 {{ item.product_update_quantity_form.inplace }}
                                 <button class="small" type="submit"><i class="fa fa-refresh"></i></button>
+                              </div>
+                            </form>  
                         </div>
-                        <div class="cart_total">
-                            <p>{{ item.total_price|translate_number }} {% trans '$' %}</p>
+                            
+                    <div class="cart_total">
+                            <p>{{ item.total_price|intcomma:False|translate_number }} {% trans '$' %}</p>
                             <span><i class="fa fa-close"></i></span>
                         </div>
                     </div>
@@ -66,19 +72,59 @@
                     {% endfor %}
                 </div>
             </div>
-        {% else %}
-            <p>{% trans 'Cart is Empty! Please add some products to the cart' %}</p>
-            <a href="{% url 'product_list' %}">{% trans 'Go shopping' %}</a>
-        {% endif %}
-            <div class="col-md-3 col-sm-4 col-xs-12">
-                <div class="main_cart_right">
-                    <div class="product_form_total">
-
-                        
-                        <a href="{% url 'cart:cart_clear' %}" class="cart_update">{% trans 'emty cart' %}</a>
-                        <a href="" class="cart_update">{% trans 'cart update' %}</a>
-                        <a href="" class="cart_update">{% trans ' Proceed to checkout' %}</a>
-                       
+                {% else %}
+                   <p>{% trans 'Cart is Empty! Please add some products to the cart' %}</p>
+                   <a href="{% url 'product_list' %}">{% trans 'Go shopping' %}</a>
+                {% endif %}
+                  <div class="col-md-3 col-sm-4 col-xs-12">
+                       <div class="product_form_total">
+                            {% if not cart.is_empty %}
+                              <div class="row no-gutters border-top pt--20 mt--20">
+                               <div class="col-sm-6 text-sm-right">
+                                    <form action="{% url 'cart:cart_clear' %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="cart-form__btn btn-danger">
+                                        {% translate 'Empty Cart' %}
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                       {% endif %}
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              {% trans 'Cart totals' %}
+                              <span class="floatright"><i class="fa fa-plus"></i></span>
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body cart_p_body">
+                        <div class="c_single_item">
+                            <p>{% trans 'SubTotal' %}</p>
+                            <span>{{ item.total_price|translate_number }} {% trans '$' %}</span>
+                         </div>
+                        <div class="c_single_item cart_last_total">
+                            <p>{% trans 'Shipping Charge' %}</p>
+                            <span>{% trans 'Free' %}</span>
+                        </div>
+                        <div class="c_total_item sp_single_item">
+                            <p>{% trans 'Total' %}</p>
+                             <span>{{ cart.get_total_price|intcomma:False|translate_number }} {% translate '$' %}</span>
+                        </div>
+                        </div> 
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                        <button type="submit" class="cart-form__btn btn-danger">
+                            {% translate 'update cart' %}
+                        </form>    
+                        </button>
+                        <button type="submit" class="cart-form__btn btn-danger">
+                            {% translate ' Proceed to checkout' %}
+                        </button> 
+                   
                     </div>
                 </div>
             </div>
