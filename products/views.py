@@ -135,7 +135,7 @@ class CommentCreateView(generic.CreateView):
 
 
   
-class ProductDeleteView(generic.DeleteView):
+class ProductDeleteView(generic.ListView):
     model = Product
     template_name = 'products/404_page.html'
     success_url = reverse_lazy('product_list')

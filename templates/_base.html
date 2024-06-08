@@ -177,7 +177,7 @@
 								<li><a href="checkout.html">Checkout page</a></li>
 								<li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
 								<li><a href="contact.html">Contact page</a></li>
-								<li><a href="{% url '404_page' product.id %}">404 page</a></li>
+								<li><a href="{% url '404_page' %}">404 page</a></li>
 							</ul>
 						</li>
 						<li><a href="{% url 'product_list_blog' %}">{% trans 'Blog' %}</a></li> 
@@ -186,7 +186,7 @@
 			</div>
 			<div class="nav_right floatright">
 				<a href="{% url 'cart:cart_detail' %}"><img src="{% static 'images/bag.png' %}" alt="Bag"/>
-					{% trans 'cart' %}: {{ item.product_obj.cart_add.all|length }} {% trans 'items' %}</a>
+					{% trans 'cart' %}: {{ item.product_obj.cart_add.all|length }}{% trans 'items' %}</a>
 				<div class="cart_menu">
 				{% for item in cart %}
 					<div class="cart_items">

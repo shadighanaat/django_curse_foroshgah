@@ -32,5 +32,5 @@ urlpatterns = [
     path('<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
     path('blog/<int:pk>/', ProductDetailBloglView.as_view(), name='product_detail_blog'),
     path('comment/<int:product_id>/', CommentCreateView.as_view(), name='comment_create'),
-     path('delete/<int:pk>/', ProductDeleteView.as_view(), name='404_page'),
+     path('delete/', ProductDeleteView.as_view(), name='404_page'),
 ]
