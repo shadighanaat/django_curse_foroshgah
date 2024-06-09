@@ -95,6 +95,9 @@ TEMPLATES = [
 
                  # `allauth` needs this from django
                 'django.template.context_processors.request',
+
+                 # Custom Context Processors
+                'cart.context_processors.cart',
                 
             ],
         },
@@ -189,8 +192,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'product_list'
 LOGOUT_REDIRECT_URL = 'product_list'
 
-#cripy forms
-CRISPY_TEMPLATE_PACK = 'uni_form'
+# #cripy forms
+# CRISPY_TEMPLATE_PACK = 'uni_form'
 
 # all auth settings
 ACCOUNT_SESSION_REMEMBER = True

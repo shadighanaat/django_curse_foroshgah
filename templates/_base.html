@@ -97,13 +97,13 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="header_left floatleft">
-						<a class="fa fa-search" href=""></a>
+						<a class="fa fa-search" href="{% url 'product_list' %}"></a>
 						<input type="text" placeholder="search"/>
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-5 col-xs-12">
 					<div class="header_center">
-						<a href="index.html"><img src="{% static 'images/logo.png' %}" alt="Site Logo" /></a>
+						<a href="index.html"><h1 class="text-danger">jet shop</h1></a>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-4 col-xs-12">
@@ -176,7 +176,7 @@
 							<ul id="sub-menu5">
 								<li><a href="checkout.html">Checkout page</a></li>
 								<li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
-								<li><a href="contact.html">Contact page</a></li>
+								<li><a href="{% url 'contact_list' %}">Contact page</a></li>
 								<li><a href="{% url '404_page' %}">404 page</a></li>
 							</ul>
 						</li>
@@ -185,10 +185,9 @@
 				</nav>
 			</div>
 			<div class="nav_right floatright">
-				<a href="{% url 'cart:cart_detail' %}"><img src="{% static 'images/bag.png' %}" alt="Bag"/>
-					{% trans 'cart' %}: {{ item.product_obj.cart_add.all|length }}{% trans 'items' %}</a>
+				<a href=""{% url 'cart:cart_detail' %}""><img src="{% static 'images/bag.png' %}" alt="Bag" />{% trans 'cart' %}: {{ cart|length }}</a>
 				<div class="cart_menu">
-				{% for item in cart %}
+					{% for item in cart %}
 					<div class="cart_items">
 						<div class="c_item_img floatleft">
 							<a href="{{ item.product_obj.get_absolute_url }}">
@@ -197,36 +196,35 @@
 								{% endif %}
 							</a>
 						</div>
-						    <div class="c_item_totals floatleft">
-							   <div class="c_item_totals_detail floatleft">
-								   <a href="{{ item.product_obj.get_absolute_url}}"><h5>{{ item.product_obj.title }}</h5></a>
-								  <span>{{ item.product_obj.price|translate_number }} {% trans '$' %}</span>
-							    </div>
-						    </div>
-					
-					
-			                <div class="cart_totals">
-						       <div class="c_totals_left floatleft">
-							       <p>{% trans 'Free shipping' %}</p>
-					             </div>
-					        <div class="c_totals_right floatleft">
-						        <p>{{ item.product_obj.total_price|translate_number }} {% trans '$' %}</p>
-					         </div>
-					
+						<div class="c_item_totals floatleft">
+							<div class="c_item_totals_detail floatleft">
+								<a href="{{ item.product_obj.get_absolute_url}}"><h5>{{ item.product_obj.title }}</h5></a>
+								<span>{{ item.product_obj.price|translate_number }} {% trans '$' %}</span> &#215; <span>{{ item.quantity }}</span>
+							</div>
+							<div class="close_icon_cart floatleft">
+								<img src="images/close.png" alt="" />
+							</div>
+						</div>
 					</div>
-				{% endfor %}
-				           <div class="cart_view_bottom">
-					           <div class="c_totals_left floatleft">
-						        <a href="{% url 'cart:cart_detail' %}">{% trans 'View Cart' %}</a>
-					           </div>
-				        	<div class="c_totals_right floatleft">
-					        	<a href="checkout.html">{% trans 'Check Out' %}</a>
-					        </div>
-						
-			  	     </div>
-		       	</div>
-		    </div>
-		
+					{% endfor %}
+					<div class="cart_totals">
+						<div class="c_totals_left floatleft">
+							<p>{% trans 'Free shipping' %}</p>
+						</div>
+						<div class="c_totals_right floatleft">
+							<p>{% trans 'total' %}   {{ cart.get_total_price }}</p>
+						</div>
+					</div>
+					<div class="cart_view_bottom">
+						<div class="c_totals_left floatleft">
+							<a href="{% url 'cart:cart_detail' %}">{% trans 'View Cart' %}</a>
+						</div>
+						<div class="c_totals_right floatleft">
+							<a href="checkout.html">{% trans 'Check Out' %}</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		
 			<!-- MOBILE ONLY CONTENT -->
 			<div class="only-for-mobile">
@@ -344,8 +342,13 @@
 		</div>
 	</section>
 
-	
-	
+	{% if messages %}
+    <div class="container">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+	{% endif %}
 	<!-- JS Files -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

@@ -139,3 +139,11 @@ class ProductDeleteView(generic.ListView):
     model = Product
     template_name = 'products/404_page.html'
     success_url = reverse_lazy('product_list')
+
+
+class ContactView(generic.ListView):
+    model = Product
+    template_name = 'products/contact_list.html'
+   
+
+
