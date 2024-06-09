@@ -157,7 +157,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 # LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fa'
 
 
 LANGUAGES = (

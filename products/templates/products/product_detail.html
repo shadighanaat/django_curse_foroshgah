@@ -5,8 +5,10 @@
 {% load comment_tags %}
 
 {% load persian_translation_tags %}
-{% block title %}{% trans 'product detail' %]{% endblock title%} 
+{% block title %}{% trans 'product detail' %}{% endblock title%} 
+
 {% block content %}
+{% trans 'product detail' as 'product detail' %}
 {% include 'topheader.html' with header_name='product detail' %}
 <div class="breadcumb_area">
     <div class="container">

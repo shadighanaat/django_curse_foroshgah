@@ -7,7 +7,9 @@
 
 {% block title %}{% trans 'detail blog' %}
 {% endblock title %}
+
 {% block content %}
+{% trans 'detail blog' as 'detail blog' %}
 {% include 'topheader.html' with header_name='detail blog' %}
 <section class="blog_slider_area">
     <div class="container">
