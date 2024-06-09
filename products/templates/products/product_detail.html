@@ -173,7 +173,7 @@
                       <ul class="nav nav-tabs tab-product" role="tablist">
                         <li role="presentation" class="active"><a href="#home2" aria-controls="home2" role="tab" data-toggle="tab">{% trans 'Description' %}</a></li>
                         <li role="presentation"><a href="#profile2" aria-controls="profile2" role="tab" data-toggle="tab">{% trans 'Specifications' %}</a></li>
-                        <li role="presentation"><a href="#messages2" aria-controls="messages2" role="tab" data-toggle="tab">{% trans 'Review'%}{{ product.comments.all|only_active_comments|length }} </a></li>
+                        <li role="presentation"><a href="#messages2" aria-controls="messages2" role="tab" data-toggle="tab">{% trans 'Review'%}:{{ product.comments.all|only_active_comments|length }} </a></li>
                       </ul>
 
                       <div class="tab-content tab-p-details">
@@ -213,7 +213,7 @@
                                         <h4>{{ comment.stars }}</h4>
                                         <p>{{ comment.body }}</p>
                                         <div class="review_italic">
-                                            <p><span>{{ comment.author.username }}</span> {{ comment.datetime_created }}</p>
+                                            <p><span>{{ comment.datetime_created }}</span> {{ comment.author.username }}</p>
                                         </div>
                                     </div>
                                 {% endfor %}    
@@ -227,16 +227,16 @@
                                     <h3>{% trans 'Write your review' %}</h3>
                                     <div class="multi_line"></div>
                                 </div>
-                                <p id="" class="invalid-feedback">
+                                <div class="review_comment_input"  cols="30" rows="10">
                                     <form action="{% url 'comment_create' product.id %}" method="POST">
                                         {% csrf_token %}
-                                        {{ comment_form|crispy }}
+                                        {{ comment_form | crispy }}
                                       <a href={% url 'product_detail' product.id %}>
                                         <input type="submit" value="{% trans 'Submit' %}"></a>
                                      </form>
 
                                    {% else %}
-                                    <p>
+                                    </div>
                                          {% trans 'To write your comment please ' %}
                                         <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
                                 {% endif %}

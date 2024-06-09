@@ -42,15 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'django.contrib.humanize',
-
+   
+    # 'jalali_date',
 
     # local apps
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
+    'orders.apps.OrdersConfig',
 
     # third party apps
     'rosetta',
@@ -59,8 +59,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap4',
-    'colorfield',
+    'colorfield', 
+    
 ]
+   
 
 SITE_ID = 1
 
@@ -178,7 +180,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
@@ -210,5 +212,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
 
 LOCALE_PATHS = (
-   ('templates', 'locale', )
+   ('templates', 'locale' ,)
 )
+
