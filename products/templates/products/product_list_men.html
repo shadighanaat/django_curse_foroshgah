@@ -4,7 +4,8 @@
 {% load persian_translation_tags %}
 {% block content %}
 {% load i18n %}
-
+{% trans header_name as 'Men' %}
+{% include 'topheader.html' with header_name='Men' %}
 	<div class="breadcumb_area">
 		<div class="container">
 			<div class="row">

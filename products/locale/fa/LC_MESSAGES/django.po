@@ -8,48 +8,282 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-20 00:37+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-06-09 16:11+0330\n"
+"PO-Revision-Date: 2024-06-09 16:13+0330\n"
+"Last-Translator:   <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\models.py:29
+#: .\models.py:30 .\models.py:51 .\models.py:74 .\models.py:97 .\models.py:120
+#: .\models.py:137 .\models.py:154 .\models.py:170 .\models.py:187
+#: .\models.py:204 .\models.py:221
 msgid "Product Image"
 msgstr ""
 
-#: .\models.py:48
+#: .\models.py:57 .\models.py:80 .\models.py:103
+msgid "what is your color?"
+msgstr ""
+
+#: .\models.py:239
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:49
+#: .\models.py:240
 msgid "Bad"
 msgstr ""
 
-#: .\models.py:50
+#: .\models.py:241
 msgid "Normal"
 msgstr ""
 
-#: .\models.py:51
+#: .\models.py:242
 msgid "Good"
 msgstr ""
 
-#: .\models.py:52
+#: .\models.py:243
 msgid "Very Good"
 msgstr ""
 
-#: .\models.py:60
+#: .\models.py:261
 msgid "comment text"
 msgstr ""
 
-#: .\models.py:61
+#: .\models.py:262
 msgid "what is your score?"
 msgstr ""
 
-#: .\views.py:47
+#: .\templates\products\404_page.html:7
+msgid "404"
+msgstr ""
+
+#: .\templates\products\404_page.html:29
+#: .\templates\products\product_detail.html:16
+#: .\templates\products\product_detail_blog.html:28
+#: .\templates\products\product_list_Cooking utensils.html:15
+#: .\templates\products\product_list_Office machines.html:15
+#: .\templates\products\product_list_Refrigerator freezer.html:15
+#: .\templates\products\product_list_blog.html:28
+#: .\templates\products\product_list_childish.html:17
+#: .\templates\products\product_list_feminine.html:15
+#: .\templates\products\product_list_headphone.html:15
+#: .\templates\products\product_list_laptop.html:15
+#: .\templates\products\product_list_washing machine.html:15
+msgid "home"
+msgstr ""
+
+#: .\templates\products\404_page.html:44
+msgid "Ohh! Page Not Found"
+msgstr ""
+
+#: .\templates\products\404_page.html:45
+msgid ""
+"This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling."
+msgstr ""
+
+#: .\templates\products\contact_list.html:8
+#: .\templates\products\product_detail_blog.html:29
+#: .\templates\products\product_list_blog.html:7
+#: .\templates\products\product_list_blog.html:29
+msgid "blog"
+msgstr ""
+
+#: .\templates\products\product_detail.html:17
+msgid "shop"
+msgstr ""
+
+#: .\templates\products\product_detail.html:18
+msgid "mens"
+msgstr ""
+
+#: .\templates\products\product_detail.html:50
+#: .\templates\products\product_detail.html:283
+#: .\templates\products\product_list.html:139
+#: .\templates\products\product_list_Cooking utensils.html:46
+#: .\templates\products\product_list_Office machines.html:46
+#: .\templates\products\product_list_Refrigerator freezer.html:46
+#: .\templates\products\product_list_childish.html:48
+#: .\templates\products\product_list_feminine.html:46
+#: .\templates\products\product_list_headphone.html:46
+#: .\templates\products\product_list_laptop.html:46
+#: .\templates\products\product_list_men.html:46
+#: .\templates\products\product_list_washing machine.html:46
+msgid "$"
+msgstr ""
+
+#: .\templates\products\product_detail.html:61
+#: .\templates\products\product_detail.html:173
+msgid "Review"
+msgstr ""
+
+#: .\templates\products\product_detail.html:70
+msgid "description"
+msgstr ""
+
+#: .\templates\products\product_detail.html:86
+msgid "delivery & returns"
+msgstr ""
+
+#: .\templates\products\product_detail.html:94
+msgid "Colors"
+msgstr ""
+
+#: .\templates\products\product_detail.html:110
+msgid "Select size"
+msgstr ""
+
+#: .\templates\products\product_detail.html:124
+msgid "Quantity"
+msgstr ""
+
+#: .\templates\products\product_detail.html:136
+#: .\templates\products\product_list.html:145
+#: .\templates\products\product_list_Cooking utensils.html:52
+#: .\templates\products\product_list_Office machines.html:52
+#: .\templates\products\product_list_Refrigerator freezer.html:52
+#: .\templates\products\product_list_childish.html:54
+#: .\templates\products\product_list_feminine.html:52
+#: .\templates\products\product_list_headphone.html:52
+#: .\templates\products\product_list_laptop.html:52
+#: .\templates\products\product_list_men.html:52
+#: .\templates\products\product_list_washing machine.html:52
+msgid "Add to Cart"
+msgstr ""
+
+#: .\templates\products\product_detail.html:171
+#: .\templates\products\product_detail.html:177
+msgid "Description"
+msgstr ""
+
+#: .\templates\products\product_detail.html:172
+#: .\templates\products\product_detail.html:182
+msgid "Specifications"
+msgstr ""
+
+#: .\templates\products\product_detail.html:191
+msgid "review"
+msgstr ""
+
+#: .\templates\products\product_detail.html:224
+#: .\templates\products\product_detail_blog.html:79
+msgid "Write your review"
+msgstr ""
+
+#: .\templates\products\product_detail.html:232
+msgid "Submit"
+msgstr ""
+
+#: .\templates\products\product_detail.html:237
+#: .\templates\products\product_detail_blog.html:92
+msgid "To write your comment please "
+msgstr ""
+
+#: .\templates\products\product_detail.html:238
+#: .\templates\products\product_detail_blog.html:93
+msgid "Login"
+msgstr ""
+
+#: .\templates\products\product_detail_blog.html:8
+msgid "detail blog"
+msgstr ""
+
+#: .\templates\products\product_detail_blog.html:16
+#: .\templates\products\product_detail_blog.html:30
+msgid "blog - single"
+msgstr ""
+
+#: .\templates\products\product_detail_blog.html:72
+msgid "Comments"
+msgstr ""
+
+#: .\templates\products\product_detail_blog.html:134
+msgid "POST CATEGORIES"
+msgstr ""
+
+#: .\templates\products\product_detail_blog.html:137
+msgid "Offers & Discounts"
+msgstr ""
+
+#: .\templates\products\product_list.html:53
+msgid "Show More Products"
+msgstr ""
+
+#: .\templates\products\product_list_Cooking utensils.html:6
+msgid "product Cooking utensils"
+msgstr ""
+
+#: .\templates\products\product_list_Cooking utensils.html:16
+msgid "Cooking utensils"
+msgstr ""
+
+#: .\templates\products\product_list_Office machines.html:6
+msgid "product Office machines"
+msgstr ""
+
+#: .\templates\products\product_list_Office machines.html:16
+msgid "Office machines"
+msgstr ""
+
+#: .\templates\products\product_list_Refrigerator freezer.html:6
+msgid "product Refrigerator freezer"
+msgstr ""
+
+#: .\templates\products\product_list_Refrigerator freezer.html:16
+msgid "Refrigerator freezer"
+msgstr ""
+
+#: .\templates\products\product_list_blog.html:16
+msgid "Blog"
+msgstr ""
+
+#: .\templates\products\product_list_blog.html:53
+msgid "Read more"
+msgstr ""
+
+#: .\templates\products\product_list_childish.html:7
+msgid "childish list"
+msgstr ""
+
+#: .\templates\products\product_list_childish.html:18
+msgid "childish"
+msgstr ""
+
+#: .\templates\products\product_list_feminine.html:16
+msgid "feminine"
+msgstr ""
+
+#: .\templates\products\product_list_headphone.html:6
+msgid "product headphone"
+msgstr ""
+
+#: .\templates\products\product_list_headphone.html:16
+msgid "headphone"
+msgstr ""
+
+#: .\templates\products\product_list_laptop.html:6
+msgid "product laptop"
+msgstr ""
+
+#: .\templates\products\product_list_laptop.html:16
+msgid "laptop"
+msgstr ""
+
+#: .\templates\products\product_list_men.html:7
+msgid "Men"
+msgstr "مردان"
+
+#: .\templates\products\product_list_washing machine.html:6
+msgid "product washing machine"
+msgstr ""
+
+#: .\templates\products\product_list_washing machine.html:16
+msgid "washing machine"
+msgstr ""
+
+#: .\views.py:132
 msgid "Comment successfully created"
 msgstr ""
