@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 14:23+0330\n"
-"PO-Revision-Date: 2024-06-09 14:28+0330\n"
+"POT-Creation-Date: 2024-06-09 16:58+0330\n"
+"PO-Revision-Date: 2024-06-09 16:59+0330\n"
 "Last-Translator:   <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,80 +27,96 @@ msgstr "محصول با موفقیت به سبد خرید اضافه شد."
 msgid "Product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حذف شد."
 
-#: .\templates\cart\cart_detail.html:4 .\templates\cart\cart_detail.html:15
-#| msgid "emty cart"
+#: .\templates\cart\cart_detail.html:4 .\templates\cart\cart_detail.html:17
 msgid "cart"
 msgstr "سبد خرید"
 
-#: .\templates\cart\cart_detail.html:14
+#: .\templates\cart\cart_detail.html:9
+msgid "Cart"
+msgstr ""
+
+#: .\templates\cart\cart_detail.html:16
 msgid "home"
 msgstr "خانه"
 
-#: .\templates\cart\cart_detail.html:31
+#: .\templates\cart\cart_detail.html:33
 msgid "product"
 msgstr "محصول"
 
-#: .\templates\cart\cart_detail.html:34
+#: .\templates\cart\cart_detail.html:36
 msgid "Price"
 msgstr "قیمت"
 
-#: .\templates\cart\cart_detail.html:37
+#: .\templates\cart\cart_detail.html:39
 msgid "Quantity"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:40
+#: .\templates\cart\cart_detail.html:42 .\templates\cart\cart_sidebar.html:32
 msgid "total"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:52 .\templates\cart\cart_detail.html:67
-#: .\templates\cart\cart_detail.html:107 .\templates\cart\cart_detail.html:115
+#: .\templates\cart\cart_detail.html:54 .\templates\cart\cart_detail.html:69
+#: .\templates\cart\cart_detail.html:109 .\templates\cart\cart_detail.html:117
+#: .\templates\cart\cart_sidebar.html:19 .\templates\cart\cart_sidebar.html:32
 msgid "$"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:71
+#: .\templates\cart\cart_detail.html:73
 msgid "delete"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:76
+#: .\templates\cart\cart_detail.html:78
 msgid "Cart is Empty! Please add some products to the cart"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:77
+#: .\templates\cart\cart_detail.html:79
 msgid "Go shopping"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:87
+#: .\templates\cart\cart_detail.html:89
 msgid "Empty Cart"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:98
+#: .\templates\cart\cart_detail.html:100
 msgid "Cart totals"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:106
+#: .\templates\cart\cart_detail.html:108
 msgid "SubTotal"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:110
+#: .\templates\cart\cart_detail.html:112
 msgid "Shipping Charge"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:111
+#: .\templates\cart\cart_detail.html:113
 msgid "Free"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:114
+#: .\templates\cart\cart_detail.html:116
 msgid "Total"
 msgstr ""
 
-#: .\templates\cart\cart_detail.html:121
+#: .\templates\cart\cart_detail.html:123
 #, fuzzy
 #| msgid "emty cart"
 msgid "update cart"
 msgstr "کارت خالی"
 
-#: .\templates\cart\cart_detail.html:125
+#: .\templates\cart\cart_detail.html:127
 msgid " Proceed to checkout"
+msgstr ""
+
+#: .\templates\cart\cart_sidebar.html:29
+msgid "Free shipping"
+msgstr ""
+
+#: .\templates\cart\cart_sidebar.html:37
+msgid "View Cart"
+msgstr "مشاهده سبد خرید"
+
+#: .\templates\cart\cart_sidebar.html:40
+msgid "Check Out"
 msgstr ""
 
 #: .\views.py:53
