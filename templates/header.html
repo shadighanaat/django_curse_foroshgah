@@ -108,7 +108,7 @@
                     </li>
                     <li><a href="#">pages</a>
                         <ul id="sub-menu5">
-                            <li><a href="checkout.html">Checkout page</a></li>
+                            <li><a href="{% url 'order_create' %}">Checkout page</a></li>
                             <li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
                             <li><a href="{% url 'contact_list' %}">Contact page</a></li>
                             <li><a href="{% url '404_page' %}">404 page</a></li>
