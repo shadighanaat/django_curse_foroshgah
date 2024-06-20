@@ -50,10 +50,11 @@
                         <div class="cart_item_img">
                             <p><a href="{{ item.product_obj.get_absolute_url }}">
                                 {{ item.product_obj.title }}</a></p>
+                          <div class="product-thumbnail text-left">
                                 {% if item.product_obj.image %}
                                 <img src="{{ item.product_obj.image.url }}" alt="" />
                                 {% endif %}
-                           
+                            </div>
                         </div>
                         <div class="cart_price">
                             <p>{{ item.product_obj.price|translate_number }} {% trans '$' %}</p>
@@ -111,7 +112,7 @@
                         <div class="panel-body cart_p_body">
                         <div class="c_single_item">
                             <p>{% trans 'SubTotal' %}</p>
-                            <span>{{ item.total_price|translate_number }} {% trans '$' %}</span>
+                            <span>{{ item.total_price|intcomma:False|translate_number }} {% trans '$' %}</span>
                          </div>
                         <div class="c_single_item cart_last_total">
                             <p>{% trans 'Shipping Charge' %}</p>
@@ -127,10 +128,14 @@
                         <button type="submit" class="cart-form__btn btn-danger">
                             {% translate 'update cart' %}
                         </form>    
+
                         </button>
+                        <form action="{% url 'order_create' %}" method="POST">
+                            {% csrf_token %}
                         <button type="submit" class="cart-form__btn btn-danger">
                             {% translate ' Proceed to checkout' %}
                         </button> 
+                        </form>
                    
                     </div>
                 </div>

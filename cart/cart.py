@@ -77,122 +77,109 @@ class Cart:
             item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
             yield item
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductMen.objects.filter(id__in=product_ids)
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductFeminine.objects.filter(id__in=product_ids)
 
-        cart = self.cart.copy()
+    #     cart = self.cart.copy()
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
-    
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductFeminine.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductChildish.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductChildish.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductWashing.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductWashing.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductCooking.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductCooking.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductOffice.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductOffice.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductHeadphone.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductHeadphone.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductLaptop.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductLaptop.objects.filter(id__in=product_ids)
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
-        cart = self.cart.copy()
+    # def __iter__(self):
+    #     product_ids = self.cart.keys()
+    #     products = ProductRefriGerator.objects.filter(id__in=product_ids)
 
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
+    #     cart = self.cart.copy()
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for product in products:
+    #         cart[str(product.id)]['product_obj'] = product
 
-    def __iter__(self):
-        product_ids = self.cart.keys()
-        products = ProductRefriGerator.objects.filter(id__in=product_ids)
-
-        cart = self.cart.copy()
-
-        for product in products:
-            cart[str(product.id)]['product_obj'] = product
-
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+    #     for item in cart.values():
+    #         item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+    #         yield item
 
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
@@ -205,7 +192,7 @@ class Cart:
         product_ids = self.cart.keys()
 
         return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
-
+    
     def is_empty(self):
         if self.cart:
             return False

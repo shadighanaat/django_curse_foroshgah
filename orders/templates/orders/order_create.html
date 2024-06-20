@@ -34,11 +34,6 @@
                     <div class="dotted_line"></div>
                     <form action="" method="POST" class="form form--checkout">
                         {% csrf_token %}
-                        {% if form.errors %}
-                            <div class="alert alert-danger">
-                                {{ form.errors }}
-                            </div>
-                        {% endif %}
                     <div class="checkout_form">
                         <div class="country_select">
                             <p>Country</p>
@@ -55,26 +50,47 @@
                             <div class="c_name_box_left">
                                 <p>First Name <span>*</span></p>
                                 <input name="{{ form.first_name.name }}" type="text">
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.errors.first_name }}
+                                </div>
+                                 {% endif %}
+                                                        
                             </div>
                             <div class="c_name_box_right">
                                 <p>Last Name <span>*</span></p>
                                 <input name="{{ form.last_name.name }}" type="text">
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.errors.last_name }}
+                                </div>
+                                 {% endif %}
                             </div>
                         </div>
+                       
                         <div class="c_address">
                             <p>Address <span>*</span></p>
                             <input name="{{ form.address.name }}" type="text" placeholder="Street Address">
+                            {% if form.errors %}
+                            <div class="alert alert-danger">
+                                {{ form.errors.address }}
+                            </div>
+                             {% endif %}
                         </div>
                         <div class="c_mail_box">
                             <div class="s_order">
-                                <p>Order Notes <span>*</span></p>
+                                <p>Order Notes </p>
                                 <textarea name="{{ form.order_notes.name }}"  placeholder="{% trans 'If you have a note, enter it here. Otherwise, leave this place blank' %}" cols="30" rows="10"></textarea>
                             </div>
-                            <div class="c_mail_box_right">
-                                <p>Phone <span>*</span></p>
-                                <input name="{{ form.phone_number.name }}" type="text">
+                        </div>
+                        <div class="c_mail_box_right">
+                            <p>Phone <span>*</span></p>
+                            <input name="{{ form.phone_number.name }}" type="text">
+                            {% if form.errors %}
+                            <div class="alert alert-danger">
+                                {{ form.errors.phone_number }}
                             </div>
-                        
+                             {% endif %}
                         </div>
                         <div class="checkbox">
                             <label>
@@ -84,6 +100,7 @@
                               <input type="checkbox"> {% trans 'Shipping to a Different Address' %}
                             </label>
                         </div>
+                        <button class="btn" type="submit">{% translate 'Submit' %}</button>
                     </form>     
                         
                     </div>
