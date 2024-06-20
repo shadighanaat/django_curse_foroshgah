@@ -19,7 +19,7 @@ from .models import (Product,
                      ProductListblog,
                      Comment,
 )
-from .forms import CommentForm, ProductmenForm
+from .forms import CommentForm
 from cart.forms import AddToCartProductForm
 
 class ProductListView(generic.ListView):
@@ -83,21 +83,6 @@ class ProductListOfficeView(generic.ListView):
     context_object_name = 'products'    
             
 
-class ProductDetailView(generic.DetailView):
-    model = Product
-    buycolor = "green"
-    holdcolor = "yellow"
-    sellcolor = "red"
-    template_name = 'products/product_detail.html'
-      
-    context_object_name = 'product'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['comment_form'] = CommentForm()
-        context['add_to_cart_form'] = AddToCartProductForm()
-        context['productmen_form'] = ProductmenForm()
-        return context
 
 class ProductBlogView(generic.ListView):
     queryset = ProductListblog.objects.filter(active=True)
@@ -133,7 +118,125 @@ class CommentCreateView(generic.CreateView):
 
         return super().form_valid(form)
 
+class ProductDetailView(generic.DetailView):
+    model = Product
+    template_name = 'products/product_detail.html'
+      
+    context_object_name = 'product'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        context['add_to_cart_form'] = AddToCartProductForm()
+        return context
+    
+class ProductMenDetailView(generic.DetailView):
+    model = ProductMen
+    template_name = 'products/product_detail_men.html'
+      
+    context_object_name = 'product'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        context['add_to_cart_form'] = AddToCartProductForm()
+        return context    
+    
+# class ProductDetailView(generic.DetailView):
+#     model = ProductFeminine
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductChildish
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductHeadphone
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductCooking
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductLaptop
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductRefriGerator
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductWashing
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context  
+
+# class ProductDetailView(generic.DetailView):
+#     model = ProductOffice
+#     template_name = 'products/product_detail.html'
+      
+#     context_object_name = 'product'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['comment_form'] = CommentForm()
+#         context['add_to_cart_form'] = AddToCartProductForm()
+#         return context                              
   
 class ProductDeleteView(generic.ListView):
     model = Product

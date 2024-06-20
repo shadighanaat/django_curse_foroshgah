@@ -4,7 +4,7 @@
 {% load persian_translation_tags %}
 
 <div class="cart_menu">
-    {% for item in cart %}
+   {% for item in cart %} 
     <div class="cart_items">
         <div class="c_item_img floatleft">
             <a href="{{ item.product_obj.get_absolute_url }}">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+   {% endfor %}
     <div class="cart_totals">
         <div class="c_totals_left floatleft">
             <p>{% trans 'Free shipping' %}</p>

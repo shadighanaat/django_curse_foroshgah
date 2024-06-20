@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-09 16:11+0330\n"
-"PO-Revision-Date: 2024-06-09 16:39+0330\n"
+"PO-Revision-Date: 2024-06-12 02:08+0330\n"
 "Last-Translator:   <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -23,11 +23,11 @@ msgstr ""
 #: .\models.py:137 .\models.py:154 .\models.py:170 .\models.py:187
 #: .\models.py:204 .\models.py:221
 msgid "Product Image"
-msgstr ""
+msgstr "تصویر محصول"
 
 #: .\models.py:57 .\models.py:80 .\models.py:103
 msgid "what is your color?"
-msgstr ""
+msgstr "رنگ شما چیست؟"
 
 #: .\models.py:239
 msgid "Very Bad"
@@ -35,27 +35,27 @@ msgstr "خیلی بد"
 
 #: .\models.py:240
 msgid "Bad"
-msgstr ""
+msgstr "بد"
 
 #: .\models.py:241
 msgid "Normal"
-msgstr ""
+msgstr "معمولی"
 
 #: .\models.py:242
 msgid "Good"
-msgstr ""
+msgstr "خوب"
 
 #: .\models.py:243
 msgid "Very Good"
-msgstr ""
+msgstr "خیلی خوب"
 
 #: .\models.py:261
 msgid "comment text"
-msgstr ""
+msgstr "متن نظر"
 
 #: .\models.py:262
 msgid "what is your score?"
-msgstr ""
+msgstr "نمره شما چند است؟"
 
 #: .\templates\products\404_page.html:7
 msgid "404"
@@ -74,31 +74,31 @@ msgstr ""
 #: .\templates\products\product_list_laptop.html:15
 #: .\templates\products\product_list_washing machine.html:15
 msgid "home"
-msgstr ""
+msgstr "خانه"
 
 #: .\templates\products\404_page.html:44
 msgid "Ohh! Page Not Found"
-msgstr ""
+msgstr "اوه! صفحه یافت نشد"
 
 #: .\templates\products\404_page.html:45
 msgid ""
 "This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling."
-msgstr ""
+msgstr "این فایل ممکن است منتقل یا حذف شده باشد. از املایتان مطمئن شوید."
 
 #: .\templates\products\contact_list.html:8
 #: .\templates\products\product_detail_blog.html:29
 #: .\templates\products\product_list_blog.html:7
 #: .\templates\products\product_list_blog.html:29
 msgid "blog"
-msgstr ""
+msgstr "بلاگ"
 
 #: .\templates\products\product_detail.html:17
 msgid "shop"
-msgstr ""
+msgstr "فروشگاه"
 
 #: .\templates\products\product_detail.html:18
 msgid "mens"
-msgstr ""
+msgstr "مردان"
 
 #: .\templates\products\product_detail.html:50
 #: .\templates\products\product_detail.html:283
@@ -113,32 +113,32 @@ msgstr ""
 #: .\templates\products\product_list_men.html:46
 #: .\templates\products\product_list_washing machine.html:46
 msgid "$"
-msgstr ""
+msgstr "تومان"
 
 #: .\templates\products\product_detail.html:61
 #: .\templates\products\product_detail.html:173
 msgid "Review"
-msgstr ""
+msgstr "نظرات"
 
 #: .\templates\products\product_detail.html:70
 msgid "description"
-msgstr ""
+msgstr "توضیحات"
 
 #: .\templates\products\product_detail.html:86
 msgid "delivery & returns"
-msgstr ""
+msgstr "تحویل و بازگشت"
 
 #: .\templates\products\product_detail.html:94
 msgid "Colors"
-msgstr ""
+msgstr "رنگ ها"
 
 #: .\templates\products\product_detail.html:110
 msgid "Select size"
-msgstr ""
+msgstr "اندازه را انتخاب کنید"
 
 #: .\templates\products\product_detail.html:124
 msgid "Quantity"
-msgstr ""
+msgstr "تعداد"
 
 #: .\templates\products\product_detail.html:136
 #: .\templates\products\product_list.html:145
@@ -152,77 +152,77 @@ msgstr ""
 #: .\templates\products\product_list_men.html:52
 #: .\templates\products\product_list_washing machine.html:52
 msgid "Add to Cart"
-msgstr ""
+msgstr "به سبد خرید اضافه کنید"
 
 #: .\templates\products\product_detail.html:171
 #: .\templates\products\product_detail.html:177
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: .\templates\products\product_detail.html:172
 #: .\templates\products\product_detail.html:182
 msgid "Specifications"
-msgstr ""
+msgstr "مشخصات"
 
 #: .\templates\products\product_detail.html:191
 msgid "review"
-msgstr ""
+msgstr "نظرات"
 
 #: .\templates\products\product_detail.html:224
 #: .\templates\products\product_detail_blog.html:79
 msgid "Write your review"
-msgstr ""
+msgstr "نظر خود را بنویسید"
 
 #: .\templates\products\product_detail.html:232
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: .\templates\products\product_detail.html:237
 #: .\templates\products\product_detail_blog.html:92
 msgid "To write your comment please "
-msgstr ""
+msgstr "برای نوشتن نظر لطفا"
 
 #: .\templates\products\product_detail.html:238
 #: .\templates\products\product_detail_blog.html:93
 msgid "Login"
-msgstr ""
+msgstr "وارد شدن"
 
 #: .\templates\products\product_detail_blog.html:8
 msgid "detail blog"
-msgstr ""
+msgstr "جزئیات وبلاگ"
 
 #: .\templates\products\product_detail_blog.html:16
 #: .\templates\products\product_detail_blog.html:30
 msgid "blog - single"
-msgstr ""
+msgstr "تک وبلاگ"
 
 #: .\templates\products\product_detail_blog.html:72
 msgid "Comments"
-msgstr ""
+msgstr "نظرات"
 
 #: .\templates\products\product_detail_blog.html:134
 msgid "POST CATEGORIES"
-msgstr ""
+msgstr "دسته بندی های پست"
 
 #: .\templates\products\product_detail_blog.html:137
 msgid "Offers & Discounts"
-msgstr ""
+msgstr "پیشنهادات و تخفیفات"
 
 #: .\templates\products\product_list.html:53
 msgid "Show More Products"
-msgstr ""
+msgstr "نمایش محصولات بیشتر"
 
 #: .\templates\products\product_list_Cooking utensils.html:6
 msgid "product Cooking utensils"
-msgstr ""
+msgstr "محصول ظروف پخت و پز"
 
 #: .\templates\products\product_list_Cooking utensils.html:16
 msgid "Cooking utensils"
-msgstr ""
+msgstr "ظروف پخت و پز"
 
 #: .\templates\products\product_list_Office machines.html:6
 msgid "product Office machines"
-msgstr ""
+msgstr "محصول ماشین های اداری"
 
 #: .\templates\products\product_list_Office machines.html:16
 msgid "Office machines"

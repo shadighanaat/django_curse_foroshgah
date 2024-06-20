@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 16:58+0330\n"
-"PO-Revision-Date: 2024-06-09 16:59+0330\n"
+"POT-Creation-Date: 2024-06-16 12:11+0330\n"
+"PO-Revision-Date: 2024-06-18 17:00+0330\n"
 "Last-Translator:   <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\cart.py:36
+#: .\cart.py:37
 msgid "Product successfully added to cart"
-msgstr "محصول با موفقیت به سبد خرید اضافه شد."
+msgstr ""
 
-#: .\cart.py:48
+#: .\cart.py:49
 msgid "Product successfully removed from cart"
-msgstr "محصول با موفقیت از سبد خرید حذف شد."
+msgstr ""
 
 #: .\templates\cart\cart_detail.html:4 .\templates\cart\cart_detail.html:17
 msgid "cart"
@@ -33,7 +33,7 @@ msgstr "سبد خرید"
 
 #: .\templates\cart\cart_detail.html:9
 msgid "Cart"
-msgstr ""
+msgstr "سبد خرید"
 
 #: .\templates\cart\cart_detail.html:16
 msgid "home"
@@ -49,17 +49,17 @@ msgstr "قیمت"
 
 #: .\templates\cart\cart_detail.html:39
 msgid "Quantity"
-msgstr ""
+msgstr "تعداد"
 
-#: .\templates\cart\cart_detail.html:42 .\templates\cart\cart_sidebar.html:32
+#: .\templates\cart\cart_detail.html:42 .\templates\cart\cart_sidebar.html:33
 msgid "total"
-msgstr ""
+msgstr "جمع"
 
 #: .\templates\cart\cart_detail.html:54 .\templates\cart\cart_detail.html:69
 #: .\templates\cart\cart_detail.html:109 .\templates\cart\cart_detail.html:117
-#: .\templates\cart\cart_sidebar.html:19 .\templates\cart\cart_sidebar.html:32
+#: .\templates\cart\cart_sidebar.html:33
 msgid "$"
-msgstr ""
+msgstr "تومان"
 
 #: .\templates\cart\cart_detail.html:73
 msgid "delete"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: .\templates\cart\cart_detail.html:89
 msgid "Empty Cart"
-msgstr ""
+msgstr "سبد خالی"
 
 #: .\templates\cart\cart_detail.html:100
 msgid "Cart totals"
@@ -98,31 +98,29 @@ msgid "Total"
 msgstr ""
 
 #: .\templates\cart\cart_detail.html:123
-#, fuzzy
-#| msgid "emty cart"
 msgid "update cart"
-msgstr "کارت خالی"
+msgstr ""
 
 #: .\templates\cart\cart_detail.html:127
 msgid " Proceed to checkout"
 msgstr ""
 
-#: .\templates\cart\cart_sidebar.html:29
+#: .\templates\cart\cart_sidebar.html:30
 msgid "Free shipping"
 msgstr ""
 
-#: .\templates\cart\cart_sidebar.html:37
+#: .\templates\cart\cart_sidebar.html:38
 msgid "View Cart"
-msgstr "مشاهده سبد خرید"
+msgstr ""
 
-#: .\templates\cart\cart_sidebar.html:40
+#: .\templates\cart\cart_sidebar.html:41
 msgid "Check Out"
 msgstr ""
 
-#: .\views.py:53
+#: .\views.py:56
 msgid "All products successfully removed from your cart"
 msgstr ""
 
-#: .\views.py:55
+#: .\views.py:58
 msgid "Your cart is already empty"
 msgstr ""

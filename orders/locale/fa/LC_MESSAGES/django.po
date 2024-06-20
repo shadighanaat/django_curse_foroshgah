@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-10 02:03+0330\n"
+"POT-Creation-Date: 2024-06-16 12:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,105 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: .\models.py:7
+#: .\models.py:10
 msgid "User"
 msgstr ""
 
-#: .\models.py:8
+#: .\models.py:11
 msgid "Is Paid?"
 msgstr ""
 
-#: .\models.py:10
+#: .\models.py:13
 msgid "First Name"
 msgstr ""
 
-#: .\models.py:11
+#: .\models.py:14
 msgid "Last Name"
 msgstr ""
 
-#: .\models.py:12
+#: .\models.py:15
 msgid "Phone Number"
 msgstr ""
 
-#: .\models.py:13
+#: .\models.py:16
 msgid "Address"
 msgstr ""
 
-#: .\models.py:15
+#: .\models.py:18
 msgid "Order Notes"
 msgstr ""
 
-#: .\models.py:19
+#: .\models.py:22
 msgid "Created"
 msgstr ""
 
-#: .\models.py:20
+#: .\models.py:23
 msgid "Modified"
 msgstr ""
 
-#: .\templates\order_create.html:5
+#: .\templates\orders\order_create.html:6
+#: .\templates\orders\order_create.html:20
 msgid "orders"
 msgstr ""
 
-#: .\templates\order_create.html:8
+#: .\templates\orders\order_create.html:9
 msgid "Orders"
 msgstr ""
 
-#: .\views.py:16
+#: .\templates\orders\order_create.html:17
+msgid "home"
+msgstr ""
+
+#: .\templates\orders\order_create.html:19
+msgid "Cart"
+msgstr ""
+
+#: .\templates\orders\order_create.html:71
+msgid "If you have a note, enter it here. Otherwise, leave this place blank"
+msgstr ""
+
+#: .\templates\orders\order_create.html:81
+msgid "Create An Account"
+msgstr ""
+
+#: .\templates\orders\order_create.html:84
+msgid "Shipping to a Different Address"
+msgstr ""
+
+#: .\templates\orders\order_create.html:98
+msgid "Review of Your Order"
+msgstr ""
+
+#: .\templates\orders\order_create.html:102
+msgid "Product"
+msgstr ""
+
+#: .\templates\orders\order_create.html:103
+msgid "Total"
+msgstr ""
+
+#: .\templates\orders\order_create.html:108
+#: .\templates\orders\order_create.html:113
+#: .\templates\orders\order_create.html:122
+msgid "$"
+msgstr ""
+
+#: .\templates\orders\order_create.html:112
+msgid "subtotal"
+msgstr ""
+
+#: .\templates\orders\order_create.html:117
+msgid "Shipping Charge"
+msgstr ""
+
+#: .\templates\orders\order_create.html:118
+msgid "Free"
+msgstr ""
+
+#: .\templates\orders\order_create.html:121
+msgid "Order Total"
+msgstr ""
+
+#: .\views.py:19
 msgid "You can not proceed to checkout page because your cart is empty."
 msgstr ""

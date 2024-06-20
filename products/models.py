@@ -48,13 +48,7 @@ class ProductMen(models.Model):
     short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
-    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-    COLOR_CHOICES = [
-        ("#8b0000", "red"),
-        ("#ffff00", "yellow"),
-        ("#006400","green")
-    ]
-    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
+    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, ) 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
@@ -63,7 +57,7 @@ class ProductMen(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])  
+        return reverse('product_detail_men', args=[self.pk])
 
 class ProductFeminine(models.Model):
     title = models.CharField(max_length=100)
@@ -72,12 +66,6 @@ class ProductFeminine(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-    COLOR_CHOICES = [
-        ("#8b0000", "red"),
-        ("#ffff00", "yellow"),
-        ("#006400","green")
-    ]
-    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
@@ -95,12 +83,6 @@ class ProductChildish(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-    COLOR_CHOICES = [
-        ("#8b0000", "red"),
-        ("#ffff00", "yellow"),
-        ("#006400","green")
-    ]
-    color = ColorField(max_length=10, choices=COLOR_CHOICES, verbose_name=_('what is your color?')) 
        
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)

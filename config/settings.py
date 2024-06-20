@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path 
 from environs import Env 
 import os
+
 # for environment variables
 env = Env()
 env.read_env()
@@ -42,17 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'jalali_date',
+    
     'django.contrib.humanize',
    
-    # 'jalali_date',
-
     # local apps
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
     'orders.apps.OrdersConfig',
-
+    
     # third party apps
     'rosetta',
     'allauth',
@@ -60,10 +61,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap4',
-    'colorfield', 
-    
 ]
-   
 
 SITE_ID = 1
 
@@ -99,7 +97,7 @@ TEMPLATES = [
                  # `allauth` needs this from django
                 'django.template.context_processors.request',
 
-                 # Custom Context Processors
+                # Custom Context Processors
                 'cart.context_processors.cart',
                 
             ],
@@ -215,4 +213,3 @@ ZARINPAL_MERCHANT_ID = env("DJANGO_ZARINPAL_MERCHANT_ID")
 LOCALE_PATHS = (
    ('templates', 'locale' ,)
 )
-

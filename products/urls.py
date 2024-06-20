@@ -16,11 +16,14 @@ from .views import (ProductListView,
                     ProductBlogView,
                     ProductDetailBloglView,
                     ProductDeleteView,
+                    ProductMenDetailView,
+                    
                     )
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='product_list'),
     path('men/', ProductListMenView.as_view(), name='product_list_men'),
+    path('men/<int:pk>/',  ProductMenDetailView.as_view(), name='product_detail_men'),
     path('feminine/', ProductListFeminineView.as_view(), name='product_list_feminine'),
     path('childish/', ProductListChildishView.as_view(), name='product_list_childish'),
     path('refrigerator/', ProductListRefrigeratorView.as_view(), name='product_list_refrigerator'),
