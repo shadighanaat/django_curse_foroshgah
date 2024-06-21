@@ -18,7 +18,7 @@
                     <ul class="breadcumb">
                         <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
                         <li><a href="cart.html">{% trans 'shop' %}<span>|</span></a></li>
-                        <li><a href="{% url 'product_list_men' %}">{% trans 'mens' %} <span>|</span></a></li>
+                        <li><a href="{% url 'product_list_laptop' %}">{% trans 'laptop' %} <span>|</span></a></li>
                         <li class="active"><a href="">{{product.title}}</a></li>
                     </ul>
                 </div>
@@ -26,6 +26,7 @@
         </div>
     </div>
 </div>
+
 {% include 'product detail.html' %}
 {% endblock %}
 

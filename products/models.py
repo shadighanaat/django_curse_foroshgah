@@ -74,7 +74,7 @@ class ProductFeminine(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])  
+        return reverse('product_detail_feminine', args=[self.pk])  
               
 class ProductChildish(models.Model):
     title = models.CharField(max_length=100)
@@ -91,7 +91,7 @@ class ProductChildish(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])  
+        return reverse('product_detail_childish', args=[self.pk])  
     
 class ProductRefriGerator(models.Model):
     title = models.CharField(max_length=100)
@@ -108,7 +108,7 @@ class ProductRefriGerator(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])  
+        return reverse('product_detail_refriGerator', args=[self.pk])  
               
 class ProductWashing(models.Model):
     title = models.CharField(max_length=100)
@@ -125,7 +125,7 @@ class ProductWashing(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])
+        return reverse('product_detail_washing', args=[self.pk])
 
 class ProductCooking(models.Model):
     title = models.CharField(max_length=100)
@@ -142,7 +142,8 @@ class ProductCooking(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])                           
+        return reverse('product_detail_cooking', args=[self.pk])    
+                           
 class ProductLaptop(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -158,7 +159,7 @@ class ProductLaptop(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])   
+        return reverse('product_detail_laptop', args=[self.pk])   
 
 class ProductHeadphone(models.Model):
     title = models.CharField(max_length=100)
@@ -175,7 +176,7 @@ class ProductHeadphone(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])      
+        return reverse('product_detail_headphone', args=[self.pk])      
 
 class ProductOffice(models.Model):
     title = models.CharField(max_length=100)
@@ -192,7 +193,7 @@ class ProductOffice(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.pk])  
+        return reverse('product_detail_office', args=[self.pk])  
     
 class ProductListblog(models.Model):
     title = models.CharField(max_length=100)
