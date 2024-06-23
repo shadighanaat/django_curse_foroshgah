@@ -32,7 +32,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='order_items')
-    # product = models.ForeignKey('products.ProductMen', on_delete=models.CASCADE, related_name='order_items')
+    # productmen = models.ForeignKey('products.ProductMen', on_delete=models.CASCADE, related_name='order_items')
     # product = models.ForeignKey('products.ProductFeminine', on_delete=models.CASCADE, related_name='order_items')
     # product = models.ForeignKey('products.ProductChildish', on_delete=models.CASCADE, related_name='order_items')
     # product = models.ForeignKey('products.ProductRefriGerator', on_delete=models.CASCADE, related_name='order_items')
@@ -46,3 +46,4 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'OrderItem {self.id}: {self.product} x {self.quantity} (price:{self.price})'
+

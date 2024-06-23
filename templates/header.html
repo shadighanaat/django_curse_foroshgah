@@ -37,14 +37,13 @@
             </div>
             <div class="col-md-6 col-sm-5 col-xs-12">
                 <div class="header_center">
-                    <a href="index.html"><h1 class="text-danger">jet shop</h1></a>
+                    <a href="index.html"><h1 class="text-danger">{% trans 'jet shop' %}</h1></a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="header_right floatright">
                     <ul class="checkout">
-                        <li><a href="checkout.html"><i class="fa fa-heart-o"></i>wishlist</a></li>
-                        <li class="mobi_right_li"><a href="checkout.html"><i class="fa fa-shopping-cart"></i>checklist</a></li>
+                        <li class="mobi_right_li"><a href="{% url 'order_create' %}"><i class="fa fa-shopping-cart"></i>{% trans 'checklist' %}</a></li>
                     </ul>
                     <div class="w_likes">
                         <span>3</span>
@@ -106,9 +105,9 @@
                             <li><a href="{{product.get_absolute_url}}">{% trans 'Product Detail Page' %}</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">pages</a>
+                    <li><a href="#">{% trans 'pages' %}</a>
                         <ul id="sub-menu5">
-                            <li><a href="">Checkout page</a></li>
+                            <li><a href="{% url 'order_create' %}">{% trans 'Checkout page' %}</a></li>
                             <li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
                             <li><a href="{% url 'contact_list' %}">Contact page</a></li>
                             <li><a href="{% url '404_page' %}">404 page</a></li>

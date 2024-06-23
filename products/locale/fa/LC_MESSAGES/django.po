@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-09 16:11+0330\n"
-"PO-Revision-Date: 2024-06-12 02:08+0330\n"
-"Last-Translator:   <shadighanaati@gmail.com>\n"
+"PO-Revision-Date: 2024-06-22 00:00+0330\n"
+"Last-Translator: شادی للل <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -226,51 +226,51 @@ msgstr "محصول ماشین های اداری"
 
 #: .\templates\products\product_list_Office machines.html:16
 msgid "Office machines"
-msgstr ""
+msgstr "ماشین های اداری"
 
 #: .\templates\products\product_list_Refrigerator freezer.html:6
 msgid "product Refrigerator freezer"
-msgstr ""
+msgstr "محصول یخچال فریزر"
 
 #: .\templates\products\product_list_Refrigerator freezer.html:16
 msgid "Refrigerator freezer"
-msgstr ""
+msgstr "یخچال فریزر"
 
 #: .\templates\products\product_list_blog.html:16
 msgid "Blog"
-msgstr ""
+msgstr "وبلاگ"
 
 #: .\templates\products\product_list_blog.html:53
 msgid "Read more"
-msgstr ""
+msgstr "ادامه مطلب"
 
 #: .\templates\products\product_list_childish.html:7
 msgid "childish list"
-msgstr ""
+msgstr "صفحه ی بچه گانه"
 
 #: .\templates\products\product_list_childish.html:18
 msgid "childish"
-msgstr ""
+msgstr "بچه گانه"
 
 #: .\templates\products\product_list_feminine.html:16
 msgid "feminine"
-msgstr ""
+msgstr "زنانه"
 
 #: .\templates\products\product_list_headphone.html:6
 msgid "product headphone"
-msgstr ""
+msgstr "محصول هدفون"
 
 #: .\templates\products\product_list_headphone.html:16
 msgid "headphone"
-msgstr ""
+msgstr "هدفون"
 
 #: .\templates\products\product_list_laptop.html:6
 msgid "product laptop"
-msgstr ""
+msgstr "محصول لپ تاپ"
 
 #: .\templates\products\product_list_laptop.html:16
 msgid "laptop"
-msgstr ""
+msgstr "لپ تاپ"
 
 #: .\templates\products\product_list_men.html:7
 msgid "Men"
@@ -278,12 +278,12 @@ msgstr "مردان"
 
 #: .\templates\products\product_list_washing machine.html:6
 msgid "product washing machine"
-msgstr ""
+msgstr "محصول ماشین لباس شویی "
 
 #: .\templates\products\product_list_washing machine.html:16
 msgid "washing machine"
-msgstr ""
+msgstr "ماشین لباس شویی"
 
 #: .\views.py:132
 msgid "Comment successfully created"
-msgstr ""
+msgstr "نظر با موفقیت ایجاد شد"

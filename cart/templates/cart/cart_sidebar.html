@@ -17,7 +17,7 @@
         <div class="c_item_totals floatleft">
             <div class="c_item_totals_detail floatleft">
                 <a href="{{ item.product_obj.get_absolute_url}}"><h5>{{ item.product_obj.title }}</h5></a>
-                <span>{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}</span> &#215; <span>{{ item.quantity }}</span>
+                <span> {% trans '$' %}{{ item.product_obj.price|intcomma:False|translate_number }}</span> &#215; <span>{{ item.quantity|translate_number }}</span>
             </div>
             <div class="close_icon_cart floatleft">
                 <img src="images/close.png" alt="" />
