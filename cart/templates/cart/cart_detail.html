@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-<section class="main_cart_area">
+<section class="main_cart_area" dir="rtl" align="right">
     <div class="container">
         <div class="row">
             {% if cart %}
@@ -32,51 +32,53 @@
                 <div class="main_cart_left">
                     <div class="cart_heading">
                         <div class="h_item1">
-                            <p>{% trans 'product' %}</p>
+                            <h4>{% trans 'total' %}</h4>
                         </div>
-                        <div class="h_item2">
-                            <p>{% trans 'Price' %}</p>
+                        <div class="h_item2" >
+                            <h4>{% trans 'Price' %}</h4>
                         </div>
                         <div class="h_item3">
-                            <p>{% trans 'Quantity' %}</p>
+                            <h4>{% trans 'Quantity' %}</h4>
                         </div>
                         <div class="h_item4">
-                            <p>{% trans 'total' %}</p>
+                            <h4>{% trans 'product' %}</h4>
                         </div>
                     </div>
                  
                {% for item in cart %}
                   <div class="cart_item">
-                        <div class="cart_item_img">
-                            <p><a href="{{ item.product_obj.get_absolute_url }}">
-                                {{ item.product_obj.title }}</a></p>
-                          <div class="product-thumbnail text-left">
-                                {% if item.product_obj.image %}
-                                <img src="{{ item.product_obj.image.url }}" alt="" />
-                                {% endif %}
-                            </div>
-                        </div>
+                    <div class="cart_total"  dir="rtl" >
+                        <h4>{{cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</h4>
+                       <span><i class="fa fa-close"></i></span>
+                    </div>
                         <div class="cart_price">
-                            <p>{{ item.product_obj.price|translate_number }} {% trans '$' %}</p>
+                          <h4 dir="rtl" align="right">{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}
+                            </h4>
                         </div>
                        
                         <div class="cart_quantity">
-                            <form class="d-flex" method="POST" action="{% url 'cart:cart_add' item.product_obj.id %}">
+                            <form class="d-flex p-5" dir="rtl"  method="POST" action="{% url 'cart:cart_add' item.product_obj.id %}">
                                 {% csrf_token %}
-                            <div class="input-group quantity-selector quantity-selector-sm">
+                             <div class="input-group quantity-selector quantity-selector-sm" dir="rtl" align="right">
                                 <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ item.quantity }}" min="0" max="30"  aria-label="Quantity selector">
                                 {{ item.product_update_quantity_form.inplace }}
-                                <button class="small" type="submit"><i class="fa fa-refresh"></i></button>
+                                <button class="small" dir="rtl" align="right" type="submit"><i class="fa fa-refresh"></i></button>
                               </div>
                             </form>  
                         </div>
-                            
-                     <div class="cart_total">
-                            <p>{{cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</p>
-                            <span><i class="fa fa-close"></i></span>
-                        </div>
+                        <div class="cart_item_img" dir="rtl" align="right">
+                            <h4 style="font-family:verdana"><a href="{{ item.product_obj.get_absolute_url }}">
+                                {{ item.product_obj.title }}</a></h4>
+                          <div class="product-thumbnail text-left">
+                                {% if item.product_obj.image %}
+                                <img dir="rtl" align="right" src="{{ item.product_obj.image.url }}" alt=""  width="150" height="150"/>
+                                {% endif %}
+                            </div>
+                        </div>        
+                     
                     </div>
-                    <a href="{% url 'cart:cart_remove' item.product_obj.id %}" class="cart_update">{% trans 'delete' %}</a>
+                    <div class="" dir="rtl" align="right">
+                    <a href="{% url 'cart:cart_remove' item.product_obj.id %}" class="cart_update"><h4>{% trans 'delete' %}</h4></a></div>
                 {% endfor %}
               </div>
             </div>

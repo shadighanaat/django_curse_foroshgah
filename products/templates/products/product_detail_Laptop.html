@@ -26,7 +26,141 @@
         </div>
     </div>
 </div>
-
-{% include 'product detail.html' %}
+<section class="gray_tshirt_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="gray_tshirt">
+                <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single_product_image_tab">
+                        <div role="tabpanel">
+                           
+                            <div class="img-zoom-container">
+                                <img id="myimage" src="{{ product.image.url }}" width="450" height="240" alt="Girl">
+                                <div id="myresult" class="img-zoom-result"></div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                
+                    <div class="product_detail_heading">
+                        <div class="detail_heading_left">
+                            <h3>{{ product.title }}</h3>
+                            <div class="old_price_gray"><p> {{ product.price|translate_number }} {% trans '$' %} </p></div>
+                            
+                        </div>
+                        <div class="detail_heading_right">
+                            <ul id="detail_star">
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o" href=""></a></li>
+                                <li><a class="fa fa-star-o" href=""></a></li>
+                            </ul>
+                            <p>{% trans 'Review'%}{{ product.comments.all|only_active_comments|length }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
+                     <div class="panel panel-default product_default">
+                        <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
+                          <h4 class="panel-title product_accordion_head">
+                             <a data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseOneP" aria-expanded="true" aria-controls="collapseOneP">
+                                {% trans 'description' %}
+                               <span class="floatright"><i class="fa fa-minus"></i></span>
+                             </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOneP" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneP">
+                          <div class="panel-body product_ac_body">
+                            {{ product.description|truncatechars:300 }}
+                          </div>
+                        </div>
+                     </div>
+                     
+                     <div class="panel panel-default product_default">
+                        <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
+                          <h4 class="panel-title product_accordion_head">
+                         <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseThreeP" aria-expanded="false" aria-controls="collapseThreeP">
+                         {% trans 'delivery & returns' %}
+                           <span class="floatright"><i class="fa fa-plus"></i></span>
+                         </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThreeP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeP">
+                          <div class="panel-body product_accordion_head">
+                            <div class="single_color sp_single_col">
+                                <div class="color_heading"><h5>{% trans 'Colors' %}</h5></div>
+                                <div class="color_detail">
+                                    <div class="panel-body colors_cat">
+                                        
+                                        <ul id="cat_color">
+                                            <li><a style= "background-color:#8B0000" href="#8B0000"></a></li>
+                                            <li><a style= "background-color:#FFFF00;" href="#FFFF00"></a></li>
+                                            <li><a style= "background-color:#006400;" href="#006400"></a></li>
+                                           
+                                        </ul>                             
+                                        
+                                      </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_color">
+                            <div class="color_heading"><h5>{% trans 'Select size' %} </h5></div>
+                            <div class="color_detail">
+                            <div class="color_size_detail">
+                                <ul id="color_size">
+                                    <li><a href="">xs</a></li>
+                                    <li><a href="">s</a></li>
+                                    <li><a href="">m</a></li>
+                                    <li><a href="">l</a></li>
+                                    <li><a href="">xl</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="single_color">
+                            <div class="color_heading"><h5>{% trans 'Quantity' %}</h5></div>
+                            <div class="color_detail">
+                                <div class="size_down">
+                                    
+                                </div>
+                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class='quantity'>
+                                        <input type="number" class="quantity-input" name="quantity" id='qty' value="1"  max="30" min="1">
+                                    </div>
+                                        <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                            {% trans 'Add to Cart' %}
+                                        </button>
+                                        <div class="size_heart">
+                                            <a href=""><img src="{{ product.image.url }}" alt="" /></a>
+                                            <a href=""><img src="{{ product.color }}" alt="" /></a>
+                                        </div>
+                                       
+                                </form>
+                            </div> 
+                                
+                                
+                            </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                     </div>
+                   </div>
+                    
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'comment.html' %}
 {% endblock %}
 
