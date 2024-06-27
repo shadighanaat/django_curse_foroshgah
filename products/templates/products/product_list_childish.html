@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% load persian_translation_tags %}
+{% load humanize %}
 
 {% block title %}{% trans 'childish list' %}
 {% endblock title %}
@@ -47,7 +48,7 @@
 										</div>
 										<div class="item-sub">
 											<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-										<span class="money">{{ product.price }} {% translate '$' %}</span>
+										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
 										<form action="{% url 'cart:cart_add' product.id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
