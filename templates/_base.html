@@ -29,11 +29,12 @@
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.transitions.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
-	
-	<!-- carousel -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	{% comment %} <!-- carousel -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet"/> {% endcomment %}
 	<!-- bx-slider css -->
 	<link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}">
 	
@@ -69,11 +70,13 @@
 		body{
 		 direction:rtl;
 		}
-		</style>  {% endcomment %}
+		</style> {% endcomment %}
+	
+			
   </head>
   <body>
     
-	{% include 'header.html' %}
+	{% include 'header.html' %} 
 	{% if messages %}
     <div class="container">
         {% for message in messages %}
@@ -145,11 +148,13 @@
 		 <!-- carousel -->
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/owlcarousel/owl.carousel.min.js' %}"></script>
 		<script>
-			// Initiate zoom effect:
-			imageZoom("myimage", "myresult");
-		</script>
-		
+			$(document).ready(function(){
+			  $(".owl-carousel").owlCarousel();
+			});
+			</script>
 </body>
 
 {% block content %}

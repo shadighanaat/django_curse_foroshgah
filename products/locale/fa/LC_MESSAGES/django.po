@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 16:11+0330\n"
-"PO-Revision-Date: 2024-06-22 00:00+0330\n"
+"POT-Creation-Date: 2024-06-26 16:30+0330\n"
+"PO-Revision-Date: 2024-06-26 16:36+0330\n"
 "Last-Translator: شادی للل <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,15 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\models.py:30 .\models.py:51 .\models.py:74 .\models.py:97 .\models.py:120
-#: .\models.py:137 .\models.py:154 .\models.py:170 .\models.py:187
-#: .\models.py:204 .\models.py:221
+#: .\models.py:30 .\models.py:51 .\models.py:68 .\models.py:85 .\models.py:102
+#: .\models.py:119 .\models.py:136 .\models.py:153 .\models.py:170
+#: .\models.py:187 .\models.py:204 .\models.py:221
 msgid "Product Image"
 msgstr "تصویر محصول"
-
-#: .\models.py:57 .\models.py:80 .\models.py:103
-msgid "what is your color?"
-msgstr "رنگ شما چیست؟"
 
 #: .\models.py:239
 msgid "Very Bad"
@@ -61,162 +57,389 @@ msgstr "نمره شما چند است؟"
 msgid "404"
 msgstr ""
 
-#: .\templates\products\404_page.html:29
-#: .\templates\products\product_detail.html:16
-#: .\templates\products\product_detail_blog.html:28
-#: .\templates\products\product_list_Cooking utensils.html:15
-#: .\templates\products\product_list_Office machines.html:15
-#: .\templates\products\product_list_Refrigerator freezer.html:15
-#: .\templates\products\product_list_blog.html:28
-#: .\templates\products\product_list_childish.html:17
-#: .\templates\products\product_list_feminine.html:15
-#: .\templates\products\product_list_headphone.html:15
-#: .\templates\products\product_list_laptop.html:15
-#: .\templates\products\product_list_washing machine.html:15
+#: .\templates\products\404_page.html:18
+#: .\templates\products\product_detail.html:19
+#: .\templates\products\product_detail_ cooking.html:19
+#: .\templates\products\product_detail_Laptop.html:19
+#: .\templates\products\product_detail_Refrigerator.html:19
+#: .\templates\products\product_detail_blog.html:31
+#: .\templates\products\product_detail_childish.html:19
+#: .\templates\products\product_detail_feminine.html:19
+#: .\templates\products\product_detail_headphone.html:19
+#: .\templates\products\product_detail_men.html:19
+#: .\templates\products\product_detail_washing.html:19
+#: .\templates\products\product_list_Cooking utensils.html:17
+#: .\templates\products\product_list_Office machines.html:17
+#: .\templates\products\product_list_Refrigerator freezer.html:17
+#: .\templates\products\product_list_blog.html:19
+#: .\templates\products\product_list_childish.html:19
+#: .\templates\products\product_list_feminine.html:17
+#: .\templates\products\product_list_headphone.html:17
+#: .\templates\products\product_list_laptop.html:17
+#: .\templates\products\product_list_men.html:16
+#: .\templates\products\product_list_washing machine.html:17
 msgid "home"
 msgstr "خانه"
 
-#: .\templates\products\404_page.html:44
+#: .\templates\products\404_page.html:33
 msgid "Ohh! Page Not Found"
 msgstr "اوه! صفحه یافت نشد"
 
-#: .\templates\products\404_page.html:45
+#: .\templates\products\404_page.html:34
 msgid ""
 "This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling."
 msgstr "این فایل ممکن است منتقل یا حذف شده باشد. از املایتان مطمئن شوید."
 
 #: .\templates\products\contact_list.html:8
-#: .\templates\products\product_detail_blog.html:29
-#: .\templates\products\product_list_blog.html:7
-#: .\templates\products\product_list_blog.html:29
-msgid "blog"
-msgstr "بلاگ"
+#: .\templates\products\contact_list.html:12
+msgid "contact"
+msgstr "مخاطب"
 
-#: .\templates\products\product_detail.html:17
+#: .\templates\products\product_detail.html:8
+#: .\templates\products\product_detail.html:11
+#: .\templates\products\product_detail_ cooking.html:8 cooking.html:11
+#: .\templates\products\product_detail_Laptop.html:8
+#: .\templates\products\product_detail_Laptop.html:11
+#: .\templates\products\product_detail_Refrigerator.html:8
+#: .\templates\products\product_detail_Refrigerator.html:11
+#: .\templates\products\product_detail_childish.html:8
+#: .\templates\products\product_detail_childish.html:11
+#: .\templates\products\product_detail_feminine.html:8
+#: .\templates\products\product_detail_feminine.html:11
+#: .\templates\products\product_detail_headphone.html:8
+#: .\templates\products\product_detail_headphone.html:11
+#: .\templates\products\product_detail_men.html:8
+#: .\templates\products\product_detail_men.html:11
+#: .\templates\products\product_detail_washing.html:8
+#: .\templates\products\product_detail_washing.html:11
+msgid "product detail"
+msgstr "محصول هدفون"
+
+#: .\templates\products\product_detail.html:20
+#: .\templates\products\product_detail_ cooking.html:20
+#: .\templates\products\product_detail_Laptop.html:20
+#: .\templates\products\product_detail_Refrigerator.html:20
+#: .\templates\products\product_detail_childish.html:20
+#: .\templates\products\product_detail_feminine.html:20
+#: .\templates\products\product_detail_headphone.html:20
+#: .\templates\products\product_detail_men.html:20
+#: .\templates\products\product_detail_washing.html:20
 msgid "shop"
 msgstr "فروشگاه"
 
-#: .\templates\products\product_detail.html:18
-msgid "mens"
-msgstr "مردان"
-
-#: .\templates\products\product_detail.html:50
-#: .\templates\products\product_detail.html:283
-#: .\templates\products\product_list.html:139
-#: .\templates\products\product_list_Cooking utensils.html:46
-#: .\templates\products\product_list_Office machines.html:46
-#: .\templates\products\product_list_Refrigerator freezer.html:46
-#: .\templates\products\product_list_childish.html:48
-#: .\templates\products\product_list_feminine.html:46
-#: .\templates\products\product_list_headphone.html:46
-#: .\templates\products\product_list_laptop.html:46
-#: .\templates\products\product_list_men.html:46
-#: .\templates\products\product_list_washing machine.html:46
+#: .\templates\products\product_detail.html:51
+#: .\templates\products\product_detail_Laptop.html:52
+#: .\templates\products\product_detail_Refrigerator.html:52
+#: .\templates\products\product_detail_childish.html:52
+#: .\templates\products\product_detail_feminine.html:52
+#: .\templates\products\product_detail_headphone.html:52
+#: .\templates\products\product_detail_men.html:52
+#: .\templates\products\product_detail_washing.html:52
+#: .\templates\products\product_list.html:163
+#: .\templates\products\product_list.html:934
+#: .\templates\products\product_list.html:952
+#: .\templates\products\product_list.html:970
+#: .\templates\products\product_list.html:987
+#: .\templates\products\product_list.html:1004
+#: .\templates\products\product_list.html:1022
+#: .\templates\products\product_list.html:1040
+#: .\templates\products\product_list.html:1057
+#: .\templates\products\product_list_Cooking utensils.html:48
+#: .\templates\products\product_list_Office machines.html:48
+#: .\templates\products\product_list_Refrigerator freezer.html:48
+#: .\templates\products\product_list_childish.html:50
+#: .\templates\products\product_list_feminine.html:48
+#: .\templates\products\product_list_headphone.html:48
+#: .\templates\products\product_list_laptop.html:48
+#: .\templates\products\product_list_men.html:47
+#: .\templates\products\product_list_washing machine.html:48
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:61
-#: .\templates\products\product_detail.html:173
+#: .\templates\products\product_detail.html:62
+#: .\templates\products\product_detail_Laptop.html:63
+#: .\templates\products\product_detail_Refrigerator.html:63
+#: .\templates\products\product_detail_childish.html:63
+#: .\templates\products\product_detail_feminine.html:63
+#: .\templates\products\product_detail_headphone.html:63
+#: .\templates\products\product_detail_men.html:63
+#: .\templates\products\product_detail_washing.html:63
 msgid "Review"
 msgstr "نظرات"
 
-#: .\templates\products\product_detail.html:70
+#: .\templates\products\product_detail.html:71
+#: .\templates\products\product_detail_Laptop.html:72
+#: .\templates\products\product_detail_Refrigerator.html:72
+#: .\templates\products\product_detail_childish.html:72
+#: .\templates\products\product_detail_feminine.html:72
+#: .\templates\products\product_detail_headphone.html:72
+#: .\templates\products\product_detail_men.html:72
+#: .\templates\products\product_detail_washing.html:72
 msgid "description"
 msgstr "توضیحات"
 
-#: .\templates\products\product_detail.html:86
+#: .\templates\products\product_detail.html:87
+#: .\templates\products\product_detail_Laptop.html:88
+#: .\templates\products\product_detail_Refrigerator.html:88
+#: .\templates\products\product_detail_childish.html:88
+#: .\templates\products\product_detail_feminine.html:88
+#: .\templates\products\product_detail_headphone.html:88
+#: .\templates\products\product_detail_men.html:88
+#: .\templates\products\product_detail_washing.html:88
 msgid "delivery & returns"
 msgstr "تحویل و بازگشت"
 
-#: .\templates\products\product_detail.html:94
+#: .\templates\products\product_detail.html:95
+#: .\templates\products\product_detail_Laptop.html:96
+#: .\templates\products\product_detail_Refrigerator.html:96
+#: .\templates\products\product_detail_childish.html:96
+#: .\templates\products\product_detail_feminine.html:96
+#: .\templates\products\product_detail_headphone.html:96
+#: .\templates\products\product_detail_men.html:96
+#: .\templates\products\product_detail_washing.html:96
 msgid "Colors"
 msgstr "رنگ ها"
 
-#: .\templates\products\product_detail.html:110
+#: .\templates\products\product_detail.html:111
+#: .\templates\products\product_detail_Laptop.html:112
+#: .\templates\products\product_detail_Refrigerator.html:112
+#: .\templates\products\product_detail_childish.html:112
+#: .\templates\products\product_detail_feminine.html:112
+#: .\templates\products\product_detail_headphone.html:112
+#: .\templates\products\product_detail_men.html:112
+#: .\templates\products\product_detail_washing.html:112
 msgid "Select size"
 msgstr "اندازه را انتخاب کنید"
 
-#: .\templates\products\product_detail.html:124
+#: .\templates\products\product_detail.html:125
+#: .\templates\products\product_detail_Laptop.html:126
+#: .\templates\products\product_detail_Refrigerator.html:126
+#: .\templates\products\product_detail_childish.html:126
+#: .\templates\products\product_detail_feminine.html:126
+#: .\templates\products\product_detail_headphone.html:126
+#: .\templates\products\product_detail_men.html:126
+#: .\templates\products\product_detail_washing.html:126
 msgid "Quantity"
 msgstr "تعداد"
 
-#: .\templates\products\product_detail.html:136
-#: .\templates\products\product_list.html:145
-#: .\templates\products\product_list_Cooking utensils.html:52
-#: .\templates\products\product_list_Office machines.html:52
-#: .\templates\products\product_list_Refrigerator freezer.html:52
-#: .\templates\products\product_list_childish.html:54
-#: .\templates\products\product_list_feminine.html:52
-#: .\templates\products\product_list_headphone.html:52
-#: .\templates\products\product_list_laptop.html:52
-#: .\templates\products\product_list_men.html:52
-#: .\templates\products\product_list_washing machine.html:52
+#: .\templates\products\product_detail.html:137
+#: .\templates\products\product_detail_Laptop.html:138
+#: .\templates\products\product_detail_Refrigerator.html:138
+#: .\templates\products\product_detail_childish.html:138
+#: .\templates\products\product_detail_feminine.html:138
+#: .\templates\products\product_detail_headphone.html:138
+#: .\templates\products\product_detail_men.html:138
+#: .\templates\products\product_detail_washing.html:138
+#: .\templates\products\product_list_Cooking utensils.html:54
+#: .\templates\products\product_list_Office machines.html:54
+#: .\templates\products\product_list_Refrigerator freezer.html:54
+#: .\templates\products\product_list_childish.html:56
+#: .\templates\products\product_list_feminine.html:54
+#: .\templates\products\product_list_headphone.html:54
+#: .\templates\products\product_list_laptop.html:54
+#: .\templates\products\product_list_men.html:53
+#: .\templates\products\product_list_washing machine.html:54
 msgid "Add to Cart"
 msgstr "به سبد خرید اضافه کنید"
 
-#: .\templates\products\product_detail.html:171
-#: .\templates\products\product_detail.html:177
-msgid "Description"
-msgstr "توضیحات"
+#: .\templates\products\product_detail_ cooking.html:21
+msgid "cooking"
+msgstr "پخت و پز"
 
-#: .\templates\products\product_detail.html:172
-#: .\templates\products\product_detail.html:182
-msgid "Specifications"
-msgstr "مشخصات"
+#: .\templates\products\product_detail_Laptop.html:21
+#: .\templates\products\product_list_laptop.html:9
+#: .\templates\products\product_list_laptop.html:18
+msgid "laptop"
+msgstr "لپ تاپ"
 
-#: .\templates\products\product_detail.html:191
-msgid "review"
-msgstr "نظرات"
-
-#: .\templates\products\product_detail.html:224
-#: .\templates\products\product_detail_blog.html:79
-msgid "Write your review"
-msgstr "نظر خود را بنویسید"
-
-#: .\templates\products\product_detail.html:232
-msgid "Submit"
-msgstr "ارسال"
-
-#: .\templates\products\product_detail.html:237
-#: .\templates\products\product_detail_blog.html:92
-msgid "To write your comment please "
-msgstr "برای نوشتن نظر لطفا"
-
-#: .\templates\products\product_detail.html:238
-#: .\templates\products\product_detail_blog.html:93
-msgid "Login"
-msgstr "وارد شدن"
+#: .\templates\products\product_detail_Refrigerator.html:21
+msgid "Refrigerator"
+msgstr "یخچال فریزر"
 
 #: .\templates\products\product_detail_blog.html:8
+#: .\templates\products\product_detail_blog.html:12
 msgid "detail blog"
 msgstr "جزئیات وبلاگ"
 
-#: .\templates\products\product_detail_blog.html:16
-#: .\templates\products\product_detail_blog.html:30
+#: .\templates\products\product_detail_blog.html:19
+#: .\templates\products\product_detail_blog.html:33
 msgid "blog - single"
 msgstr "تک وبلاگ"
 
-#: .\templates\products\product_detail_blog.html:72
+#: .\templates\products\product_detail_blog.html:32
+#: .\templates\products\product_list_blog.html:7
+#: .\templates\products\product_list_blog.html:11
+#: .\templates\products\product_list_blog.html:20
+msgid "blog"
+msgstr "بلاگ"
+
+#: .\templates\products\product_detail_blog.html:75
 msgid "Comments"
 msgstr "نظرات"
 
-#: .\templates\products\product_detail_blog.html:134
+#: .\templates\products\product_detail_blog.html:82
+msgid "Write your review"
+msgstr "نظر خود را بنویسید"
+
+#: .\templates\products\product_detail_blog.html:95
+msgid "To write your comment please "
+msgstr "برای نوشتن نظر لطفا"
+
+#: .\templates\products\product_detail_blog.html:96
+#: .\templates\products\product_list.html:1070
+msgid "Login"
+msgstr "وارد شدن"
+
+#: .\templates\products\product_detail_blog.html:137
 msgid "POST CATEGORIES"
 msgstr "دسته بندی های پست"
 
-#: .\templates\products\product_detail_blog.html:137
+#: .\templates\products\product_detail_blog.html:140
 msgid "Offers & Discounts"
 msgstr "پیشنهادات و تخفیفات"
 
-#: .\templates\products\product_list.html:53
+#: .\templates\products\product_detail_childish.html:21
+#: .\templates\products\product_list_childish.html:20
+msgid "childish"
+msgstr "بچه گانه"
+
+#: .\templates\products\product_detail_feminine.html:21
+#: .\templates\products\product_list_feminine.html:9
+#: .\templates\products\product_list_feminine.html:18
+msgid "feminine"
+msgstr "زنانه"
+
+#: .\templates\products\product_detail_headphone.html:21
+#: .\templates\products\product_list_headphone.html:9
+#: .\templates\products\product_list_headphone.html:18
+msgid "headphone"
+msgstr "هدفون"
+
+#: .\templates\products\product_detail_men.html:21
+msgid "mens"
+msgstr "مردان"
+
+#: .\templates\products\product_detail_washing.html:21
+msgid "washing"
+msgstr "ماشین لباس شویی"
+
+#: .\templates\products\product_list.html:55
+msgid "Asus 15.6 inch laptop"
+msgstr "لپ تاپ 15.6 اینچی ایسوس"
+
+#: .\templates\products\product_list.html:57
+#: .\templates\products\product_list.html:70
+#: .\templates\products\product_list.html:88
+#: .\templates\products\product_list.html:101
 msgid "Show More Products"
 msgstr "نمایش محصولات بیشتر"
+
+#: .\templates\products\product_list.html:68
+msgid "Ray Ben sunglasses"
+msgstr "عینک آفتابی ری بن"
+
+#: .\templates\products\product_list.html:86
+msgid "Mens long sleeve shirt"
+msgstr "پیراهن آستین بلند مردانه"
+
+#: .\templates\products\product_list.html:99
+msgid "Sony bluetooth headphones"
+msgstr "محصول هدفون"
+
+#: .\templates\products\product_list.html:149
+msgid "ADD TO CART"
+msgstr "افزودن به سبد خرید"
+
+#: .\templates\products\product_list.html:159
+#: .\templates\products\product_list.html:930
+#: .\templates\products\product_list.html:983
+#: .\templates\products\product_list.html:1000
+#: .\templates\products\product_list.html:1017
+#: .\templates\products\product_list.html:1035
+#: .\templates\products\product_list.html:1053
+msgid "New"
+msgstr "جدید"
+
+#: .\templates\products\product_list.html:917
+msgid "Featured products"
+msgstr "محصولات ویژه"
+
+#: .\templates\products\product_list.html:933
+msgid "Huawei bluetooth headphones"
+msgstr "هدفون بلوتوث هوآوی"
+
+#: .\templates\products\product_list.html:951
+msgid "Chromaki comfortable shoes"
+msgstr "کفش راحتی کروماکی"
+
+#: .\templates\products\product_list.html:969
+msgid "Cooking service 6 cloth Desini"
+msgstr "سرویس آشپزی 6 پارچه دسینی"
+
+#: .\templates\products\product_list.html:986
+msgid "Asmara womens shorts"
+msgstr "شورت زنانه آسمارا"
+
+#: .\templates\products\product_list.html:1003
+msgid "Panasonic cordless phone"
+msgstr "تلفن بی سیم پاناسونیک"
+
+#: .\templates\products\product_list.html:1021
+msgid "Mens sweatshirt"
+msgstr "سویشرت مردانه"
+
+#: .\templates\products\product_list.html:1039
+msgid "Attendance Device"
+msgstr "دستگاه حضور و غیاب"
+
+#: .\templates\products\product_list.html:1056
+msgid "Snowa washing machine"
+msgstr "ماشین لباس شویی"
+
+#: .\templates\products\product_list.html:1075
+#: .\templates\products\product_list.html:1080
+msgid "Log In"
+msgstr "ورود"
+
+#: .\templates\products\product_list.html:1080
+#: .\templates\products\product_list.html:1090
+#: .\templates\products\product_list.html:1102
+#, fuzzy
+#| msgid "Submit"
+msgid "submit"
+msgstr "ارسال"
+
+#: .\templates\products\product_list.html:1083
+#, fuzzy
+#| msgid "logout"
+msgid "Logout"
+msgstr "خروج"
+
+#: .\templates\products\product_list.html:1086
+msgid "Log Out"
+msgstr "خروج"
+
+#: .\templates\products\product_list.html:1087
+msgid "Are you sure you want to logout?"
+msgstr "آیا برای خارج شدن مطمئن هستید؟"
+
+#: .\templates\products\product_list.html:1090
+#, fuzzy
+#| msgid "Write your review"
+msgid "Are you sure"
+msgstr "نظر خود را بنویسید"
+
+#: .\templates\products\product_list.html:1093
+#: .\templates\products\product_list.html:1097
+#: .\templates\products\product_list.html:1102
+msgid "Sign Up"
+msgstr "ثبت نام"
 
 #: .\templates\products\product_list_Cooking utensils.html:6
 msgid "product Cooking utensils"
 msgstr "محصول ظروف پخت و پز"
 
-#: .\templates\products\product_list_Cooking utensils.html:16
+#: .\templates\products\product_list_Cooking utensils.html:9 utensils.html:18
 msgid "Cooking utensils"
 msgstr "ظروف پخت و پز"
 
@@ -224,7 +447,7 @@ msgstr "ظروف پخت و پز"
 msgid "product Office machines"
 msgstr "محصول ماشین های اداری"
 
-#: .\templates\products\product_list_Office machines.html:16
+#: .\templates\products\product_list_Office machines.html:9 machines.html:18
 msgid "Office machines"
 msgstr "ماشین های اداری"
 
@@ -232,15 +455,12 @@ msgstr "ماشین های اداری"
 msgid "product Refrigerator freezer"
 msgstr "محصول یخچال فریزر"
 
-#: .\templates\products\product_list_Refrigerator freezer.html:16
+#: .\templates\products\product_list_Refrigerator freezer.html:9
+#: freezer.html:18
 msgid "Refrigerator freezer"
 msgstr "یخچال فریزر"
 
-#: .\templates\products\product_list_blog.html:16
-msgid "Blog"
-msgstr "وبلاگ"
-
-#: .\templates\products\product_list_blog.html:53
+#: .\templates\products\product_list_blog.html:44
 msgid "Read more"
 msgstr "ادامه مطلب"
 
@@ -248,31 +468,24 @@ msgstr "ادامه مطلب"
 msgid "childish list"
 msgstr "صفحه ی بچه گانه"
 
-#: .\templates\products\product_list_childish.html:18
-msgid "childish"
+#: .\templates\products\product_list_childish.html:11
+msgid "chidish"
 msgstr "بچه گانه"
 
-#: .\templates\products\product_list_feminine.html:16
-msgid "feminine"
-msgstr "زنانه"
+#: .\templates\products\product_list_feminine.html:6
+msgid "product feminine"
+msgstr "محصول ماشین های اداری"
 
 #: .\templates\products\product_list_headphone.html:6
 msgid "product headphone"
 msgstr "محصول هدفون"
 
-#: .\templates\products\product_list_headphone.html:16
-msgid "headphone"
-msgstr "هدفون"
-
 #: .\templates\products\product_list_laptop.html:6
 msgid "product laptop"
 msgstr "محصول لپ تاپ"
 
-#: .\templates\products\product_list_laptop.html:16
-msgid "laptop"
-msgstr "لپ تاپ"
-
 #: .\templates\products\product_list_men.html:7
+#: .\templates\products\product_list_men.html:17
 msgid "Men"
 msgstr "مردان"
 
@@ -280,10 +493,77 @@ msgstr "مردان"
 msgid "product washing machine"
 msgstr "محصول ماشین لباس شویی "
 
-#: .\templates\products\product_list_washing machine.html:16
+#: .\templates\products\product_list_washing machine.html:9 machine.html:18
 msgid "washing machine"
 msgstr "ماشین لباس شویی"
 
-#: .\views.py:132
+#: .\views.py:117
 msgid "Comment successfully created"
 msgstr "نظر با موفقیت ایجاد شد"
+
+#, fuzzy
+#~ msgid "login"
+#~ msgstr "وارد شدن"
+
+#~ msgid "register"
+#~ msgstr "ثبت نام"
+
+#, fuzzy
+#~ msgid "jet shop"
+#~ msgstr "فروشگاه"
+
+#~ msgid "checklist"
+#~ msgstr "سبد خرید"
+
+#~ msgid "category"
+#~ msgstr "دسته بندی کالا ها"
+
+#~ msgid "clothing"
+#~ msgstr "مد و پوشاک"
+
+#~ msgid "Electric household appliances"
+#~ msgstr "لوازم برقی خانگی"
+
+#~ msgid "Digital product"
+#~ msgstr "کالای دیجیتال"
+
+#~ msgid "Home"
+#~ msgstr "خانه"
+
+#, fuzzy
+#~ msgid "home page"
+#~ msgstr "خانه"
+
+#, fuzzy
+#~ msgid "Product Detail Page"
+#~ msgstr "محصول هدفون"
+
+#~ msgid "PAGES"
+#~ msgstr "صفحات"
+
+#~ msgid "Checkout page"
+#~ msgstr "صفحه پرداخت"
+
+#~ msgid "Cart page"
+#~ msgstr "صفحه سبد خرید"
+
+#~ msgid "BLOG"
+#~ msgstr "بلاگ"
+
+#~ msgid "cart"
+#~ msgstr "سبد خرید"
+
+#~ msgid "what is your color?"
+#~ msgstr "رنگ شما چیست؟"
+
+#~ msgid "Description"
+#~ msgstr "توضیحات"
+
+#~ msgid "Specifications"
+#~ msgstr "مشخصات"
+
+#~ msgid "review"
+#~ msgstr "نظرات"
+
+#~ msgid "Blog"
+#~ msgstr "وبلاگ"

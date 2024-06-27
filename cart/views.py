@@ -55,3 +55,4 @@ def clear_cart(request):
         messages.warning(request, _('Your cart is already empty'))
 
     return redirect('product_list')
+

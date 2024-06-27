@@ -83,7 +83,7 @@
                         <div class="multi_line"></div>
                     </div>
                     <p id="" class="invalid-feedback">
-                        <form action="{% url 'comment_create' product.id %}" method="POST">
+                        <form action="{% url 'comment_create_blog' product.id %}" method="POST">
                             {% csrf_token %}
                             {{ comment_form|crispy }}
                           <a href="">

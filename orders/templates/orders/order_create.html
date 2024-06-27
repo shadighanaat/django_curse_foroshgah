@@ -25,84 +25,65 @@
     </div>
 </div>
 <section class="checkout_area">
-    <div class="container">
+    <div class="container" dir="rtl" align="right">
         <div class="row">
             <div class="col-md-9 col-sm-8 col-xs-12">
                 <div class="checkout_left">
-                   
-                    <h2>Billing Address</h2>
                     <div class="dotted_line"></div>
                     <form action="" method="POST" class="form form--checkout">
                         {% csrf_token %}
                     <div class="checkout_form">
                         <div class="country_select">
-                            <p>Country</p>
-                            <select class="selectpicker sel_state">
-                              <option>Sate/Country</option>
-                              <option>Bangladesh</option>
-                              <option>USA</option>
-                              <option>UK</option>
-                              <option>Canda</option>
-                              <option>Australia</option>
-                            </select>
                         </div>
                         <div class="c_name_box">
                             <div class="c_name_box_left">
-                                <p>First Name <span>*</span></p>
-                                <input name="{{ form.first_name.name }}" type="text">
-                                {% if form.errors %}
-                                <div class="alert alert-danger">
-                                    {{ form.errors.first_name }}
-                                </div>
-                                 {% endif %}
-                                                        
-                            </div>
-                            <div class="c_name_box_right">
-                                <p>Last Name <span>*</span></p>
+                                <h4>{% trans 'Last Name' %} <span>*</span></h4>
                                 <input name="{{ form.last_name.name }}" type="text">
                                 {% if form.errors %}
                                 <div class="alert alert-danger">
                                     {{ form.errors.last_name }}
                                 </div>
                                  {% endif %}
+                                                        
+                            </div>
+                            <div class="c_name_box_right">
+                                <h4>{% trans 'First Name' %} <span>*</span></h4>
+                                <input name="{{ form.first_name.name }}" type="text">
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.errors.first_name }}
+                                </div>
+                                 {% endif %}
                             </div>
                         </div>
                        
                         <div class="c_address">
-                            <p>Address <span>*</span></p>
-                            <input name="{{ form.address.name }}" type="text" placeholder="Street Address">
+                            <h4>{% trans 'Address' %} <span>*</span></h4>
+                            <input name="{{ form.address.name }}" type="text" placeholder={% trans "Street Address" %}>
                             {% if form.errors %}
                             <div class="alert alert-danger">
                                 {{ form.errors.address }}
                             </div>
                              {% endif %}
                         </div>
+                            <div class="c_name_box_right">
+                                <h4>{% trans 'Phone' %} <span>*</span></h4>
+                                <input name="{{ form.phone_number.name }}" type="text">
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.errors.phone_number }}
+                                </div>
+                                 {% endif %}
+                            </div>
+                        </div>
                         <div class="c_mail_box">
                             <div class="s_order">
-                                <p>Order Notes </p>
+                            <h4>{% trans 'Order Notes' %} </h4>
                                 <textarea name="{{ form.order_notes.name }}"  placeholder="{% trans 'If you have a note, enter it here. Otherwise, leave this place blank' %}" cols="30" rows="10"></textarea>
-                            </div>
+                           
                         </div>
-                        <div class="c_mail_box_right">
-                            <p>Phone <span>*</span></p>
-                            <input name="{{ form.phone_number.name }}" type="text">
-                            {% if form.errors %}
-                            <div class="alert alert-danger">
-                                {{ form.errors.phone_number }}
-                            </div>
-                             {% endif %}
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> {% trans 'Create An Account' %}
-                            </label><br>
-                            <label>
-                              <input type="checkbox"> {% trans 'Shipping to a Different Address' %}
-                            </label>
-                        </div>
-                        <button class="btn" type="submit">{% translate 'Submit' %}</button>
+                        {% comment %} <button class="btn" type="submit">{% translate 'Submit' %}</button> {% endcomment %}
                     </form>     
-                        
                     </div>
     
                     <div class="dotted_line"></div>
@@ -140,7 +121,7 @@
                         </div>
                         <div class="c_payment">
                             <p>Select Payment Method</p>
-                            <select class="selectpicker sel_state">
+                            <select class="selectpicker sel_state" >
                               <option>Direct Bank Transfer</option>
                               <option>Wire Transfer</option>
                               <option>VISA</option>
@@ -151,7 +132,7 @@
                               <input type="checkbox"> I have Read & Accept <span>Terms & Conditions</span>
                             </label>
                         </div>
-                        <input type="submit" value="Place order now"/>
+                        <input type="submit" value={% trans "Place order now" %}/>
                     </div>
                 </div>
             </div>

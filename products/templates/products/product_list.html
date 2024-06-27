@@ -1,8 +1,15 @@
 {% extends "_base.html" %}
 {% load static %}
-{% block title %}store{% endblock title %}
-{% block content%}
 {% load i18n %}
+
+{% load comment_tags %}
+{% load persian_translation_tags %}
+{% load humanize %}
+
+{% block title %}store{% endblock title %}
+
+{% block content%}
+
 <!-- HOME SLIDER -->
   
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -32,8 +39,6 @@
 	</a>
 </div>
 
-<!-- HOME SLIDER -->
-
 <section class="promotion_area">
 	<div class="container">
 		<div class="row">
@@ -44,28 +49,28 @@
 							<div class="promotion_left">
 								<div class="promotion_top">
 									<div class="images_box">
-										<img src="images/5c3b94f1a9c45eeb80965ac9b2be6f018f6c656c_1704632649.webp" alt="" />
+										<img src="{% static 'images/3fe318188a27c7941af723817bd8cc631d9ca90a_1713162171.webp' %}" alt="" />
 									</div>
 									<div class="promo_text">
-										<h5>{{ product.title}}</h5>
+										<h5>{% trans 'Asus 15.6 inch laptop' %}</h5>
 										<div class="p_line"></div>
-										<a href="{% url 'product_list_men' %}">{% trans 'Show More Products' %} <i class="fa fa-caret-right"></i></a>
+										<a href="{% url 'product_list_laptop' %}">{% trans 'Show More Products' %} <i class="fa fa-caret-right"></i></a>
 									</div>
 									<div class="hover_images">
-										<img src="images/5c3b94f1a9c45eeb80965ac9b2be6f018f6c656c_1704632649.webp" alt="" />
+										<img src="{% static 'images/3fe318188a27c7941af723817bd8cc631d9ca90a_1713162171.webp' %}" alt="" />
 									</div>
 								</div>
 								<div class="promotion_bottom">
 									<div class="images_box">
-										<img src="images/promo_img2.jpg" alt="" />
+										<img src="{% static 'images/2dd41f1b4b44bd345df631a75a8236e6efc6ac9e_1707743008.webp' %}" alt="" />
 									</div>
 									<div class="promo_text_bottom">
-										<h5>Shirts</h5>
+										<h5>{% trans 'Ray Ben sunglasses' %}</h5>
 										<div class="p_line"></div>
-										<a href="">Show More Products <i class="fa fa-caret-right"></i></a>
+										<a href="{% url 'product_list_men' %}">{% trans 'Show More Products' %} <i class="fa fa-caret-right"></i></a>
 									</div>
 									<div class="hover_images_bottom hover_images">
-										<img src="images/promo_img22.jpg" alt="" />
+										<img src="{% static 'images/2dd41f1b4b44bd345df631a75a8236e6efc6ac9e_1707743008.webp' %}" alt="" />
 									</div>
 								</div>
 								
@@ -75,28 +80,28 @@
 							<div class="promotion_right">
 								<div class="promotion_bottom promotion_bottom_t">
 									<div class="images_box">
-										<img src="images/promo_img3.jpg" alt="" />
+										<img src="{% static 'images/5c3b94f1a9c45eeb80965ac9b2be6f018f6c656c_1704632649.webp' %}" alt="" />
 									</div>
-									<div class="promo_text promo_text_t">
-										<h5>Trendy T-shirts</h5>
+									<div class="promo_text ">
+										<h5>{% trans 'Mens long sleeve shirt' %}</h5>
 										<div class="p_line"></div>
-										<a href="">Show More Products <i class="fa fa-caret-right"></i></a>
+										<a href="{% url 'product_list_men' %}">{% trans 'Show More Products' %} <i class="fa fa-caret-right"></i></a>
 									</div>
 									<div class="hover_images_bottom hover_images">
-										<img src="images/promo_img33.jpg" alt="" />
+										<img src="{% static 'images/5c3b94f1a9c45eeb80965ac9b2be6f018f6c656c_1704632649.webp' %}" alt="" />
 									</div>
 								</div>
 								<div class="promotion_top promotion_bottom_b">
 									<div class="images_box">
-										<img src="images/promo_img4.jpg" alt="" />
+										<img src="{% static 'images/13e5383d94c1ae4f2786308f9f2f658070a3e4b3_1695473459.webp' %}" alt="" />
 									</div>
-									<div class="promo_text_bottom promo_text_b">
-										<h5>Pants</h5>
+									<div class="promo_text_bottom ">
+										<h5>{% trans 'Sony bluetooth headphones' %}</h5>
 										<div class="p_line"></div>
-										<a href="">Show More Products <i class="fa fa-caret-right"></i></a>
+										<a href="{% url 'product_list_headphone' %}">{% trans 'Show More Products' %}<i class="fa fa-caret-right"></i></a>
 									</div>
 									<div class="hover_images">
-										<img src="images/promo_img44.jpg" alt="" />
+										<img src="{% static 'images/13e5383d94c1ae4f2786308f9f2f658070a3e4b3_1695473459.webp' %}" alt="" />
 									</div>
 								</div>
 								
@@ -108,90 +113,210 @@
 		</div>
 	</div>
 </section>
-					
-<section class="featured_product_area">
+
+<section class="trending_area">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="featured_product_box">
-					<h2>Featured products</h2>
-					<div class="multi_line"></div>
-					<p>Summer Offer! Get Extra Discount Upto 20% For All Collection</p>
-					
-					<div class="row">
-						{% for product in products %}
-						<div class="col-md-3 col-sm-4 col-xs-12">
-							<div class="main_cat_item">
-								<div class="item">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="trending_box">
+						<h2>Trending clothing</h2>
+						<div class="multi_line"></div>
+						
+						<div role="tabpanel">         
+						  <!-- Tab panes -->
+						  <div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home">
+								<div id="owl-example1" class="owl-carousel owl-example-i2">
+								{% for product in products %}
+								  <div class="item">
 									<div class="item-img">
-										<a href="{{ product.get_absolute_url }}">
-											{% if product.image %}
-												<img src="{{ product.image.url }}" alt="Products">
-											{% endif %}
-										
+										{% if product.image %}
+												<img src="{{ product.image.url }}" alt="Products"  width="500" height="500">
+										{% endif %}
+										<div class="tr-add-cart">
+											<ul>
+												<li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
+												<li><a class="tr_text" href="{% url 'cart:cart_add' product.id %}">{% trans 'ADD TO CART' %}</a></li>
+												{% comment %} <li><a class="fa fa-heart tr_heart" href="#"></a></li> {% endcomment %}
+												{% comment %} <li><a class="fa fa-search tr_search" href="{% url 'product_detail_feminine' product.id %}"></a></li> {% endcomment %}
+											</ul>
+											
+										</div>
 									</div>
 									<div class="item-new">
-										<p>New</p>
+										<p>{% trans 'New' %}</p>
 									</div>
 									<div class="item-sub">
-										<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-										<span class="money">{{ product.price }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' product.id %}" method="POST">
-											{% csrf_token %}
-											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
-											<div class="quantity-wrapper">
-												<button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
-													{% trans 'Add to Cart' %}
-												</button>
-											</div>
-										</form>
+										<a href="{{ product.get_absolute_url }}"><h4>{{ product.title }}</h4></a>
+										<h5>{% trans '$' %} {{ product.price|intcomma:False|translate_number }} </h5>
+									</div>
+								  </div>
+								  {% endfor %}
+						  </div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</section>
+
+<section class="featured_product_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="featured_product_box">
+						<h2>{% trans 'Featured products' %}</h2>
+						<div class="multi_line"></div>
+					
+						
+						<div class="row">
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/4198cf8de9f60ebdcfa961d18178e938e9854181_1704030068.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_headphone' %}"><h5>{% trans 'Huawei bluetooth headphones' %}</h5></a>
+											<p>{{ 11900000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/4131cdc48dc3d9312ae78765209400da08fea133_1707233566.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>New</p>
+											<span>-10%</span>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_childish' %}"><h5>{% trans 'Chromaki comfortable shoes' %}</h5></a>
+											<p>{{ 497000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/d8261907356a87e866091491a1dd80fd2c56f753_1654680425.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>New</p>
+											<span>-10%</span>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_cooking' %}"><h5>{% trans 'Cooking service 6 cloth Desini' %}</h5></a>
+											<p>{{ 375000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/f75122cf50c489b9a5be401e90777b7a9fb32414_1676786568.webp' %}" alt="" />
+										
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_feminine' %}"><h5>{% trans 'Asmara womens shorts' %}</h5></a>
+											<p>{{ 375000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/3111251-1.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_office' %}"><h5>{% trans 'Panasonic cordless phone' %}</h5></a>
+											<p>{{ 375000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/117658078.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+											
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_men' %}"><h5>{% trans 'Mens sweatshirt' %}</h5></a>
+											<p>{{ 99900|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/c332cc2b731fa3052f74434f480168d224e63b7f_1688062466.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+											
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_office' %}"><h5>{% trans 'Attendance Device' %}</h5></a>
+											<p>{{ 290000|intcomma:False|translate_number }}{% trans '$' %}</p>
+										</div>
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-4 col-xs-12">
+								<div class="main_cat_item">
+									<div class="item">
+										<div class="item-img">
+											<img src="{% static 'images/c0fce7f289be9ad2bf1938d11769348370bc1af2_1683441254.webp' %}" alt="" />
+											
+										</div>
+										<div class="item-new">
+											<p>{% trans 'New' %}</p>
+										</div>
+										<div class="item-sub">
+											<a href="{% url 'product_list_washing' %}"><h5>{% trans 'Snowa washing machine' %}</h5></a>
+											<p>{{ 21890000|intcomma:False|translate_number }}{% trans '$' %}</p>
+											
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						{% endfor %}
-						
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </section>
 
-<footer class="entire_footer_area">
-	<div class="footer_top_area">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-7 col-sm-6 col-xs-12">
-					<div class="footer_top_left">
-						<a href=""><i class="fa fa-envelope"></i>signup newsletter</a>
-						<input type="text" placeholder=""/>
-						<input type="submit" value="submit"/>
-					</div>
-				</div>
-				<div class="col-md-5 col-sm-6 col-xs-12">
-					<div class="footer_top_right">
-						<ul id="payment">
-							<li><a href="">
-								<img src="images/pay1.png" alt="" />
-							</a></li>
-							<li><a href="">
-								<img src="images/pay2.png" alt="" />
-							</a></li>
-							<li><a href="">
-								<img src="images/pay3.png" alt="" />
-							</a></li>
-							<li><a href="">
-								<img src="images/pay4.png" alt="" />
-							</a></li>
-							<li><a href="">
-								<img src="images/pay5.png" alt="" />
-							</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
 {% endblock content %}

@@ -7,7 +7,8 @@ from .models import (Product, Comment, Category,
                       ProductWashing, 
                       ProductLaptop, 
                       ProductHeadphone, 
-                      ProductOffice, 
+                      ProductOffice,
+                      ProductCooking, 
                       ProductListblog,
                       
 )
@@ -88,6 +89,13 @@ class ProductOfficeAdmin(admin.ModelAdmin):
         CommentInline
     ]     
 
+@admin.register(ProductCooking)
+class ProductcookingeAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price', 'active']
+    inlines = [
+        CommentInline
+    ]     
+
 @admin.register(ProductListblog)
 class ProductListAdmin(admin.ModelAdmin):
     list_display = ['title',]
@@ -98,3 +106,5 @@ class ProductListAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['product', 'body', 'author', 'stars', 'active']
+
+

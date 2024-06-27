@@ -80,7 +80,7 @@ class Cart:
           
           for product in productmen:
             cart[str(product.id)]['product_obj'] = product
-
+            
         productfeminine = ProductFeminine.objects.filter(id__in=product_ids) 
         cart = self.cart.copy()
         if productfeminine:

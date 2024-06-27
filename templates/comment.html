@@ -4,10 +4,10 @@
 {% load comment_tags %}
 {% load persian_translation_tags %}
 	
-<section class="product_page_tab_area">
+<section class="product_page_tab_area"> 
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row" >
+            <div class="col-md-12"dir="rtl" align="right">
                 <div class="product_page_tab">
                     <div role="tabpanel">
                       <ul class="nav nav-tabs tab-product" role="tablist">
@@ -28,20 +28,13 @@
                             </p>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="messages2">
-                            <div class="review_comments">
+                            <div class="review_comments" dir="rtl" align="right">
                                 <div class="review_heading">
                                     <div class="review_heading_left">
                                         <h2><span>{% trans 'review' %} </span> {{ product.title }}</h2>
                                         <div class="multi_line"></div>
                                     </div>
                                     <div class="review_heading_right">
-                                        <ul id="review_heading_star">
-                                            <li><a href="" class="fa fa-star"></a></li>
-                                            <li><a href="" class="fa fa-star"></a></li>
-                                            <li><a href="" class="fa fa-star"></a></li>
-                                            <li><a href="" class="fa fa-star"></a></li>
-                                            <li><a href="" class="fa fa-star"></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                                 {% for comment in product.comments.all %}
@@ -91,7 +84,7 @@
     </div>
 </section>
 
-<section class="featured_product_area">
+<section class="featured_product_area"  dir="rtl" align="right">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">

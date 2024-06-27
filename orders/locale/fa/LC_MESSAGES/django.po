@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-16 12:06+0330\n"
-"PO-Revision-Date: 2024-06-22 00:07+0330\n"
+"POT-Creation-Date: 2024-06-24 02:29+0330\n"
+"PO-Revision-Date: 2024-06-24 02:05+0330\n"
 "Last-Translator: شادی للل <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,11 +27,11 @@ msgstr "کاربر"
 msgid "Is Paid?"
 msgstr "پرداخت شده؟"
 
-#: .\models.py:13
+#: .\models.py:13 .\templates\orders\order_create.html:50
 msgid "First Name"
 msgstr "نام "
 
-#: .\models.py:14
+#: .\models.py:14 .\templates\orders\order_create.html:40
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
@@ -39,11 +39,11 @@ msgstr "نام خانوادگی"
 msgid "Phone Number"
 msgstr "شماره موبایل"
 
-#: .\models.py:16
+#: .\models.py:16 .\templates\orders\order_create.html:61
 msgid "Address"
 msgstr "آدرس"
 
-#: .\models.py:18
+#: .\models.py:18 .\templates\orders\order_create.html:81
 msgid "Order Notes"
 msgstr "یادداشت های سفارش"
 
@@ -72,54 +72,70 @@ msgstr "خانه"
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: .\templates\orders\order_create.html:71
+#: .\templates\orders\order_create.html:62
+#, fuzzy
+#| msgid "Address"
+msgid "Street Address"
+msgstr "آدرس"
+
+#: .\templates\orders\order_create.html:70
+msgid "Phone"
+msgstr "تلفن"
+
+#: .\templates\orders\order_create.html:82
 msgid "If you have a note, enter it here. Otherwise, leave this place blank"
 msgstr ""
 "اگر یادداشتی دارید در اینجا وارد کنید. در غیر این صورت، این مکان را خالی "
 "بگذارید"
 
-#: .\templates\orders\order_create.html:81
-msgid "Create An Account"
-msgstr "ایجاد یک حساب کاربری"
-
-#: .\templates\orders\order_create.html:84
-msgid "Shipping to a Different Address"
-msgstr "ارسال به آدرس متفاوت"
-
-#: .\templates\orders\order_create.html:98
+#: .\templates\orders\order_create.html:97
 msgid "Review of Your Order"
 msgstr "بررسی سفارش شما"
 
-#: .\templates\orders\order_create.html:102
+#: .\templates\orders\order_create.html:101
 msgid "Product"
 msgstr "محصول"
 
-#: .\templates\orders\order_create.html:103
+#: .\templates\orders\order_create.html:102
 msgid "Total"
 msgstr "جمع"
 
-#: .\templates\orders\order_create.html:108
-#: .\templates\orders\order_create.html:113
-#: .\templates\orders\order_create.html:122
+#: .\templates\orders\order_create.html:107
+#: .\templates\orders\order_create.html:112
+#: .\templates\orders\order_create.html:121
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\orders\order_create.html:112
+#: .\templates\orders\order_create.html:111
 msgid "subtotal"
 msgstr "جمع فرعی"
 
-#: .\templates\orders\order_create.html:117
+#: .\templates\orders\order_create.html:116
 msgid "Shipping Charge"
 msgstr "هزینه حمل و نقل"
 
-#: .\templates\orders\order_create.html:118
+#: .\templates\orders\order_create.html:117
 msgid "Free"
 msgstr "رایگان"
 
-#: .\templates\orders\order_create.html:121
+#: .\templates\orders\order_create.html:120
 msgid "Order Total"
 msgstr "سفارش مجموع"
+
+#: .\templates\orders\order_create.html:136
+msgid "Place order now"
+msgstr "سفارش "
 
 #: .\views.py:19
 msgid "You can not proceed to checkout page because your cart is empty."
 msgstr "شما نمی توانید به صفحه پرداخت ادامه دهید زیرا سبد خرید شما خالی است."
+
+#~| msgid "Address"
+#~ msgid "Billing Address"
+#~ msgstr "آدرس"
+
+#~ msgid "Create An Account"
+#~ msgstr "ایجاد یک حساب کاربری"
+
+#~ msgid "Shipping to a Different Address"
+#~ msgstr "ارسال به آدرس متفاوت"

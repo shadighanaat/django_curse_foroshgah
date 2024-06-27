@@ -1,10 +1,14 @@
 {% extends '_base.html' %}
+
 {% load static %}
 {% load i18n %}
-{% load crispy_forms_tags %}
-{% load comment_tags %}
 
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% load comment_tags %}
 {% load persian_translation_tags %}
+
 {% block title %}{% trans 'product detail' %}{% endblock title%} 
 
 {% block content %}
@@ -28,7 +32,7 @@
 </div>
 <section class="gray_tshirt_area">
     <div class="container">
-        <div class="row">
+        <div class="row" dir="rtl" align="right">
             <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="gray_tshirt">
                 <div class="row">
@@ -36,10 +40,10 @@
                     <div class="single_product_image_tab">
                         <div role="tabpanel">
                            
-                            <div class="img-zoom-container">
+                           <div class="img-zoom-container">
                                 <img id="myimage" src="{{ product.image.url }}" width="450" height="240" alt="Girl">
-                                <div id="myresult" class="img-zoom-result"></div>
-                            </div>
+
+                                </div>
                            
                         </div>
                     </div>
@@ -49,18 +53,18 @@
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ product.title }}</h3>
-                            <div class="old_price_gray"><p> {{ product.price|translate_number }} {% trans '$' %} </p></div>
+                           <h3> {{ product.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
                             
                         </div>
                         <div class="detail_heading_right">
-                            <ul id="detail_star">
+                          <ul id="detail_star">
                                 <li><a class="fa fa-star-o red" href=""></a></li>
                                 <li><a class="fa fa-star-o red" href=""></a></li>
                                 <li><a class="fa fa-star-o red" href=""></a></li>
                                 <li><a class="fa fa-star-o" href=""></a></li>
                                 <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul>
-                            <p>{% trans 'Review'%}{{ product.comments.all|only_active_comments|length }}</p>
+                            </ul> 
+                            <h5>{% trans 'Review'%}{{ product.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
                     </div>
                     
@@ -69,8 +73,7 @@
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
                           <h4 class="panel-title product_accordion_head">
                              <a data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseOneP" aria-expanded="true" aria-controls="collapseOneP">
-                                {% trans 'description' %}
-                               <span class="floatright"><i class="fa fa-minus"></i></span>
+                                <h4>{% trans 'description' %}</h4>
                              </a>
                           </h4>
                         </div>
@@ -85,8 +88,7 @@
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
                           <h4 class="panel-title product_accordion_head">
                          <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseThreeP" aria-expanded="false" aria-controls="collapseThreeP">
-                         {% trans 'delivery & returns' %}
-                           <span class="floatright"><i class="fa fa-plus"></i></span>
+                          <h4>{% trans 'delivery & returns' %}</h4>
                          </a>
                           </h4>
                         </div>
@@ -161,6 +163,81 @@
         </div>
     </div>
 </section>
-{% include 'comment.html' %}
+<section class="product_page_tab_area" dir="rtl" align="right"> 
+    <div class="container">
+        <div class="row" dir="rtl" align="right">
+            <div class="col-md-12">
+                <div class="product_page_tab">
+                    <div role="tabpanel">
+                      <ul class="nav nav-tabs tab-product" role="tablist" >
+                        <li role="presentation" class="active"><a href="#home2" aria-controls="home2" role="tab" data-toggle="tab">{% trans 'Description' %}</a></li>
+                        <li role="presentation"><a href="#profile2" aria-controls="profile2" role="tab" data-toggle="tab">{% trans 'Specifications' %}</a></li>
+                        <li role="presentation"><a href="#messages2" aria-controls="messages2" role="tab" data-toggle="tab">{% trans 'Review'%}:{{ product.comments.all|only_active_comments|length|translate_number }} </a></li>
+                      </ul>
+                  
+                      <div class="tab-content tab-p-details">
+                        <div role="tabpanel" class="tab-pane active" id="home2"><h2>{% trans 'Description' %}</h2>
+                            <div class="multi_line"></div>
+                            <p>{{ product.description|safe }}
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile2"><h2>{% trans 'Specifications' %}</h2>
+                            <div class="multi_line"></div>
+                            <p>{{ product.short_description }}
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages2"><h2>{% trans 'review' %}</h2>
+                            <div class="review_comments" dir="rtl" align="right">
+                                <div class="review_heading">
+                                   
+                                        <div class="review_heading_right">
+                                            </div>
+                                        </div>       
+                                    {% if user.is_authenticated %}
+                                    <h3>{% trans 'Write your review' %}</h3>
+                                    <div class="multi_line"></div>
+                                </div>
+                                <div class="review_comment_input"  cols="30" rows="10" dir="rtl" align="right">
+                                    <form action="{% url 'comment_create_childish' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        {{ comment_form | crispy }}
+                                      <a href={% url 'product_detail' product.id %}>
+                                        <input type="submit" value="{% trans 'Submit' %}"></a>
+                                     </form>
+                                </div>
+                                   {% else %}
+                                    </div>
+                                         {% trans 'To write your comment please ' %}
+                                        <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
+                                {% endif %}
+                
+                                    {% for comment in product.comments.all %}
+                                   
+                                    <div class="review_heading_left" dir="rtl" align="right">
+                                        <span>{% trans 'review' %} </span> 
+                                        <div class="multi_line"></div>
+                                    </div>
+                                    <div class="single_review_comment">
+                                        <div class="single_review_img">
+                                            <img src="{{ product.image.url }}" alt="" />
+                                        </div>
+                                        <div class="single_review_text" dir="rtl" align="right">
+                                            <h5>{{ comment.stars }}</h5>
+                                            <h4>{{ comment.body }}</h4>
+                                            <div class="review_italic">
+                                                <p><span>{{ comment.datetime_created }}</span> {{ comment.author.username }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}    
+                                    </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 

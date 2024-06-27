@@ -12,11 +12,11 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="header_top_right floatright">
+                <div class="header_top_right floatright" dir="rtl" align="right">
                     {% if user.is_authenticated %}
-                    <p class="text-danger">Hello {{ user.email }}</p> | <a class="text-danger" href="{% url 'account_logout' %}">logout</a>
+                    <p class="text-danger">{{ user.username }}</p> | <a class="text-danger" href="{% url 'account_logout' %}">{% trans 'logout' %}</a>
                     {% else %}
-                    <p><a href="{% url 'account_login' %}">login</a> / <a href="{% url 'account_signup' %}">register</a></p>
+                    <p><a href="{% url 'account_login' %}">{% trans 'login' %}</a> / <a href="{% url 'account_signup' %}">{% trans 'register' %}</a></p>
                     {% endif %}
                     <nav class="currency alignleft">
                         
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6 col-sm-5 col-xs-12">
                 <div class="header_center">
-                    <a href="index.html"><h1 class="text-danger">{% trans 'jet shop' %}</h1></a>
+                    <a href="{% url 'product_list' %}"><h1 class="text-danger">{% trans 'jet shop' %}</h1></a>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-12">
@@ -66,7 +66,7 @@
                         <ul class="cat_nav">
                             <li><a href="{% url 'product_list_men' %}">{% trans 'Men' %}</a></li>
                             <li><a href="{% url 'product_list_feminine' %}">{% trans 'feminine' %}</a></li>
-                            <li><a href="{% url 'product_list_childish' %}">{% trans 'Childish' %}</a></li>
+                            <li><a href="{% url 'product_list_childish' %}">{% trans 'childish' %}</a></li>
                         </ul>
                     </div>
 
@@ -109,7 +109,7 @@
                             <li><a href="{{product.get_absolute_url}}">{% trans 'Product Detail Page' %}</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">{% trans 'pages' %}</a>
+                    <li><a href="#">{% trans 'PAGES' %}</a>
                         <ul id="sub-menu5">
                             <li><a href="{% url 'order_create' %}">{% trans 'Checkout page' %}</a></li>
                             <li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
@@ -117,7 +117,7 @@
                             <li><a href="{% url '404_page' %}">404 page</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'product_list_blog' %}">{% trans 'Blog' %}</a></li> 
+                    <li><a href="{% url 'product_list_blog' %}">{% trans 'BLOG' %}</a></li> 
                 </ul>
             </nav>
         </div>

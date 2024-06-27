@@ -194,6 +194,23 @@ class ProductOffice(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail_office', args=[self.pk])  
+
+class ProductCooking(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    short_description = models.TextField(blank=True)
+    price = models.PositiveIntegerField(default=0)
+    active = models.BooleanField(default=True)
+    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
+
+    datetime_created = models.DateTimeField(auto_now_add=True)
+    datetime_modified = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('product_detail_cooking', args=[self.pk])          
     
 class ProductListblog(models.Model):
     title = models.CharField(max_length=100)
@@ -252,34 +269,29 @@ class Comment(models.Model):
     active_comments_manager = ActiveCommentsManager()
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=[self.product.id])
-
-    # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productlist.id])
+        if Product:
+           return reverse('product_detail', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productmen.id])
+    #     return reverse('product_detail_childish', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productfeminine.id])
+    #     return reverse('product_detail_washing', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productrefrigerator.id])
+    #     return reverse('product_detail_cooking', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productoffice.id])
+    #     return reverse('product_detail_laptop', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productlaptop.id])
+    #     return reverse('product_detail_headphone', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productchildish.id])
+    #     return reverse('product_detail_refriGerator', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productcooking.id])
+    #     return reverse('product_detail_office', args=[self.product.id])
     
     # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productWashing.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail', args=[self.productheadphone.id])
+    #     return reverse('product_detail_blog', args=[self.product.id])

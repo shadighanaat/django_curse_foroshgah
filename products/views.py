@@ -1,6 +1,6 @@
 from django.views import generic
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
 from django.contrib import messages
@@ -61,7 +61,7 @@ class ProductListWashingView(generic.ListView):
 
 class ProductListCookingView(generic.ListView):
     queryset = ProductCooking.objects.filter(active=True)
-    template_name = 'products/product_list_Cooking utensils.html'
+    template_name = 'products/product_list_cooking.html'
     context_object_name = 'products'    
 
 
@@ -103,16 +103,14 @@ class CommentCreateView(generic.CreateView):
     model = Comment
     form_class = CommentForm
 
-    # def get_success_url(self):
-    #     return reverse('product_list')
-
     def form_valid(self, form):
         obj = form.save(commit=False)
         obj.author = self.request.user
 
         product_id = int(self.kwargs['product_id'])
-        product = get_object_or_404(Product, id=product_id)
-        obj.product = product
+        if Product:
+           product = get_object_or_404(Product, id=product_id)
+           obj.product = product
 
         messages.success(self.request, _('Comment successfully created'))
 
@@ -180,7 +178,7 @@ class ProductHeadphoneDetailView(generic.DetailView):
 
 class ProductCookingDetailView(generic.DetailView):
     model = ProductCooking
-    template_name = 'products/product_detail_Cooking.html'
+    template_name = 'products/product_detail_cooking.html'
       
     context_object_name = 'product'
 
@@ -228,7 +226,7 @@ class  ProductWashingDetailView(generic.DetailView):
 
 class ProductOfficeDetailView(generic.DetailView):
     model = ProductOffice
-    template_name = 'products/product_detail_Office.html'
+    template_name = 'products/product_detail_office.html'
       
     context_object_name = 'product'
 
@@ -248,5 +246,196 @@ class ContactView(generic.ListView):
     model = Product
     template_name = 'products/contact_list.html'
    
+class CommentFeminineCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_feminine')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductFeminine, id=product_id)
+        obj.productfeminine = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+    
+class CommentMenCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_men')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductMen, id=product_id)
+        obj.productmen = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)   
+
+class CommentChildishCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_childish')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductChildish, id=product_id)
+        obj.productchildish = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+    
+class CommentCookingCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_cooking')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductCooking, id=product_id)
+        obj.productcooking = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+
+
+class CommentWashingCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_washing')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductWashing, id=product_id)
+        obj.productwashing = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+    
+class CommentLaptopCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_laptop')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductLaptop, id=product_id)
+        obj.productlaptop = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+
+class CommentHeadphoneCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_headphone')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductHeadphone, id=product_id)
+        obj.productheadphone = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+
+class CommentRefriGeratorCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_refriGerator')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductRefriGerator, id=product_id)
+        obj.productrefriGerator = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+
+class CommentBlogCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_blog')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductBlogView, id=product_id)
+        obj.productblog = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+
+
+class CommentOfficeCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def get_success_url(self):
+        return reverse('product_list_office')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        product= get_object_or_404(ProductOffice, id=product_id)
+        obj.productoffice = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
 
 

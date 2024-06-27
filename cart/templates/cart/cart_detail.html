@@ -72,7 +72,8 @@
                           <div class="product-thumbnail text-left">
                                 {% if item.product_obj.image %}
                                 <img dir="rtl" align="right" src="{{ item.product_obj.image.url }}" alt=""  width="150" height="150"/>
-                                {% endif %}
+                                {% endif %} 
+                            
                             </div>
                         </div>        
                      
@@ -135,7 +136,7 @@
                         <form action="{% url 'order_create' %}" method="POST">
                             {% csrf_token %}
                         <button type="submit" class="cart-form__btn btn-danger">
-                            {% translate ' Proceed to checkout' %}
+                            {% translate 'Confirm and complete the order' %}
                         </button> 
                         </form>
                    

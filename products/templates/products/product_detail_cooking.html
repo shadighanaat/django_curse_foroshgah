@@ -1,0 +1,243 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% load comment_tags %}
+{% load persian_translation_tags %}
+
+{% block title %}{% trans 'product detail' %}{% endblock title%} 
+
+{% block content %}
+{% trans 'product detail' as 'product detail' %}
+{% include 'topheader.html' with header_name='product detail' %}
+<div class="breadcumb_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="bread_box">
+                    <ul class="breadcumb">
+                        <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
+                        <li><a href="cart.html">{% trans 'shop' %}<span>|</span></a></li>
+                        <li><a href="{% url 'product_list_cooking' %}">{% trans 'cooking' %} <span>|</span></a></li>
+                        <li class="active"><a href="">{{product.title}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="gray_tshirt_area">
+    <div class="container">
+        <div class="row" dir="rtl" align="right">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="gray_tshirt">
+                <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single_product_image_tab">
+                        <div role="tabpanel">
+                           
+                           <div class="img-zoom-container">
+                                <img id="myimage" src="{{ product.image.url }}" width="450" height="240" alt="Girl">
+
+                                </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                
+                    <div class="product_detail_heading">
+                        <div class="detail_heading_left">
+                            <h3>{{ product.title }}</h3>
+                           <h3> {{ product.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
+                            
+                        </div>
+                        <div class="detail_heading_right">
+                          <ul id="detail_star">
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o red" href=""></a></li>
+                                <li><a class="fa fa-star-o" href=""></a></li>
+                                <li><a class="fa fa-star-o" href=""></a></li>
+                            </ul> 
+                            <h5>{% trans 'Review'%}:{{ product.comments.all|only_active_comments|length|translate_number }}</h5>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
+                     <div class="panel panel-default product_default">
+                        <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
+                          <h4 class="panel-title product_accordion_head">
+                             <a data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseOneP" aria-expanded="true" aria-controls="collapseOneP">
+                                <h4>{% trans 'description' %}</h4>
+                             </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOneP" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneP">
+                          <div class="panel-body product_ac_body">
+                            {{ product.description|truncatechars:300 }}
+                          </div>
+                        </div>
+                     </div>
+                     
+                     <div class="panel panel-default product_default">
+                        <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
+                          <h4 class="panel-title product_accordion_head">
+                         <a class="collapsed" data-toggle="collapse" data-parent="#home-accordion-single" href="#collapseThreeP" aria-expanded="false" aria-controls="collapseThreeP">
+                          <h4>{% trans 'delivery & returns' %}</h4>
+                         </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThreeP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeP">
+                          <div class="panel-body product_accordion_head">
+                            <div class="single_color sp_single_col">
+                                <div class="color_heading"><h5>{% trans 'Colors' %}</h5></div>
+                                <div class="color_detail">
+                                    <div class="panel-body colors_cat">
+                                        
+                                        <ul id="cat_color">
+                                            <li><a style= "background-color:#8B0000" href="#8B0000"></a></li>
+                                            <li><a style= "background-color:#FFFF00;" href="#FFFF00"></a></li>
+                                            <li><a style= "background-color:#006400;" href="#006400"></a></li>
+                                           
+                                        </ul>                             
+                                        
+                                      </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="single_color">
+                            <div class="color_heading"><h5>{% trans 'Select size' %} </h5></div>
+                            <div class="color_detail">
+                            <div class="color_size_detail">
+                                <ul id="color_size">
+                                    <li><a href="">xs</a></li>
+                                    <li><a href="">s</a></li>
+                                    <li><a href="">m</a></li>
+                                    <li><a href="">l</a></li>
+                                    <li><a href="">xl</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="single_color">
+                            <div class="color_heading"><h5>{% trans 'Quantity' %}</h5></div>
+                            <div class="color_detail">
+                                <div class="size_down">
+                                    
+                                </div>
+                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class='quantity'>
+                                        <input type="number" class="quantity-input" name="quantity" id='qty' value="1"  max="30" min="1">
+                                    </div>
+                                        <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                            {% trans 'Add to Cart' %}
+                                        </button>
+                                        <div class="size_heart">
+                                            <a href=""><img src="{{ product.image.url }}" alt="" /></a>
+                                            <a href=""><img src="{{ product.color }}" alt="" /></a>
+                                        </div>
+                                       
+                                </form>
+                            </div> 
+                                
+                                
+                            </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                     </div>
+                   </div>
+                    
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product_page_tab_area" dir="rtl" align="right"> 
+    <div class="container">
+        <div class="row" dir="rtl" align="right">
+            <div class="col-md-12">
+                <div class="product_page_tab">
+                    <div role="tabpanel">
+                      <ul class="nav nav-tabs tab-product" role="tablist" >
+                        <li role="presentation" class="active"><a href="#home2" aria-controls="home2" role="tab" data-toggle="tab">{% trans 'Description' %}</a></li>
+                        <li role="presentation"><a href="#profile2" aria-controls="profile2" role="tab" data-toggle="tab">{% trans 'Specifications' %}</a></li>
+                        <li role="presentation"><a href="#messages2" aria-controls="messages2" role="tab" data-toggle="tab">{% trans 'Review'%}:{{ product.comments.all|only_active_comments|length|translate_number }} </a></li>
+                      </ul>
+                  
+                      <div class="tab-content tab-p-details">
+                        <div role="tabpanel" class="tab-pane active" id="home2"><h2>{% trans 'Description' %}</h2>
+                            <div class="multi_line"></div>
+                            <p>{{ product.description|safe }}
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile2"><h2>{% trans 'Specifications' %}</h2>
+                            <div class="multi_line"></div>
+                            <p>{{ product.short_description }}
+                            </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="messages2"><h2>{% trans 'review' %}</h2>
+                            <div class="review_comments" dir="rtl" align="right">
+                                <div class="review_heading">
+                                   
+                                        <div class="review_heading_right">
+                                            </div>
+                                        </div>       
+                                    {% if user.is_authenticated %}
+                                    <h3>{% trans 'Write your review' %}</h3>
+                                    <div class="multi_line"></div>
+                                </div>
+                                <div class="review_comment_input"  cols="30" rows="10" dir="rtl" align="right">
+                                    <form action="{% url 'comment_create_cooking' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        {{ comment_form | crispy }}
+                                      <a href={% url 'product_detail' product.id %}>
+                                        <input type="submit" value="{% trans 'Submit' %}"></a>
+                                     </form>
+                                </div>
+                                   {% else %}
+                                    </div>
+                                         {% trans 'To write your comment please ' %}
+                                        <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
+                                {% endif %}
+                
+                                    {% for comment in product.comments.all %}
+                                   
+                                    <div class="review_heading_left" dir="rtl" align="right">
+                                        <span>{% trans 'review' %} </span> 
+                                        <div class="multi_line"></div>
+                                    </div>
+                                    <div class="single_review_comment">
+                                        <div class="single_review_img">
+                                            <img src="{{ product.image.url }}" alt="" />
+                                        </div>
+                                        <div class="single_review_text" dir="rtl" align="right">
+                                            <h5>{{ comment.stars }}</h5>
+                                            <h4>{{ comment.body }}</h4>
+                                            <div class="review_italic">
+                                                <p><span>{{ comment.datetime_created }}</span> {{ comment.author.username }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}    
+                                    </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
