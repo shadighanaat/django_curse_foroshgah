@@ -7,8 +7,9 @@
 {% endblock %}
 
 {% block content %}
+{% include 'header.html' %} 
 <div class=dir="rtl" align="right">
-    <h1>{% trans 'Log In' %}</h1>
+    <h1>{% trans 'login' %}</h1>
 
     <form action="" method="post" dir="rtl" align="right">
         {% csrf_token %}

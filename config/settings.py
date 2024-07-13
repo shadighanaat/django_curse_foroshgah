@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path 
 from environs import Env 
+
 import os
+
 
 # for environment variables
 env = Env()
@@ -43,17 +45,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party apps
     # 'jalali_date',
     
     'django.contrib.humanize',
+    
    
+    
     # local apps
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
     'orders.apps.OrdersConfig',
-    
+
     # third party apps
     'rosetta',
     'allauth',
@@ -61,6 +66,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap4',
+
 ]
 
 SITE_ID = 1
@@ -159,7 +165,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'fa'
-
 
 LANGUAGES = (
     ('en', 'English'),

@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="header_top_right floatright" dir="rtl" align="right">
+                <div class="header_top_right floatright">
                     {% if user.is_authenticated %}
                     <p class="text-danger">{{ user.username }}</p> | <a class="text-danger" href="{% url 'account_logout' %}">{% trans 'logout' %}</a>
                     {% else %}
@@ -46,7 +46,7 @@
                         <li class="mobi_right_li"><a href="{% url 'order_create' %}"><i class="fa fa-shopping-cart"></i>{% trans 'checklist' %}</a></li>
                     </ul>
                     <div class="w_likes">
-                        <span>3</span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
     <div class="container">
               
         <div class="nav_left floatleft">
-            <a href="category-1.html">{% trans 'category' %}<i class="fa fa-bars"></i></a>
+            <a href="category-1.html" dir="rtl" align="right">{% trans 'category' %}<i class="fa fa-bars"></i></a>
             <div class="cat_mega_menu"  dir="rtl" align="right">
                     <div class="cat_left">
                         <h5>{% trans 'clothing' %}</h5>
@@ -109,15 +109,15 @@
                             <li><a href="{{product.get_absolute_url}}">{% trans 'Product Detail Page' %}</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">{% trans 'PAGES' %}</a>
+                    <li><a href="#">{% trans 'pages' %}</a>
                         <ul id="sub-menu5">
                             <li><a href="{% url 'order_create' %}">{% trans 'Checkout page' %}</a></li>
                             <li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart page' %}</a></li>
-                            <li><a href="{% url 'contact_list' %}">Contact page</a></li>
-                            <li><a href="{% url '404_page' %}">404 page</a></li>
+                            <li><a href="{% url 'contact_list' %}">{% trans 'Contact page' %}</a></li>
+                            <li><a href="{% url '404_page' %}">{% trans '404 page' %}</a></li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'product_list_blog' %}">{% trans 'BLOG' %}</a></li> 
+                    <li><a href="{% url 'product_list_blog' %}">{% trans 'blog' %}</a></li> 
                 </ul>
             </nav>
         </div>
@@ -125,118 +125,7 @@
             <a href=""{% url 'cart:cart_detail' %}""><img src="{% static 'images/bag.png' %}" alt="Bag" />{% trans 'cart' %}: {{ cart|length }}</a>
             {% include 'cart/cart_sidebar.html' %}
         </div>
-        <!-- MOBILE ONLY CONTENT -->
-        <div class="only-for-mobile">
-            <ul class="ofm">
-                <li class="m_nav"><i class="fa fa-bars"></i> Navigation</li>
-            </ul>
+        
 
-            <!-- MOBILE MENU -->
-            <div class="mobi-menu">
-                <div id='cssmenu'>
-                    <ul>
-                        <li class='has-sub'>
-                            <a href='index.html'><span>Home</span></a>
-                            <ul class="sub-nav">
-                                <li><a href="index.html"><span>Home 1</span></a></li>
-                                <li><a href="index-2.html"><span>Home 2</span></a></li>
-                            </ul>
-                        </li>
-
-                        <li class='has-sub'>
-                            <a href='category-1.html'><span>category</span></a>
-                            <ul>
-                                <li class='has-sub'>
-                                    <a href='#'><span>Shirts</span></a>
-                                    <ul>
-                                        <li><a href="#"><span>check shirts</span></a></li>
-                                        <li><a href="#"><span>denim shirts</span></a></li>
-                                        <li><a href="#"><span>long sleeve shirts</span></a></li>
-                                        <li><a href="#"><span>denim shirts</span></a></li>
-                                        <li class="last"><a href="./#"><span>long sleeve shirts</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class='has-sub'>
-                                    <a href='#'><span>T Shirts</span></a>
-                                    <ul>
-                                        <li><a href="#"><span>plain T-shirt</span></a></li>
-                                        <li><a href="#"><span>printed T-shirt</span></a></li>
-                                        <li><a href="#"><span>sports T-shirt</span></a></li>
-                                        <li><a href="#"><span>striped T-shirt</span></a></li>
-                                        <li class='last'><a href="#"><span>V-Neck T-Shirt</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class='has-sub'>
-                                    <a href='#'><span>trousers fit</span></a>
-                                    <ul>
-                                        <li><a href="#"><span>flexible waist</span></a></li>
-                                        <li><a href="#"><span>regular fit</span></a></li>
-                                        <li><a href="#"><span>slim fit</span></a></li>
-                                        <li><a href="#"><span>tailored fit</span></a></li>
-                                        <li class='last'><a href="#"><span>tight fit</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="img-nav">
-                                    <div class="container">
-                                        <div class="clearfix"></div>
-                                        <div class="space20"></div>
-                                        <div class="clearfix"></div>
-                                        <div class="row in1">
-                                            <div class="col-md-6">
-                                                <a href="#"><img src="images/menu_cat.png" class="img-responsive" alt=""/></a>
-                                            </div>
-                                            <div class="col-md-6">
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="space20"></div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="space20"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href='category-2.html'><span>shop</span></a>
-                        </li>
-                        <li class='has-sub'>
-                            <a href='category-1.html'><span>accessories</span></a>
-                            <ul class="sub-nav">
-                                <li><a href="#"><span>check shirts</span></a></li>
-                                <li><a href="#"><span>denim shirts</span></a></li>
-                                <li><a href="#"><span>long sleeve shirts</span></a></li>
-                                <li><a href="#"><span>plain shirts</span></a></li>
-                                <li><a href="#"><span>printed shirts</span></a></li>
-                                <li><a href="#"><span>short sleeve shirts</span></a></li>
-                                <li><a href="#"><span>shortsleeve denim shirts</span></a></li>
-                            </ul>
-                        </li>
-                        <li class='has-sub'>
-                            <a href='#'><span>pages</span></a>
-                            <ul id="sub-nav">
-                                <li><a href="category-1.html">Category page</a></li>
-                                <li><a href="category-2.html">Category page without filter</a></li>
-                                <li><a href="checkout.html">Checkout page</a></li>
-                                <li><a href="cart.html">Cart page</a></li>
-                                <li><a href="product-detail.html">Product detail page</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="single-blog.html">Blog single</a></li>
-                                <li><a href="contact.html">Contact page</a></li>
-                                <li><a href="404.html">404 page</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href='blog.html'><span>Blog</span></a>
-                        </li>
-                        <li>
-                            <a href='cart.html'><span>cart</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- MOBILE ONLY CONTENT -->
     </div>
 </section>

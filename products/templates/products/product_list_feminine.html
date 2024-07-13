@@ -32,14 +32,14 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="main_category_right cat-2">
 						<div class="row">
-							{% for product in products %}
+							{% for productfeminine in productfeminines %}
 							<div class="col-md-3 col-sm-4 col-xs-12">
 								<div class="main_cat_item">
 									<div class="item">
 										<div class="item-img">
-											<a href="{{ product.get_absolute_url }}">
-												{% if product.image %}
-													<img src="{{ product.image.url }}" alt="Products">
+											<a href="{{ productfeminine.get_absolute_url }}">
+												{% if productfeminine.image %}
+													<img src="{{ productfeminine.image.url }}" alt="Products">
 												{% endif %}
 											
 										</div>
@@ -47,9 +47,9 @@
 											<p>Sale</p>
 										</div>
 										<div class="item-sub">
-											<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' product.id %}" method="POST">
+											<a href="{{ productfeminine.get_absolute_url }}">{{ productfeminine.title }}</a>
+										<span class="money">{{ productfeminine.price|intcomma:False|translate_number }} {% translate '$' %}</span>
+										<form action="{% url 'cart:cart_add' productfeminine.id productfeminine.page_id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
 											<div class="quantity-wrapper">

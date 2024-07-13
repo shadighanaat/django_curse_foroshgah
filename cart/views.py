@@ -21,11 +21,24 @@ def cart_detail_view(request):
     })
 
 
+# @require_POST
+# def add_to_cart_view(request, product_id, page_id):
+#     cart = request.session.get('cart', {})
+#     product_key = f"{product_id}_{page_id}"
+#     if product_key in cart:
+#         cart[product_key]['quantity'] += 1 
+#     else:
+#         product = get_object_or_404(Product, id=product_id, page_id=page_id)
+#         cart[product_key] = {'title':product.title, 'price': product.price, 'quantity' : 1 }    
+#         request.session['cart'] = cart
+#         messages.success(request, _('Product successfully added to cart'))
+#     return redirect('cart:cart_detail')
+    
 @require_POST
-def add_to_cart_view(request, product_id):
+def add_to_cart_view(request, product_id, page_id):
     cart = Cart(request)
 
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, id=product_id, page_id=page_id)
     form = AddToCartProductForm(request.POST)
 
     if form.is_valid():
@@ -34,11 +47,16 @@ def add_to_cart_view(request, product_id):
         cart.add(product, quantity, replace_current_quantity=cleaned_data['inplace'])
 
     return redirect('cart:cart_detail')
+    
 
-def remove_from_cart(request, product_id):
+    # product = get_object_or_404(Product, id=product_id)
+   
+    # return redirect('cart:cart_detail')
+
+def remove_from_cart(request, product_id, page_id):
     cart = Cart(request)
 
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, id=product_id, page_id=page_id)
 
     cart.remove(product)
 

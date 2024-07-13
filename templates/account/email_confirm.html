@@ -1,4 +1,4 @@
-{% extends '_base.html' %}
+{% extends '_base.html' %} 
 
 {% load i18n %}
 {% load account %}
@@ -6,6 +6,7 @@
 {% block page_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
 
 {% block content %}
+{% include 'header.html' %} 
 <h1>{% trans "Confirm E-mail Address" %}</h1>
 
 {% if confirmation %}
@@ -14,7 +15,7 @@
 
 <p>{% blocktrans with confirmation.email_address.email as email %}{% trans 'Please confirm that' %} <a href="mailto:{{ email }}">{{ email }}</a>{% trans 'is an e-mail address for user' %} {{ user_display }}.{% endblocktrans %}</p>
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}"  dir="rtl" align="right">
 {% csrf_token %}
     <button type="submit">{% trans 'Confirm' %}</button>
 </form>

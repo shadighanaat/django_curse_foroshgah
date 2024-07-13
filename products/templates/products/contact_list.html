@@ -9,6 +9,7 @@
 {% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'contact' as 'contact' %}
 {% include 'topheader.html' with header_name='contact' %}
 <div class="breadcumb_area">
@@ -17,9 +18,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="bread_box">
                     <ul class="breadcumb">
-                        <li><a href="index.html">home <span>|</span></a></li>
-                        <li><a href="">Pgaes <span>|</span></a></li>
-                        <li class="active"><a href="">Contact</a></li>
+                        <li><a href="index.html">{% trans 'home' %} <span>|</span></a></li>
+                        <li class="active"><a href="">{% trans 'Contact' %}</a></li> 
                     </ul>
                 </div>
             </div>
@@ -27,44 +27,45 @@
     </div>
 </div>
 
-<section class="contact_p_area">
+<section class="contact_p_area" dir="rtl" align="right">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="contact_box_left">
-                    <h4>Leave A message</h4>
+                <div class="contact_box_left" dir="rtl" align="right">
+                    <h4>{% trans 'Leave A message' %}</h4>
                     <div class="multi_line"></div>
                 </div>
                 <form action="" method="post">
                     <div class="input_form">
+                       
                         <div class="input_left">
-                           
-                            <input  type="text" placeholder="Your Email *" required name="email"/>
-                           
+                            <input  type="text" placeholder="{% trans 'Your Email' %} *" required name="email"/>
                         </div>
                         <div class="input_right">
-                            <textarea name="message" placeholder="Message" required></textarea>
+                            <textarea name="message" placeholder="{% trans 'Message' %}" required></textarea>
+                           
+                        
                         </div>
                     </div>
                     <div class="submit_btn form-group submitRow">
-                        <input type="submit" name="submit" value="Submit form" />
+                        <input type="submit" name="submit" value="{% trans 'Submit form' %}" />
                     </div>
                     
                 </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="contact_box_right">
-                    <h5>Address</h5>
-                    <p>44 new Design Street, Melbourne 005 <br>Australia 300</p>
+                    <h5>{% trans 'Address' %}</h5>
+                    <p>{% trans 'esfahan' %} <br>{% trans 'Iran' %}</p>
                     <div class="dotted_line"></div>
                     
-                    <h5>Contact info</h5>
-                    <p>Info@Example.com</p>
-                    <a href="tel:01(800)433633">01 (800) 433 633</a>
+                    <h5>{% trans 'Contact info' %}</h5>
+                    <p>shadighanaati@gmail.com</p>
+                    <a href="tel:01(800)433633">09132880557</a>
                     <div class="dotted_line"></div>
                     
-                    <h5>Working hours</h5>
-                    <p>Daily 10.00 to 22.00    ( Sunday Avilable ) </p>
+                    <h5>{% trans 'Working hours' %}</h5>
+                    <p>{% trans 'Full-time' %}</p>
                 </div>
             </div>
         </div>

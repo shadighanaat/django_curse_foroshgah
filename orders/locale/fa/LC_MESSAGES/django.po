@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-24 02:29+0330\n"
-"PO-Revision-Date: 2024-06-24 02:05+0330\n"
+"PO-Revision-Date: 2024-07-07 01:19+0330\n"
 "Last-Translator: شادی للل <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -73,7 +73,6 @@ msgid "Cart"
 msgstr "سبد خرید"
 
 #: .\templates\orders\order_create.html:62
-#, fuzzy
 #| msgid "Address"
 msgid "Street Address"
 msgstr "آدرس"
@@ -130,7 +129,6 @@ msgstr "سفارش "
 msgid "You can not proceed to checkout page because your cart is empty."
 msgstr "شما نمی توانید به صفحه پرداخت ادامه دهید زیرا سبد خرید شما خالی است."
 
-#~| msgid "Address"
 #~ msgid "Billing Address"
 #~ msgstr "آدرس"
 

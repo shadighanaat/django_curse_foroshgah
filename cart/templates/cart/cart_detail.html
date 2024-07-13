@@ -45,7 +45,7 @@
                         </div>
                     </div>
                  
-               {% for item in cart %}
+               {% for product in cart %}
                   <div class="cart_item">
                     <div class="cart_total"  dir="rtl" >
                         <h4>{{cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</h4>
@@ -57,7 +57,7 @@
                         </div>
                        
                         <div class="cart_quantity">
-                            <form class="d-flex p-5" dir="rtl"  method="POST" action="{% url 'cart:cart_add' item.product_obj.id %}">
+                            <form class="d-flex p-5" dir="rtl"  method="POST" action="{% url 'cart:cart_add' item.product_obj.id item.product_obj.page_id %}">
                                 {% csrf_token %}
                              <div class="input-group quantity-selector quantity-selector-sm" dir="rtl" align="right">
                                 <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ item.quantity }}" min="0" max="30"  aria-label="Quantity selector">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="cart_item_img" dir="rtl" align="right">
                             <h4 style="font-family:verdana"><a href="{{ item.product_obj.get_absolute_url }}">
-                                {{ item.product_obj.title }}</a></h4>
+                                {{ product.title }}</a></h4>
                           <div class="product-thumbnail text-left">
                                 {% if item.product_obj.image %}
                                 <img dir="rtl" align="right" src="{{ item.product_obj.image.url }}" alt=""  width="150" height="150"/>
@@ -78,8 +78,9 @@
                         </div>        
                      
                     </div>
+                   
                     <div class="" dir="rtl" align="right">
-                    <a href="{% url 'cart:cart_remove' item.product_obj.id %}" class="cart_update"><h4>{% trans 'delete' %}</h4></a></div>
+                    <a href="{% url 'cart:cart_remove' item.product_obj.id item.product_obj.page_id %}" class="cart_update"><h4>{% trans 'delete' %}</h4></a></div>
                 {% endfor %}
               </div>
             </div>
@@ -136,7 +137,7 @@
                         <form action="{% url 'order_create' %}" method="POST">
                             {% csrf_token %}
                         <button type="submit" class="cart-form__btn btn-danger">
-                            {% translate 'Confirm and complete the order' %}
+                            {% translate 'confirm and complete the order' %}
                         </button> 
                         </form>
                    

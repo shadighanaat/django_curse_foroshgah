@@ -33,7 +33,8 @@ class Cart:
         """
         Add the specified product to the cart if it exists
         """
-        product_id = str(product.id)
+        product_id = str(product.id)(page_id)
+       
 
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0}
@@ -51,7 +52,7 @@ class Cart:
         """
         Remove a product from the cart
         """
-        product_id = str(product.id)
+        product_id = str(product.id, page_id)
 
         if product_id in self.cart:
             del self.cart[product_id]
@@ -69,11 +70,14 @@ class Cart:
         products = Product.objects.filter(id__in=product_ids)
        
         cart = self.cart.copy()
-        if products: 
+        # if products: 
 
-          for product in products:
+        for product in products:
             cart[str(product.id)]['product_obj'] = product
-
+            for item in cart.values():
+              item['total_price'] = item['price'] * item['quantity']
+              yield item
+              
         productmen = ProductMen.objects.filter(id__in=product_ids)    
         cart = self.cart.copy()
         if productmen:
@@ -87,20 +91,28 @@ class Cart:
           
           for product in productfeminine:
             cart[str(product.id)]['product_obj'] = product
-
+            for item in cart.values():
+              item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+              yield item
+              
+               
+         
         productchildish = ProductChildish.objects.filter(id__in=product_ids)    
         cart = self.cart.copy()
         if productchildish:
           
           for product in productchildish:
             cart[str(product.id)]['product_obj'] = product
+          for item in cart.values():
+            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+            yield item
 
         productlaptop = ProductLaptop.objects.filter(id__in=product_ids)    
         cart = self.cart.copy()
         if productlaptop:
           
           for product in productlaptop:
-            cart[str(product.id)]['product_obj'] = product   
+            cart[str(product.id)]['product_obj'] = product
 
         productrefriGerator = ProductRefriGerator.objects.filter(id__in=product_ids)    
         cart = self.cart.copy()
@@ -137,9 +149,9 @@ class Cart:
           for product in productheadphone:
             cart[str(product.id)]['product_obj'] = product        
 
-        for item in cart.values():
-            item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
-            yield item
+            for item in cart.values():
+              item['total_price'] = cart[str(product.id)]['product_obj'].price * item['quantity']
+            yield item      
     
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
@@ -151,7 +163,7 @@ class Cart:
     def get_total_price(self):
         product_ids = self.cart.keys()
         
-        return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
+          # return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
     
     def is_empty(self):
         if self.cart:

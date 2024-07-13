@@ -22,6 +22,8 @@ class Discount(models.Model):
         return f'{str(self.discount)} | {self.description}'
 
 class Product(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -43,6 +45,8 @@ class ActiveCommentsManager(models.Manager):
         return super(ActiveCommentsManager, self).get_queryset().filter(active=True)
     
 class ProductMen(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100,  null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -60,6 +64,8 @@ class ProductMen(models.Model):
         return reverse('product_detail_men', args=[self.pk])
 
 class ProductFeminine(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100,  null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -75,8 +81,11 @@ class ProductFeminine(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail_feminine', args=[self.pk])  
+    
               
 class ProductChildish(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100,  null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -94,6 +103,8 @@ class ProductChildish(models.Model):
         return reverse('product_detail_childish', args=[self.pk])  
     
 class ProductRefriGerator(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100,  null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -108,9 +119,11 @@ class ProductRefriGerator(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_detail_refriGerator', args=[self.pk])  
+        return reverse('product_detail_refrigerator', args=[self.pk])  
               
 class ProductWashing(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100,  null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -128,6 +141,8 @@ class ProductWashing(models.Model):
         return reverse('product_detail_washing', args=[self.pk])
 
 class ProductCooking(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100, null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -145,6 +160,8 @@ class ProductCooking(models.Model):
         return reverse('product_detail_cooking', args=[self.pk])    
                            
 class ProductLaptop(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100, null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -162,6 +179,8 @@ class ProductLaptop(models.Model):
         return reverse('product_detail_laptop', args=[self.pk])   
 
 class ProductHeadphone(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100, null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -179,6 +198,8 @@ class ProductHeadphone(models.Model):
         return reverse('product_detail_headphone', args=[self.pk])      
 
 class ProductOffice(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100, null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -196,6 +217,8 @@ class ProductOffice(models.Model):
         return reverse('product_detail_office', args=[self.pk])  
 
 class ProductCooking(models.Model):
+    id = models.AutoField(primary_key=True)
+    page_id = models.CharField(max_length=100, null=True,)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)

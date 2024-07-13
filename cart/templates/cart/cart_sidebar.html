@@ -30,7 +30,7 @@
             <p>{% trans 'Free shipping' %}</p>
         </div>
         <div class="c_totals_right floatleft">
-            <p>{% trans 'total' %}:{{ cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</p>
+            {% comment %} <p>{% trans 'total' %}:{{ cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</p> {% endcomment %}
         </div>
     </div>
     <div class="cart_view_bottom">

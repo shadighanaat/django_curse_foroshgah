@@ -120,11 +120,9 @@
                             <span>{{ cart.get_total_price|intcomma:False|translate_number }} {% translate '$' %}</span>
                         </div>
                         <div class="c_payment">
-                            <p>Select Payment Method</p>
+                            <p>{% trans 'Select Payment Method' %}</p>
                             <select class="selectpicker sel_state" >
-                              <option>Direct Bank Transfer</option>
-                              <option>Wire Transfer</option>
-                              <option>VISA</option>
+                              <option>{% trans 'zarin pal' %}</option>
                             </select>
                         </div>
                         <div class="checkbox">

@@ -9,11 +9,11 @@
 {% load comment_tags %}
 {% load persian_translation_tags %}
 
-{% block title %}{% trans 'product detail' %}{% endblock title%} 
+{% block title %}{% trans 'product detail office' %}{% endblock title%} 
 
 {% block content %}
-{% trans 'product detail' as 'product detail' %}
-{% include 'topheader.html' with header_name='product detail' %}
+{% trans 'product detail office' as 'product detail office' %}
+{% include 'topheader.html' with header_name='product detail office' %}
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
@@ -22,7 +22,7 @@
                     <ul class="breadcumb">
                         <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
                         <li><a href="cart.html">{% trans 'shop' %}<span>|</span></a></li>
-                        <li><a href="{% url 'product_list_men' %}">{% trans 'mens' %} <span>|</span></a></li>
+                        <li><a href="{% url 'product_list_office' %}">{% trans 'office' %} <span>|</span></a></li>
                         <li class="active"><a href="">{{product.title}}</a></li>
                     </ul>
                 </div>

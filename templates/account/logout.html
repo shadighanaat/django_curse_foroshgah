@@ -1,16 +1,18 @@
 {% extends '_base.html' %}
 {% load i18n %}
 
+{% load persian_translation_tags %}
+
 {% block page_title %}
-    {% trans 'Logout' %}
+    {% trans 'logout' %}
 {% endblock %}
 
 {% block content %}
-
+{% include 'header.html' %} 
 <div class=dir="rtl" align="right">
-    <h1>{% trans 'Log Out' %}</h1>
+    <h1>{% trans 'logout' %}</h1>
     <h2>{% trans 'Are you sure you want to logout?' %}</h2>
-    <form action="" method="post">
+    <form action="" method="post" dir="rtl" align="right">
         {% csrf_token %}
         <input type="{% trans 'submit' %}" value="{% trans 'Are you sure' %}?">
     </form>

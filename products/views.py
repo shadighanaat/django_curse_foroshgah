@@ -32,55 +32,63 @@ class ProductListMenView(generic.ListView):
     paginate_by = 4
     queryset = ProductMen.objects.filter(active=True)
     template_name = 'products/product_list_men.html'
-    context_object_name = 'products'
+    context_object_name = 'productmens'
     
    
 class ProductListFeminineView(generic.ListView):
     queryset = ProductFeminine.objects.filter(active=True)
     template_name = 'products/product_list_feminine.html'
-    context_object_name = 'products'
+    context_object_name = 'productfeminines'
+    paginate_by = 4
 
 
 class ProductListChildishView(generic.ListView):
     queryset = ProductChildish.objects.filter(active=True)
     template_name = 'products/product_list_childish.html'
-    context_object_name = 'products'
+    context_object_name = 'productchildishs'
+    paginate_by = 4
 
 
 class ProductListRefrigeratorView(generic.ListView):
     queryset = ProductRefriGerator.objects.filter(active=True)
-    template_name = 'products/product_list_Refrigerator freezer.html'
+    template_name = 'products/product_list_Refrigerator.html'
     context_object_name = 'products'
+    paginate_by = 4
 
 
 class ProductListWashingView(generic.ListView):
     queryset = ProductWashing.objects.filter(active=True)
     template_name = 'products/product_list_washing machine.html'
     context_object_name = 'products'
+    paginate_by = 4
 
 
 class ProductListCookingView(generic.ListView):
     queryset = ProductCooking.objects.filter(active=True)
     template_name = 'products/product_list_cooking.html'
-    context_object_name = 'products'    
+    context_object_name = 'products'   
+    paginate_by = 4 
 
 
 class ProductListLaptopView(generic.ListView):
     queryset = ProductLaptop.objects.filter(active=True)
     template_name = 'products/product_list_laptop.html'
     context_object_name = 'products'    
+    paginate_by = 4
 
 
 class ProductListHeadphoneView(generic.ListView):
     queryset = ProductHeadphone.objects.filter(active=True)
     template_name = 'products/product_list_headphone.html'
     context_object_name = 'products'    
+    paginate_by = 4
 
 
 class ProductListOfficeView(generic.ListView):
     queryset = ProductOffice.objects.filter(active=True)
-    template_name = 'products/product_list_Office machines.html'
+    template_name = 'products/product_list_office.html'
     context_object_name = 'products'    
+    paginate_by = 4
             
 
 
@@ -144,7 +152,7 @@ class ProductFeminineDetailView(generic.DetailView):
     model = ProductFeminine
     template_name = 'products/product_detail_feminine.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productfeminine'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
