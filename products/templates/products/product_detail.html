@@ -12,6 +12,7 @@
 {% block title %}{% trans 'product detail' %}{% endblock title%} 
 
 {% block content %}
+{% include 'header.html' %} 
 {% trans 'product detail' as 'product detail' %}
 {% include 'topheader.html' with header_name='product detail' %}
 <div class="breadcumb_area">
@@ -94,57 +95,41 @@
                         <div id="collapseThreeP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeP">
                           <div class="panel-body product_accordion_head">
                             <div class="single_color sp_single_col">
-                                <div class="color_heading"><h5>{% trans 'Colors' %}</h5></div>
                                 <div class="color_detail">
-                                    <div class="panel-body colors_cat">
-                                        
-                                        <ul id="cat_color">
-                                            <li><a style= "background-color:#8B0000" href="#8B0000"></a></li>
-                                            <li><a style= "background-color:#FFFF00;" href="#FFFF00"></a></li>
-                                            <li><a style= "background-color:#006400;" href="#006400"></a></li>
-                                           
-                                        </ul>                             
-                                        
+                                    <div class="panel-body colors_cat"> 
                                       </div>
                                     
                                 </div>
                             </div>
                             <div class="single_color">
-                            <div class="color_heading"><h5>{% trans 'Select size' %} </h5></div>
                             <div class="color_detail">
                             <div class="color_size_detail">
-                                <ul id="color_size">
-                                    <li><a href="">xs</a></li>
-                                    <li><a href="">s</a></li>
-                                    <li><a href="">m</a></li>
-                                    <li><a href="">l</a></li>
-                                    <li><a href="">xl</a></li>
-                                </ul>
                             </div>
                             </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_heading"><h5>{% trans 'Quantity' %}</h5></div>
-                            <div class="color_detail">
+                          
                                 <div class="size_down">
                                     
                                 </div>
+                                <div class="single_color">
+                                    <div class="color_heading"><h5></h5></div>
+                                    <div class="color_detail">
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                 <form action="{% url 'cart:cart_add' product.id product.page_id %}" method="POST">
                                     {% csrf_token %}
+                                    
                                     <div class='quantity'>
-                                        <input type="number" class="quantity-input" name="quantity" id='qty' value="1"  max="30" min="1">
-                                    </div>
+                                        <input type="number" class="quantity-input" name="quantity" id='qty-1' value=""  max="30" min="1">
+                                    </div> 
                                         <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
                                             {% trans 'Add to Cart' %}
                                         </button>
                                         <div class="size_heart">
                                             <a href=""><img src="{{ product.image.url }}" alt="" /></a>
-                                            <a href=""><img src="{{ product.color }}" alt="" /></a>
                                         </div>
                                        
                                 </form>
-                            </div> 
+                                </div> 
                                 
                                 
                             </div>

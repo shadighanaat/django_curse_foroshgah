@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from colorfield.fields import ColorField
+
 
 
 class Category(models.Model):
@@ -23,14 +23,14 @@ class Discount(models.Model):
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
-    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-
+    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/',  blank=True,)
+    
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
 
@@ -39,23 +39,25 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.pk])
-
+   
 class ActiveCommentsManager(models.Manager):
     def get_queryset(self):
         return super(ActiveCommentsManager, self).get_queryset().filter(active=True)
-    
+
 class ProductMen(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100,  null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, ) 
+ 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.title
@@ -65,7 +67,7 @@ class ProductMen(models.Model):
 
 class ProductFeminine(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100,  null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -81,11 +83,10 @@ class ProductFeminine(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail_feminine', args=[self.pk])  
-    
               
 class ProductChildish(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100,  null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -104,7 +105,7 @@ class ProductChildish(models.Model):
     
 class ProductRefriGerator(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100,  null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -123,7 +124,7 @@ class ProductRefriGerator(models.Model):
               
 class ProductWashing(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100,  null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -142,7 +143,7 @@ class ProductWashing(models.Model):
 
 class ProductCooking(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100, null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -161,7 +162,7 @@ class ProductCooking(models.Model):
                            
 class ProductLaptop(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100, null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -180,7 +181,7 @@ class ProductLaptop(models.Model):
 
 class ProductHeadphone(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100, null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -199,7 +200,7 @@ class ProductHeadphone(models.Model):
 
 class ProductOffice(models.Model):
     id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100, null=True,)
+    page_id = models.CharField(max_length=100, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField(blank=True)
@@ -216,25 +217,6 @@ class ProductOffice(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail_office', args=[self.pk])  
 
-class ProductCooking(models.Model):
-    id = models.AutoField(primary_key=True)
-    page_id = models.CharField(max_length=100, null=True,)
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    short_description = models.TextField(blank=True)
-    price = models.PositiveIntegerField(default=0)
-    active = models.BooleanField(default=True)
-    image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, )
-
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return reverse('product_detail_cooking', args=[self.pk])          
-    
 class ProductListblog(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -294,7 +276,13 @@ class Comment(models.Model):
     def get_absolute_url(self):
         if Product:
            return reverse('product_detail', args=[self.product.id])
-    
+class CartItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=0)
+    date_added = models.DateTimeField(auto_now_add=True)
+ 
+    def __str__(self):
+        return f'{self.quantity} x {self.product.name}'
     # def get_absolute_url(self):
     #     return reverse('product_detail_childish', args=[self.product.id])
     

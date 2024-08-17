@@ -7,6 +7,7 @@
 {% block title %}{% trans 'product Refrigerator freezer' %}{% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'Refrigerator freezer' as 'Refrigerator freezer' %}
 {% include 'topheader.html' with header_name='Refrigerator freezer' %}
 	<div class="breadcumb_area">
@@ -30,14 +31,14 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="main_category_right cat-2">
 						<div class="row">
-							{% for product in products %}
+							{% for productrefrigerator in products %}
 							<div class="col-md-3 col-sm-4 col-xs-12">
 								<div class="main_cat_item">
 									<div class="item">
 										<div class="item-img">
-											<a href="{{ product.get_absolute_url }}">
-												{% if product.image %}
-													<img src="{{ product.image.url }}" alt="Products">
+											<a href="{{ productrefrigerator.get_absolute_url }}">
+												{% if productrefrigerator.image %}
+													<img src="{{ productrefrigerator.image.url }}" alt="Products">
 												{% endif %}
 											
 										</div>
@@ -45,9 +46,9 @@
 											<p>Sale</p>
 										</div>
 										<div class="item-sub">
-											<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' product.id product.page_id %}" method="POST">
+											<a href="{{ productrefrigerator.get_absolute_url }}">{{ productrefrigerator.title }}</a>
+										<span class="money">{{ productrefrigerator.price|intcomma:False|translate_number }} {% translate '$' %}</span>
+										<form action="{% url 'cart:cart_add_refrigerator' productrefrigerator.id productrefrigerator.page_id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
 											<div class="quantity-wrapper">
@@ -78,4 +79,5 @@
 			</div>
 		</div>
 	</section>
+	{% include 'footer.html' %}	
 {% endblock content %}

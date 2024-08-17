@@ -7,6 +7,7 @@
 {% block title %}{% trans 'product Office machines' %}{% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'Office machines' as 'Office machines' %}
 {% include 'topheader.html' with header_name='Office machines' %}
 	<div class="breadcumb_area">
@@ -30,24 +31,24 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="main_category_right cat-2">
 						<div class="row">
-							{% for product in products %}
+							{% for productoffice in products %}
 							<div class="col-md-3 col-sm-4 col-xs-12">
 								<div class="main_cat_item">
 									<div class="item">
 										<div class="item-img">
-											<a href="{{ product.get_absolute_url }}">
-												{% if product.image %}
-													<img src="{{ product.image.url }}" alt="Products">
+											<a href="{{ productoffice.get_absolute_url }}">
+												{% if productoffice.image %}
+													<img src="{{ productoffice.image.url }}" alt="Products">
 												{% endif %}
 											
 										</div>
 										<div class="item-new">
-											<p>Sale</p>
+											<p>{% trans 'Sale' %}</p>
 										</div>
 										<div class="item-sub">
-											<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
-										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' product.id product.page_id %}" method="POST">
+											<a href="{{ productoffice.get_absolute_url }}">{{ productoffice.title }}</a>
+										<span class="money">{{ productoffice.price|intcomma:False|translate_number }} {% translate '$' %}</span>
+										<form action="{% url 'cart:cart_add_office' productoffice.id productoffice.page_id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
 											<div class="quantity-wrapper">
@@ -78,4 +79,5 @@
 			</div>
 		</div>
 	</section>
+	{% include 'footer.html' %}	
 {% endblock content %}

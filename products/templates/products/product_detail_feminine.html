@@ -13,6 +13,7 @@
 {% block title %}{% trans 'product detail' %}{% endblock title%} 
 
 {% block content %}
+{% include 'header.html' %} 
 {% trans 'product detail' as 'product detail' %}
 {% include 'topheader.html' with header_name='product detail' %}
 <div class="breadcumb_area">
@@ -24,7 +25,7 @@
                         <li><a href="{% url 'product_list' %}">{% trans 'home' %} <span>|</span></a></li>
                         <li><a href="cart.html">{% trans 'shop' %}<span>|</span></a></li>
                         <li><a href="{% url 'product_list_feminine' %}">{% trans 'feminine' %} <span>|</span></a></li>
-                        <li class="active"><a href="">{{product.title}}</a></li>
+                        <li class="active"><a href="">{{productfeminine.title}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +43,7 @@
                         <div role="tabpanel">
                            
                            <div class="img-zoom-container">
-                                <img id="myimage" src="{{ product.image.url }}" width="450" height="240" alt="Girl">
+                                <img id="myimage" src="{{ productfeminine.image.url }}" width="450" height="240" alt="Girl">
 
                                 </div>
                            
@@ -53,8 +54,8 @@
                 
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
-                            <h3>{{ product.title }}</h3>
-                            <h3> {{ product.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
+                            <h3>{{ productfeminine.title }}</h3>
+                            <h3> {{ productfeminine.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
                             
                         </div>
                         <div class="detail_heading_right">
@@ -80,7 +81,7 @@
                         </div>
                         <div id="collapseOneP" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneP">
                           <div class="panel-body product_ac_body">
-                            {{ product.description|truncatechars:300 }}
+                            {{ productfeminine.description|truncatechars:300 }}
                           </div>
                         </div>
                      </div>
@@ -96,34 +97,18 @@
                         <div id="collapseThreeP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeP">
                           <div class="panel-body product_accordion_head">
                             <div class="single_color sp_single_col">
-                                <div class="color_heading"><h5>{% trans 'Colors' %}</h5></div>
+                              
                                 <div class="color_detail">
-                                    <div class="panel-body colors_cat">
-                                        
-                                        <ul id="cat_color">
-                                            <li><a style= "background-color:#8B0000" href="#8B0000"></a></li>
-                                            <li><a style= "background-color:#FFFF00;" href="#FFFF00"></a></li>
-                                            <li><a style= "background-color:#006400;" href="#006400"></a></li>
-                                           
-                                        </ul>                             
-                                        
-                                      </div>
+                                    <div class="panel-body colors_cat">    
+                                 </div>
                                     
                                 </div>
                             </div>
                             <div class="single_color">
-                            <div class="color_heading"><h5>{% trans 'Select size' %} </h5></div>
                             <div class="color_detail">
                             <div class="color_size_detail">
-                                <ul id="color_size">
-                                    <li><a href="">xs</a></li>
-                                    <li><a href="">s</a></li>
-                                    <li><a href="">m</a></li>
-                                    <li><a href="">l</a></li>
-                                    <li><a href="">xl</a></li>
-                                </ul>
                             </div>
-                            </div>
+                           
                             </div>
                             <div class="single_color">
                             <div class="color_heading"><h5>{% trans 'Quantity' %}</h5></div>
@@ -132,7 +117,7 @@
                                     
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                <form action="{% url 'cart:cart_add' productfeminine.id %}" method="POST">
+                                <form action="{% url 'cart:cart_add_feminine' productfeminine.id productfeminine.page_id %}" method="POST">
                                     {% csrf_token %}
                                     <div class='quantity'>
                                         <input type="number" class="quantity-input" name="quantity" id='qty' value="1"  max="30" min="1">
@@ -142,7 +127,6 @@
                                         </button>
                                         <div class="size_heart">
                                             <a href=""><img src="{{ productfeminine.image.url }}" alt="" /></a>
-                                            <a href=""><img src="{{ productfeminine.color }}" alt="" /></a>
                                         </div>
                                        
                                 </form>

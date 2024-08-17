@@ -9,8 +9,8 @@
 {% endblock title %}
 
 {% block content %}
+{% include 'header.html' %} 
 {% trans 'detail blog' as 'detail blog' %}
-{% include 'topheader.html' with header_name='detail blog' %}
 <section class="blog_slider_area">
     <div class="container">
         <div class="row">
@@ -38,37 +38,19 @@
     </div>
 </div>
 
-<section class="blog_page_area">
+<section class="blog_page_area" dir="rtl" align="right">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="single_blog_in_page">
                     <div class="blog_img_l"><img src="{{ product.imag.url }}" alt="" /></div>
                     <div class="blog_date_in_page">
-                        <h2>_ <span>18</span></h2>
                         <p>april 2015</p>
                     </div>
                     
             </div>
                     <div class="blog_detail_in_page">
                         <p>{{ product.description}}</p>
-                        <ul id="single_blog_nav">
-                            <li><a href=""><i class="fa fa-caret-right"></i> Nemo enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugit.</a></li>
-                            <li><a href=""><i class="fa fa-caret-right"></i> Dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia nonas.</a></li>
-                            <li><a href=""><i class="fa fa-caret-right"></i> Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.</a></li>
-                        </ul>
-                        
-                    </div>
-                    <div class="share">
-                        <span>12 shares</span>
-                    </div>
-                    <div class="share_icons">
-                        <ul id="share_icon">
-                            <li><a class="fa fa-facebook" href=""></a></li>
-                            <li><a class="fa fa-twitter" href=""></a></li>
-                            <li><a class="fa fa-google-plus" href=""></a></li>
-                            <li><a class="fa fa-linkedin" href=""></a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="comments">
@@ -76,18 +58,18 @@
                     <div class="multi_line"></div>
                     <div class="single_comment">
                         <div class="comment_img">
-                            <img src="{% static 'images/comment1.png' %}" alt="" />
+                            <img src="" alt="" />
                         </div>
                         {% if user.is_authenticated %}
-                        <h3>{% trans 'Write your review' %}</h3>
+                        <h3 dir="rtl" align="right">{% trans 'Write your review' %}</h3>
                         <div class="multi_line"></div>
                     </div>
                     <p id="" class="invalid-feedback">
                         <form action="{% url 'comment_create_blog' product.id %}" method="POST">
                             {% csrf_token %}
                             {{ comment_form|crispy }}
-                          <a href="">
-                            <input type="submit" value="post comment" />
+                          <a href=""  dir="rtl" align="right">
+                            <input type="submit" value="{% trans 'post comment' %}" /></a>
                          </form>
     
                        {% else %}
@@ -107,8 +89,8 @@
                                     <img src="{{ product.image.url }}" alt="" />
                                 </div>
                                 <div class="single_review_text">
-                                    <h4>{{ comment.stars }}</h4>
-                                    <p>{{ comment.body }}</p>
+                                    <h4  dir="rtl" align="right">{{ comment.stars }}</h4>
+                                    <p  dir="rtl" align="right">{{ comment.body }}</p>
                                     <div class="review_italic">
                                         <p><span>{{ comment.author.username }}</span> {{ comment.datetime_created }}</p>
                                     </div>
@@ -128,21 +110,7 @@
                         <input type="text" placeholder="search post HERE..." />
                         <i class="fa fa-search"></i>
                     </div>
-                    <div class="blog_widget">
-                        <h2>TEXT WIDGET</h2>
-                        <div class="multi_line"></div>
-                        <p>{{ product.short_description }}</p>
-                    </div>
-                    <div class="blog_categories">
-                        <h2>{% trans 'POST CATEGORIES' %}</h2>
-                        <div class="multi_line"></div>
-                        <ul id="blog_categories">
-                            <li><a href="{% url 'product_list' %}">{% trans 'Offers & Discounts' %}</a></li>
-                        </ul>
-                    </div>
-                  
-                </div>
-            </div>
+
         </div>
     </div>
 </section>

@@ -5,6 +5,7 @@
 {% load humanize %}
 {% block title %}{% trans 'orders' %}{% endblock title %}
 {% block content %}
+{% include 'header.html' %} 
 {% load i18n %}
 {% trans 'Orders' as 'Orders' %}
 {% include 'topheader.html' with header_name='Orders' %}
@@ -15,7 +16,6 @@
                 <div class="bread_box">
                     <ul class="breadcumb">
                         <li><a href="{% url 'product_list' %}">{% trans 'home' %}<span>|</span></a></li>
-                        <li><a href="category-1.html">Shop <span>|</span></a></li>
                         <li><a href="{% url 'cart:cart_detail' %}">{% trans 'Cart' %} <span>|</span></a></li>
                         <li class="active"><a href="">{% trans 'orders' %}</a></li>
                     </ul>
@@ -82,7 +82,7 @@
                                 <textarea name="{{ form.order_notes.name }}"  placeholder="{% trans 'If you have a note, enter it here. Otherwise, leave this place blank' %}" cols="30" rows="10"></textarea>
                            
                         </div>
-                        {% comment %} <button class="btn" type="submit">{% translate 'Submit' %}</button> {% endcomment %}
+                        <button class="btn" type="submit">{% trans 'Submit' %}</button>
                     </form>     
                     </div>
     
@@ -97,38 +97,39 @@
                     
                     <div class="product_form_total">
                         <div class="c_main_item">
-                            <p>{% trans 'Product' %}</p>
                             <span>{% trans 'Total' %}</span>
+                            <p>{% trans 'Product' %}</p>
+                            
                         </div>
-                        {% for item in cart %}
+                        {% for product in cart %}
                         <div class="c_single_item">
-                            <p>{{ item.product_obj.title }} &#215; <span> {{ item.quantity }} </span></p>
-                            <span>{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                            <span>{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                            <p>{{ product.title }} &#215; <span> {{ product.quantity }} </span></p>
                         </div>
                         {% endfor %}
                         <div class="c_single_item">
-                            <p>{% trans 'subtotal' %}</p>
                             <span>{{ cart.get_total_price|intcomma:False|translate_number }} {% translate '$' %}</span>
+                            <p>{% trans 'subtotal' %} : </p>
+                            
                         </div>
                        
                         <div class="c_single_item sp_single_item">
-                            <p>{% trans 'Shipping Charge' %}</p>
                             <span>{% trans 'Free' %}</span>
+                            <p>{% trans 'Shipping Charge' %} : </p>
+                           
                         </div>
                         <div class="c_total_item sp_single_item">
-                            <p>{% trans 'Order Total' %}</p>
                             <span>{{ cart.get_total_price|intcomma:False|translate_number }} {% translate '$' %}</span>
+                            <p>{% trans 'Order Total' %} : </p>
+                           
                         </div>
                         <div class="c_payment">
                             <p>{% trans 'Select Payment Method' %}</p>
-                            <select class="selectpicker sel_state" >
+                            <select class="selectpicker sel_state">
                               <option>{% trans 'zarin pal' %}</option>
                             </select>
                         </div>
                         <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I have Read & Accept <span>Terms & Conditions</span>
-                            </label>
                         </div>
                         <input type="submit" value={% trans "Place order now" %}/>
                     </div>

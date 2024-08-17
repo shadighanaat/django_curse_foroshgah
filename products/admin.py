@@ -10,9 +10,13 @@ from .models import (Product, Comment, Category,
                       ProductOffice,
                       ProductCooking, 
                       ProductListblog,
+                      CartItem,
+                     
+                     
                      
                       
 )
+
 
 
 class CommentInline(admin.TabularInline):
@@ -109,3 +113,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['product', 'body', 'author', 'stars', 'active']
 
 
+admin.site.register(CartItem)

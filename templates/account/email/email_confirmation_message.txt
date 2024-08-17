@@ -4,9 +4,9 @@
 {% autoescape off %}
 {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
 
-{% trans 'Hello from' %} {{ site_name }}.
+Hello from {{ site_name }}.
 
-{% trans 'If you requested this email please click on the link below:' %}
+If you requested this email please click on the link below:
 {{ activate_url }}
 
 {% endblocktrans %}

@@ -45,12 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # third party apps
-    # 'jalali_date',
+   
     
     'django.contrib.humanize',
     
-   
+    # third party apps
+    # 'jalali_date',
     
     # local apps
     'accounts.apps.AccountsConfig',
@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap4',
+    # 'colorfield',
+   
 
 ]
 

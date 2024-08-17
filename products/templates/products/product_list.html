@@ -51,7 +51,7 @@
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="header_right floatright">
                     <ul class="checkout">
-                        <li class="mobi_right_li"><a href="{% url 'order_create' %}"><i class="fa fa-shopping-cart"></i>{% trans 'checklist' %}</a></li>
+                        <li class="mobi_right_li"><a href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart"></i>{% trans 'checklist' %}</a></li>
                     </ul>
                     <div class="w_likes">
                         <span></span>
@@ -66,7 +66,7 @@
     <div class="container">
               
         <div class="nav_left floatleft">
-            <a href="category-1.html" dir="rtl" align="right">{% trans 'category' %}<i class="fa fa-bars"></i></a>
+           <a href="category-1.html" dir="rtl" align="right">{% trans 'category' %}<i class="fa fa-bars"></i></a>
             <div class="cat_mega_menu"  dir="rtl" align="right">
                     <div class="cat_left">
                         <h5>{% trans 'clothing' %}</h5>
@@ -130,7 +130,7 @@
             </nav>
         </div>
         <div class="nav_right floatright">
-            <a href=""{% url 'cart:cart_detail' %}""><img src="{% static 'images/bag.png' %}" alt="Bag" />{% trans 'cart' %}: {{ cart|length }}</a>
+            <a href=""{% url 'cart:cart_detail' %}""><img src="{% static 'images/bag.png' %}" alt="Bag" />{% trans 'cart' %}: {{ cart|length|translate_number }}</a>
             {% include 'cart/cart_sidebar.html' %}
         </div>
         
@@ -264,7 +264,7 @@
 										<div class="tr-add-cart">
 											<ul>
 												<li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li> 
-												<li><a class="tr_text" href="{% url 'cart:cart_add' product.id product.page_id %}">{% trans 'ADD TO CART' %}</a></li>
+												<li><a class="tr_text" href="{% url 'cart:cart_add' product.id product.page_id%}">{% trans 'ADD TO CART' %}</a></li>
 												{% comment %} <li><a class="fa fa-heart tr_heart" href="#"></a></li> {% endcomment %}
 												{% comment %} <li><a class="fa fa-search tr_search" href="{% url 'product_detail_feminine' product.id %}"></a></li> {% endcomment %}
 											</ul>
@@ -446,4 +446,5 @@
 			</div>
 		</div>
 </section>
+{% include 'footer.html' %}		
 {% endblock content %}

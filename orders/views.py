@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -9,6 +9,9 @@ from django.utils.translation import gettext as _
 from cart.cart import Cart
 from .forms import OrderForm
 from .models import OrderItem
+from products.models import Product, ProductMen, ProductFeminine, ProductChildish, ProductCooking, ProductHeadphone, ProductLaptop, ProductOffice, ProductRefriGerator, ProductWashing
+from django.http import Http404
+
 
 @login_required
 def order_create_view(request):
@@ -26,14 +29,49 @@ def order_create_view(request):
             order_obj = order_form.save(commit=False)
             order_obj.user = request.user
             order_obj.save()
-
+            def get_product_model(product_type):
+              if product_type == 'product':
+                return Product
+              elif product_type == 'productmen':
+                  return ProductMen
+              elif product_type == 'productfeminine':
+                 return ProductFeminine
+              elif product_type == 'productchildish':
+                  return ProductChildish
+              elif product_type == 'productcooking':
+                  return ProductCooking
+              elif product_type == 'productheadphone':
+                  return ProductHeadphone
+              elif product_type == 'productlaptop':
+                  return ProductLaptop
+              elif product_type == 'productoffice':
+                  return ProductOffice
+              elif product_type == 'productrefrigerator':
+                  return ProductRefriGerator
+              elif product_type == 'productwashing':
+                  return ProductWashing
+              else:
+                  raise ValueError(f"Unknown product type: {product_type}")
+            
             for item in cart:
-                product = item['product_obj']
+                product_id = item['id']
+                page_id = item['page_id']
+                product_type = item.get('product_type')
+               
+                product_model = get_product_model(product_type)
+
+
+                
+            
+                product = get_object_or_404(product_model , id=product_id, page_id=page_id)
+                # order_item = OrderItem.objects.get(id=product_id)
+               
                 OrderItem.objects.create(
                     order=order_obj,
-                    product=product,
+                 
+                    product = product,
                     quantity=item['quantity'],
-                    price=product.price,
+                    price=item['price'],
                 )
 
             cart.clear()

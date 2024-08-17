@@ -140,7 +140,7 @@ class ProductMenDetailView(generic.DetailView):
     model = ProductMen
     template_name = 'products/product_detail_men.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productmen'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -164,7 +164,7 @@ class ProductChildishDetailView(generic.DetailView):
     model = ProductChildish
     template_name = 'products/product_detail_childish.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productchildish'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -176,7 +176,7 @@ class ProductHeadphoneDetailView(generic.DetailView):
     model = ProductHeadphone
     template_name = 'products/product_detail_Headphone.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productheadphone'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -188,7 +188,7 @@ class ProductCookingDetailView(generic.DetailView):
     model = ProductCooking
     template_name = 'products/product_detail_cooking.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productcooking'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -200,7 +200,7 @@ class  ProductlaptopDetailView(generic.DetailView):
     model = ProductLaptop
     template_name = 'products/product_detail_Laptop.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productlaptop'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -212,7 +212,7 @@ class ProductRefrigeratorDetailView(generic.DetailView):
     model = ProductRefriGerator
     template_name = 'products/product_detail_Refrigerator.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productrefrigerator'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -224,7 +224,7 @@ class  ProductWashingDetailView(generic.DetailView):
     model = ProductWashing
     template_name = 'products/product_detail_Washing.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productwashing'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -236,7 +236,7 @@ class ProductOfficeDetailView(generic.DetailView):
     model = ProductOffice
     template_name = 'products/product_detail_office.html'
       
-    context_object_name = 'product'
+    context_object_name = 'productoffice'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

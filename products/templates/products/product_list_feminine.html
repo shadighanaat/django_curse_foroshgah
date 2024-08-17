@@ -9,6 +9,7 @@
 {% block title %}{% trans 'product feminine' %}{% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'feminine' as 'feminine' %}
 {% include 'topheader.html' with header_name='feminine' %}
 	<div class="breadcumb_area">
@@ -49,7 +50,7 @@
 										<div class="item-sub">
 											<a href="{{ productfeminine.get_absolute_url }}">{{ productfeminine.title }}</a>
 										<span class="money">{{ productfeminine.price|intcomma:False|translate_number }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' productfeminine.id productfeminine.page_id %}" method="POST">
+										<form action="{% url 'cart:cart_add_feminine' productfeminine.id productfeminine.page_id%}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
 											<div class="quantity-wrapper">
@@ -80,4 +81,5 @@
 			</div>
 		</div>
 	</section>
+	{% include 'footer.html' %}	
 {% endblock content %}

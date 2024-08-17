@@ -14,7 +14,8 @@
     <form action="" method="post" dir="rtl" align="right">
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="{% trans 'submit' %}" value="{% trans 'Log In' %}">
+        <input type="submit" value="{% trans 'login' %}">
     </form>
 </div>
+{% include 'footer.html' %}		
 {% endblock %}

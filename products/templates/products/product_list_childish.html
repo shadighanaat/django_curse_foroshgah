@@ -9,6 +9,7 @@
 {% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'chidish' as 'childish' %}
 {% include 'topheader.html' with header_name='childish' %}
 	<div class="breadcumb_area">
@@ -32,14 +33,14 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="main_category_right cat-2">
 						<div class="row">
-							{% for product in productchildishs %}
+							{% for productchildish in productchildishs %}
 							<div class="col-md-3 col-sm-4 col-xs-12">
 								<div class="main_cat_item">
 									<div class="item">
 										<div class="item-img">
-											<a href="{{ product.get_absolute_url }}">
-												{% if product.image %}
-													<img src="{{ product.image.url }}" alt="Products">
+											<a href="{{ productchildish.get_absolute_url }}">
+												{% if productchildish.image %}
+													<img src="{{ productchildish.image.url }}" alt="Products">
 												{% endif %}
 											
 										</div>
@@ -47,9 +48,9 @@
 											<p>{% trans 'Sale' %}</p>
 										</div>
 										<div class="item-sub">
-											<a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+											<a href="{{ productchildish.get_absolute_url }}">{{ productchildish.title }}</a>
 										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
-										<form action="{% url 'cart:cart_add' product.id product.page_id %}" method="POST">
+										<form action="{% url 'cart:cart_add_childish' productchildish.id productchildish.page_id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
 											<div class="quantity-wrapper">
@@ -80,4 +81,5 @@
 			</div>
 		</div>
 	</section>
+	{% include 'footer.html' %}	
 {% endblock content %}

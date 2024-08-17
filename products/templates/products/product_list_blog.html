@@ -8,6 +8,7 @@
 {% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% trans 'blog' as 'blog' %}
 {% include 'topheader.html' with header_name='blog' %}
 <div class="breadcumb_area">
@@ -62,4 +63,5 @@
         </div>
     </div>
 </section>
+{% include 'footer.html' %}	
 {% endblock content %}

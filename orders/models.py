@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 # Create your models here.
 from django.db import models
 from django.conf import settings
@@ -28,22 +29,31 @@ class Order(models.Model):
     def get_total_price(self):
         return sum(item.quantity * item.price for item in self.items.all())
 
-
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items', blank=True, null=True,)
-    product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productmen = models.ForeignKey('products.ProductMen', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productfeminine = models.ForeignKey('products.ProductFeminine', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productchildish = models.ForeignKey('products.ProductChildish', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productrefriGerator = models.ForeignKey('products.ProductRefriGerator', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productwashing = models.ForeignKey('products.ProductWashing', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productcooking = models.ForeignKey('products.ProductCooking', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productlaptop = models.ForeignKey('products.ProductLaptop', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productheadphone = models.ForeignKey('products.ProductHeadphone', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
-    productoffice = models.ForeignKey('products.ProductOffice', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, blank=True, null=True,)
+    object_id = models.PositiveIntegerField(blank=True, null=True,)
+    product = GenericForeignKey('content_type', 'object_id')
     quantity = models.PositiveIntegerField(default=1)
     price = models.PositiveIntegerField()
 
     def __str__(self):
-        return f'OrderItem {self.id}: {self.product} x {self.quantity} (price:{self.price})'
+        return f"{self.quantity} x {self.product} (price:{self.price})"
+# class OrderItem(models.Model):
+#     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items', blank=True, null=True,)
+#     product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productmen = models.ForeignKey('products.ProductMen', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productfeminine = models.ForeignKey('products.ProductFeminine', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productchildish = models.ForeignKey('products.ProductChildish', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productrefriGerator = models.ForeignKey('products.ProductRefriGerator', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productwashing = models.ForeignKey('products.ProductWashing', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productcooking = models.ForeignKey('products.ProductCooking', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productlaptop = models.ForeignKey('products.ProductLaptop', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productheadphone = models.ForeignKey('products.ProductHeadphone', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     productoffice = models.ForeignKey('products.ProductOffice', on_delete=models.CASCADE, related_name='order_items', blank=True, null=True,)
+#     quantity = models.PositiveIntegerField(default=1)
+#     price = models.PositiveIntegerField()
 
+#     def __str__(self):
+#         return f'OrderItem {self.id}: {self.product} x {self.quantity} (price:{self.price})'
+    

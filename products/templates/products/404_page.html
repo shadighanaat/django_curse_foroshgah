@@ -8,6 +8,7 @@
 {% endblock title %}
 
 {% block content%}
+{% include 'header.html' %} 
 {% include 'topheader.html' with header_name='404' %}
 <div class="breadcumb_area">
     <div class="container">
@@ -39,4 +40,5 @@
         </div>
     </div>
 </section>
+{% include 'footer.html' %}	
 {% endblock content %}

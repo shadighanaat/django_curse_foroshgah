@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 02:29+0330\n"
-"PO-Revision-Date: 2024-07-07 01:19+0330\n"
+"POT-Creation-Date: 2024-07-18 14:41+0330\n"
+"PO-Revision-Date: 2024-07-18 14:43+0330\n"
 "Last-Translator: شادی للل <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,11 +27,11 @@ msgstr "کاربر"
 msgid "Is Paid?"
 msgstr "پرداخت شده؟"
 
-#: .\models.py:13 .\templates\orders\order_create.html:50
+#: .\models.py:13 .\templates\orders\order_create.html:51
 msgid "First Name"
 msgstr "نام "
 
-#: .\models.py:14 .\templates\orders\order_create.html:40
+#: .\models.py:14 .\templates\orders\order_create.html:41
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
@@ -39,11 +39,11 @@ msgstr "نام خانوادگی"
 msgid "Phone Number"
 msgstr "شماره موبایل"
 
-#: .\models.py:16 .\templates\orders\order_create.html:61
+#: .\models.py:16 .\templates\orders\order_create.html:62
 msgid "Address"
 msgstr "آدرس"
 
-#: .\models.py:18 .\templates\orders\order_create.html:81
+#: .\models.py:18 .\templates\orders\order_create.html:82
 msgid "Order Notes"
 msgstr "یادداشت های سفارش"
 
@@ -56,72 +56,87 @@ msgid "Modified"
 msgstr "اصلاح شده"
 
 #: .\templates\orders\order_create.html:6
-#: .\templates\orders\order_create.html:20
+#: .\templates\orders\order_create.html:21
 msgid "orders"
 msgstr "سفارشات"
 
-#: .\templates\orders\order_create.html:9
+#: .\templates\orders\order_create.html:10
 msgid "Orders"
 msgstr "سفارشات"
 
-#: .\templates\orders\order_create.html:17
+#: .\templates\orders\order_create.html:18
 msgid "home"
 msgstr "خانه"
 
-#: .\templates\orders\order_create.html:19
+#: .\templates\orders\order_create.html:20
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: .\templates\orders\order_create.html:62
-#| msgid "Address"
+#: .\templates\orders\order_create.html:63
 msgid "Street Address"
 msgstr "آدرس"
 
-#: .\templates\orders\order_create.html:70
+#: .\templates\orders\order_create.html:71
 msgid "Phone"
 msgstr "تلفن"
 
-#: .\templates\orders\order_create.html:82
+#: .\templates\orders\order_create.html:83
 msgid "If you have a note, enter it here. Otherwise, leave this place blank"
 msgstr ""
 "اگر یادداشتی دارید در اینجا وارد کنید. در غیر این صورت، این مکان را خالی "
 "بگذارید"
 
-#: .\templates\orders\order_create.html:97
+#: .\templates\orders\order_create.html:98
 msgid "Review of Your Order"
 msgstr "بررسی سفارش شما"
-
-#: .\templates\orders\order_create.html:101
-msgid "Product"
-msgstr "محصول"
 
 #: .\templates\orders\order_create.html:102
 msgid "Total"
 msgstr "جمع"
 
-#: .\templates\orders\order_create.html:107
-#: .\templates\orders\order_create.html:112
-#: .\templates\orders\order_create.html:121
+#: .\templates\orders\order_create.html:103
+msgid "Product"
+msgstr "محصول"
+
+#: .\templates\orders\order_create.html:108
+#: .\templates\orders\order_create.html:113
+#: .\templates\orders\order_create.html:124
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\orders\order_create.html:111
+#: .\templates\orders\order_create.html:114
 msgid "subtotal"
 msgstr "جمع فرعی"
 
-#: .\templates\orders\order_create.html:116
-msgid "Shipping Charge"
-msgstr "هزینه حمل و نقل"
-
-#: .\templates\orders\order_create.html:117
+#: .\templates\orders\order_create.html:119
 msgid "Free"
 msgstr "رایگان"
 
 #: .\templates\orders\order_create.html:120
+msgid "Shipping Charge"
+msgstr "هزینه حمل و نقل"
+
+#: .\templates\orders\order_create.html:125
 msgid "Order Total"
 msgstr "سفارش مجموع"
 
+#: .\templates\orders\order_create.html:129
+msgid "Select Payment Method"
+msgstr "روش پرداخت را انتخاب کنید"
+
+#: .\templates\orders\order_create.html:131
+msgid "zarin pal"
+msgstr "زرین پال"
+
 #: .\templates\orders\order_create.html:136
+msgid "I have Read & Accept"
+msgstr ""
+
+#: .\templates\orders\order_create.html:136
+msgid "Terms & Conditions"
+msgstr ""
+
+#: .\templates\orders\order_create.html:139
 msgid "Place order now"
 msgstr "سفارش "
 

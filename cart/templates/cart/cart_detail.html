@@ -8,7 +8,8 @@
 {% load humanize %}
 
 {% block content %}
-{% trans 'cart' as 'cart' %}
+{% include 'header.html' %}
+{% trans 'CART' as 'CART' %}
 {% include 'topheader.html' with header_name='cart' %}
 <div class="breadcumb_area">
     <div class="container">
@@ -32,7 +33,7 @@
                 <div class="main_cart_left">
                     <div class="cart_heading">
                         <div class="h_item1">
-                            <h4>{% trans 'total' %}</h4>
+                            <h4>{% trans 'product' %}</h4>
                         </div>
                         <div class="h_item2" >
                             <h4>{% trans 'Price' %}</h4>
@@ -41,53 +42,94 @@
                             <h4>{% trans 'Quantity' %}</h4>
                         </div>
                         <div class="h_item4">
-                            <h4>{% trans 'product' %}</h4>
+                            <h4>{% trans 'total' %}</h4>
                         </div>
                     </div>
                  
-               {% for product in cart %}
-                  <div class="cart_item">
+                {% for product in cart %}
+                  {% comment %} <div class="cart_item">
                     <div class="cart_total"  dir="rtl" >
-                        <h4>{{cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</h4>
+                        <h4>{{product.total_price|intcomma:False|translate_number }} {% trans '$' %}</h4>
                        <span><i class="fa fa-close"></i></span>
                     </div>
                         <div class="cart_price">
-                          <h4 dir="rtl" align="right">{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}
+                          <h4 dir="rtl" align="right">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}
                             </h4>
                         </div>
                        
                         <div class="cart_quantity">
-                            <form class="d-flex p-5" dir="rtl"  method="POST" action="{% url 'cart:cart_add' item.product_obj.id item.product_obj.page_id %}">
+                            <form class="d-flex p-5" dir="rtl"  method="POST" action="">
                                 {% csrf_token %}
                              <div class="input-group quantity-selector quantity-selector-sm" dir="rtl" align="right">
-                                <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ item.quantity }}" min="0" max="30"  aria-label="Quantity selector">
-                                {{ item.product_update_quantity_form.inplace }}
+                                <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ product.quantity }}" min="0" max="30"  aria-label="Quantity selector">
+                                {{ product.product_update_quantity_form.inplace }}
                                 <button class="small" dir="rtl" align="right" type="submit"><i class="fa fa-refresh"></i></button>
                               </div>
                             </form>  
                         </div>
                         <div class="cart_item_img" dir="rtl" align="right">
-                            <h4 style="font-family:verdana"><a href="{{ item.product_obj.get_absolute_url }}">
+                            <h4 style="font-family:verdana"><a href="{{ product.get_absolute_url }}">
                                 {{ product.title }}</a></h4>
                           <div class="product-thumbnail text-left">
-                                {% if item.product_obj.image %}
-                                <img dir="rtl" align="right" src="{{ item.product_obj.image.url }}" alt=""  width="150" height="150"/>
+                                {% if product.image %}
+                                <img dir="rtl" align="right" src="{{ product.image.url }}" alt=""  width="150" height="150"/>
                                 {% endif %} 
                             
                             </div>
                         </div>        
                      
+                    </div> {% endcomment %}
+                    <div class="cart_item">
+                        <div class="cart_item_img">
+                            {% if product.image %}
+                            <img dir="rtl" align="right" src="{{ product.image }}" alt=""  width="150" height="150"/>
+                            {% endif %}
+                            <a href="{{ product.get_absolute_url }}">
+                            <p>{{ product.title }}</p></a>
+                        </div>
+                        <div class="cart_price">
+                            <p>{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</p>
+                        </div>
+                      {% comment %} <p>Product ID: {{ product.id }}</p>
+                        <p>Page ID: {{ product.page_id }}</p>  {% endcomment %}
+                        <div class="cart_quantity">
+                          <form method="post" class="d-flex p-4" action="{% url 'cart:cart_add' product.id product.page_id %}">
+                                {% csrf_token %}
+                                {{ product.product_update_quantity_form.inplace }}
+                                <button class="small" dir="rtl" align="right" type="submit"><i class="fa fa-refresh"></i></button>
+                                <div class="input-group quantity-selector quantity-selector-sm" dir="rtl" align="right">
+                                <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="{{ product.quantity }}" min="1" max="30"  aria-label="Quantity selector">
+                               
+                            {% comment %} <form class="d-flex p-4" method="POST" action="{% url 'cart:cart_add' product.id product.page_id %}">
+                                    {% csrf_token %}
+                                <input type="number" step="1" max="30" value="{{ product.qauntity }}"  name="quantity" class="quantity-field border-0 text-center">
+                                {{ product.product_update_quantity_form.inplace }}
+                                <button class="small" dir="rtl" align="right" type="submit"><i class="fa fa-refresh"></i></button> {% endcomment %}
+                               </div>  
+                          </form>
+                                
+                           
+                         </div>
+                        <div class="cart_total">
+                            <p>{{product.total_price|intcomma:False|translate_number }} {% trans '$' %}</p>
+                            <span><i class="fa fa-close"></i></span>
+                        </div>
                     </div>
-                   
-                    <div class="" dir="rtl" align="right">
-                    <a href="{% url 'cart:cart_remove' item.product_obj.id item.product_obj.page_id %}" class="cart_update"><h4>{% trans 'delete' %}</h4></a></div>
+                  
+                    {% comment %} <div class="" dir="rtl" align="right"> {% endcomment %}
+                        <form action="{% url 'cart:cart_remove' product.id product.page_id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">{% trans 'delete' %}</button>
+                        </form>
+                    {% comment %} <a href="{% url 'cart:cart_remove' product.id product.page_id %}" class="cart_update">
+                    <h4>{% trans 'delete' %}</h4></a></div> {% endcomment %}
                 {% endfor %}
               </div>
             </div>
-                {% else %}
-                   <p>{% trans 'Cart is Empty! Please add some products to the cart' %}</p>
-                   <a href="{% url 'product_list' %}">{% trans 'Go shopping' %}</a>
-                {% endif %}
+            {% else %}
+                <p>{% trans 'Cart is Empty! Please add some products to the cart' %}</p>
+                <a href="{% url 'product_list' %}">{% trans 'Go shopping' %}</a>
+            {% endif %}
                   <div class="col-md-3 col-sm-4 col-xs-12">
                        <div class="product_form_total">
                             {% if not cart.is_empty %}
@@ -115,11 +157,9 @@
                         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body cart_p_body">
                         <div class="c_single_item">
-                            <p>{% trans 'SubTotal' %}</p>
-                            <span>{{ item.total_price|intcomma:False|translate_number }} {% trans '$' %}</span>
                          </div>
                         <div class="c_single_item cart_last_total">
-                            <p>{% trans 'Shipping Charge' %}</p>
+                            <p>{% trans 'Shipping Charge' %} : </p>
                             <span>{% trans 'Free' %}</span>
                         </div>
                         <div class="c_total_item sp_single_item">
@@ -127,7 +167,7 @@
                              <span>{{ cart.get_total_price|intcomma:False|translate_number }} {% translate '$' %}</span>
                         </div>
                         </div> 
-                        <form action="" method="POST">
+                        <form action="{% url 'cart:cart_detail' %}" method="POST">
                             {% csrf_token %}
                         <button type="submit" class="cart-form__btn btn-danger">
                             {% translate 'update cart' %}
