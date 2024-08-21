@@ -35,6 +35,7 @@ from .views import (ProductListView,
                     CommentRefriGeratorCreateView,
                     CommentBlogCreateView,
                     CommentOfficeCreateView,
+                    search_view,
                   
                     )
 
@@ -74,4 +75,5 @@ urlpatterns = [
     path('comment/refrigerator/<int:product_id>/', CommentRefriGeratorCreateView.as_view(), name='comment_create_refrigerator'),
     path('comment/blog/<int:product_id>/', CommentBlogCreateView.as_view(), name='comment_create_blog'),
     path('delete/', ProductDeleteView.as_view(), name='404_page'),
+    path('search/', search_view, name='search'),
 ]

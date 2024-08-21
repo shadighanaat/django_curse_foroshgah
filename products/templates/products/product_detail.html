@@ -42,9 +42,7 @@
                            
                            <div class="img-zoom-container">
                                 <img id="myimage" src="{{ product.image.url }}" width="450" height="240" alt="Girl">
-
-                                </div>
-                           
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,17 +51,9 @@
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ product.title }}</h3>
-                            <h3> {{ product.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
-                            
+                            <h3> {{ product.price|intcomma:False|translate_number }} {% trans '$' %} </h3> 
                         </div>
-                        <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
+                        <div class="detail_heading_right"> 
                             <h5>{% trans 'Review'%}{{ product.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
                     </div>
@@ -101,16 +91,6 @@
                                     
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                            </div>
-                            </div>
-                          
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="single_color">
                                     <div class="color_heading"><h5></h5></div>
                                     <div class="color_detail">
@@ -119,7 +99,7 @@
                                     {% csrf_token %}
                                     
                                     <div class='quantity'>
-                                        <input type="number" class="quantity-input" name="quantity" id='qty-1' value=""  max="30" min="1">
+                                        <input type="number" class="quantity-input" name="quantity" id='qty-1' value="1"  max="30" min="1">
                                     </div> 
                                         <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
                                             {% trans 'Add to Cart' %}
@@ -127,11 +107,8 @@
                                         <div class="size_heart">
                                             <a href=""><img src="{{ product.image.url }}" alt="" /></a>
                                         </div>
-                                       
                                 </form>
                                 </div> 
-                                
-                                
                             </div>
                             </div>
                             
@@ -147,6 +124,7 @@
         </div>
     </div>
 </section>
+
 <section class="product_page_tab_area" dir="rtl" align="right"> 
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -216,12 +194,12 @@
                                     </div>
                         </div>
                       </div>
-                    </div>
-                    
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 {% endblock %}
 

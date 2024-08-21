@@ -1,7 +1,7 @@
 {% extends "_base.html" %}
 {% load static %}
-{% load i18n %}
 
+{% load i18n %}
 {% load persian_translation_tags %}
 
 {% block title %}{% trans 'blog' %}
@@ -34,12 +34,9 @@
                 <div class="single_blog_in_page">
                     <div class="blog_img_l"><img src="{{ product.imag}}" alt="" /></div>
                     <div class="blog_date_in_page">
-                        <h2>_ <span>12</span></h2>
-                        <p></p>
                     </div>
                     <div class="blog_text_in_page">
                         <a href="single-blog.html"><h3>{{ product.title }}</h3></a>
-                        <h4>By <span>Admin</span>,   comments  <span>23</span>,   summer special</h4>
                         <p>{{ product.discreption }}</p>
                         <div class="read_more">
                             <a class="read_more_blog" href="{% url 'product_detail_blog' product.id %}">{% trans 'Read more' %}</a>

@@ -39,16 +39,30 @@
                     <div class="input_form">
                        
                         <div class="input_left">
+                            <form action="" method="post" dir="rtl" align="right">
+                                {% csrf_token %}
+                                <input  type="text" placeholder="{% trans 'Your Email' %} *" required name="email"/>
+                            </div>
+                            <div class="input_right">
+                                <textarea name="message" placeholder="{% trans 'Message' %}" required></textarea>
+                            </div>
+                        </div>
+                        <div class="submit_btn form-group submitRow">
+                            <a herf="{% url 'product_list' %}">
+                            <input type="submit" name="submit" value="{% trans 'Submit form' %}" /></a>
+                            </form>
+                        {% comment %} <form method="GET" action="">
+                            {% csrf_token %}
                             <input  type="text" placeholder="{% trans 'Your Email' %} *" required name="email"/>
                         </div>
                         <div class="input_right">
                             <textarea name="message" placeholder="{% trans 'Message' %}" required></textarea>
-                           
-                        
                         </div>
                     </div>
                     <div class="submit_btn form-group submitRow">
-                        <input type="submit" name="submit" value="{% trans 'Submit form' %}" />
+                        <a herf="{% url 'account_signup' %}">
+                        <input type="submit" name="submit" value="{% trans 'Submit form' %}" /></a>
+                        </form> {% endcomment %}
                     </div>
                     
                 </form>

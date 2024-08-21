@@ -40,35 +40,22 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single_product_image_tab">
                         <div role="tabpanel">
-                           
                            <div class="img-zoom-container">
                                 <img id="myimage" src="{{ productwashing.image.url }}" width="450" height="240" alt="Girl">
-
-                                </div>
-                           
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ productwashing.title }}</h3>
                           <h3> {{ productwashing.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
-                            
                         </div>
-                        <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
+                        <div class="detail_heading_right"> 
                             <h5>{% trans 'Review'%}{{ productwashing.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
                     </div>
-                    
                     <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
@@ -99,19 +86,8 @@
                                 <div class="color_detail">
                                     <div class="panel-body colors_cat"> 
                                       </div>
-                                    
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                            </div>
-                            </div>
-                          
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="single_color">
                                     <div class="color_heading"><h5></h5></div>
                                     <div class="color_detail">
@@ -127,58 +103,9 @@
                                 <div class="size_heart">
                                     <a href=""><img src="{{ productwashing.image.url }}" alt="" /></a>
                                 </div>
-                               
                         </form>
-                    </div> 
-                        
-                        
-                                
-                                 {% comment %} <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                    <form action="{% url 'cart:cart_add_washing' product.id product.page_id %}" method="POST">
-                                        {% csrf_token %}
-                                        <div class='quantity'>
-                                            <input type="number" class="quantity-input" name="quantity" id='qty' value="1"  max="30" min="1">
-                                        </div>
-                                            <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
-                                                {% trans 'Add to Cart' %}
-                                            </button>
-                                            <div class="size_heart">
-                                                <a href=""><img src="{{ product.image.url }}" alt="" /></a>
-                                                <a href=""><img src="{{ product.color }}" alt="" /></a>
-                                            </div>
-                                           
-                                    </form>
-                            </div>
-                            {% comment %} <div class="single_color"> {% endcomment %}
-{% comment %} 								
-								
-									<div class="size_cart">
-										<a href="{% url 'cart:cart_add_washing' product.id product.page_id %}">{% trans 'Add to Cart' %}</a>
-									</div>
-									
-									<div class="color_heading"><h5>{% trans 'Quantity' %} : </h5></div>
-                                    <div class="color_detail">
-                                        <div class="size_down">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="31" min="1" step="1">
-                                        </div>
-                                        <div class="size_heart">
-                                            <a href=""><img src="{{ product.image.url }}" alt="" /></a>
-                                        </div>
-								</div>
-								</div>
-								 {% endcomment %}
-                                
-                            </div>
-                            </div> 
-                            
-                          </div>
-                        </div>
-                     </div>
-                   </div>
-                    
+                    </div>     
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -253,11 +180,11 @@
                         </div>
                       </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 {% endblock %}
 

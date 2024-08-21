@@ -59,13 +59,6 @@
                             
                         </div>
                         <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
                             <h5>{% trans 'Review'%}{{ productfeminine.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
                     </div>
@@ -104,18 +97,6 @@
                                     
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                           
-                            </div>
-                            <div class="single_color">
-                            <div class="color_heading"><h5>{% trans 'Quantity' %}</h5></div>
-                            <div class="color_detail">
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                 <form action="{% url 'cart:cart_add_feminine' productfeminine.id productfeminine.page_id %}" method="POST">
                                     {% csrf_token %}
@@ -128,26 +109,18 @@
                                         <div class="size_heart">
                                             <a href=""><img src="{{ productfeminine.image.url }}" alt="" /></a>
                                         </div>
-                                       
                                 </form>
-                            </div> 
-                                
-                                
-                            </div>
-                            </div>
-                            
+                            </div>                                     
                           </div>
                         </div>
                      </div>
-                   </div>
-                    
+                   </div>              
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 </section>
+
 <section class="product_page_tab_area" dir="rtl" align="right"> 
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -218,13 +191,10 @@
                         </div>
                       </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
 {% endblock %}
-

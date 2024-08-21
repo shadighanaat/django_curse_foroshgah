@@ -10,7 +10,7 @@ from .models import (Product, Comment, Category,
                       ProductOffice,
                       ProductCooking, 
                       ProductListblog,
-                      CartItem,
+                    #   CartItem,
                      
                      
                      
@@ -113,4 +113,4 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['product', 'body', 'author', 'stars', 'active']
 
 
-admin.site.register(CartItem)
+# admin.site.register(CartItem)

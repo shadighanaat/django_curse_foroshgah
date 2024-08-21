@@ -4,7 +4,7 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
 from django.contrib import messages
-
+from django.shortcuts import redirect
 
 from .models import (Product,
                      ProductMen,
@@ -19,7 +19,7 @@ from .models import (Product,
                      ProductListblog,
                      Comment,
 )
-from .forms import CommentForm
+from .forms import CommentForm, CommentBlog
 from cart.forms import AddToCartProductForm
 
 class ProductListView(generic.ListView):
@@ -100,11 +100,11 @@ class ProductBlogView(generic.ListView):
 class ProductDetailBloglView(generic.DetailView):
     model = ProductListblog
     template_name = 'products/product_detail_blog.html'
-    context_object_name = 'product'
+    context_object_name = 'productblog'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comment_form'] = CommentForm()
+        context['comment_form_blog'] = CommentBlog()
         return context
 
 class CommentCreateView(generic.CreateView):
@@ -253,7 +253,7 @@ class ProductDeleteView(generic.ListView):
 class ContactView(generic.ListView):
     model = Product
     template_name = 'products/contact_list.html'
-   
+    
 class CommentFeminineCreateView(generic.CreateView):
     model = Comment
     form_class = CommentForm
@@ -409,7 +409,7 @@ class CommentRefriGeratorCreateView(generic.CreateView):
 
 class CommentBlogCreateView(generic.CreateView):
     model = Comment
-    form_class = CommentForm
+    form_class = CommentBlog
 
     def get_success_url(self):
         return reverse('product_list_blog')
@@ -419,7 +419,7 @@ class CommentBlogCreateView(generic.CreateView):
         obj.author = self.request.user
 
         product_id = int(self.kwargs['product_id'])
-        product= get_object_or_404(ProductBlogView, id=product_id)
+        product= get_object_or_404(ProductListblog, id=product_id)
         obj.productblog = product
 
         messages.success(self.request, _('Comment successfully created'))
@@ -447,3 +447,30 @@ class CommentOfficeCreateView(generic.CreateView):
         return super().form_valid(form)
 
 
+def search_view(request):
+    query = request.GET.get('query', '').lower()
+
+    if 'home' in query:
+        return redirect(reverse('product_list'))
+    elif 'men' in query:
+        return redirect(reverse('product_list_men'))
+    elif 'feminine' in query:
+        return redirect(reverse('product_list_feminine'))
+    elif 'childish' in query:
+        return redirect(reverse('product_list_childish'))
+    elif 'cooking' in query:
+        return redirect(reverse('product_list_cooking'))
+    elif 'office' in query:
+        return redirect(reverse('product_list_office'))
+    elif 'laptop' in query:
+        return redirect(reverse('product_list_laptop'))
+    elif 'headphone' in query:
+        return redirect(reverse('product_list_headphone'))
+    elif 'refrigerator' in query:
+        return redirect(reverse('product_list_refrigerator'))
+    elif 'washing' in query:
+        return redirect(reverse('product_list_washing'))
+    elif 'blog' in query:
+        return redirect(reverse('product_list_blog'))
+    else:
+        return redirect(reverse('product_list')) 

@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <section class="gray_tshirt_area">
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -43,9 +44,7 @@
                            
                            <div class="img-zoom-container">
                                 <img id="myimage" src="{{ productmen.image.url }}" width="450" height="240" alt="Girl">
-
-                                </div>
-                           
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,21 +53,12 @@
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ productmen.title }}</h3>
-                           <h3> {{ productmen.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
-                            
+                           <h3> {{ productmen.price|intcomma:False|translate_number }} {% trans '$' %} </h3>                           
                         </div>
-                        <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
+                        <div class="detail_heading_right">                      
                             <h5>{% trans 'Review'%}{{ productmen.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
@@ -83,8 +73,7 @@
                             {{ product.description|truncatechars:300 }}
                           </div>
                         </div>
-                     </div>
-                     
+                     </div>  
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
                           <h4 class="panel-title product_accordion_head">
@@ -99,19 +88,8 @@
                                 <div class="color_detail">
                                     <div class="panel-body colors_cat"> 
                                       </div>
-                                    
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                            </div>
-                            </div>
-                          
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="single_color">
                                     <div class="color_heading"><h5></h5></div>
                                     <div class="color_detail">
@@ -127,28 +105,19 @@
                                         </button>
                                         <div class="size_heart">
                                             <a href=""><img src="{{ productmen.image.url }}" alt="" /></a>
-                                        </div>
-                                           
+                                        </div>        
                                 </form>
-                              
                             </div> 
-                                
-                                
-                            </div>
-                            </div>
-                            
                           </div>
                         </div>
                      </div>
-                   </div>
-                    
+                   </div>                   
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 </section>
+
 <section class="product_page_tab_area" dir="rtl" align="right"> 
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -219,215 +188,9 @@
                         </div>
                       </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% comment %} <section class="main_category_area product_page_caro">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="main_category_right product-box">
-                <h3 class="product">{% trans 'related products' %}</h3>
-                <div class="multi_line"></div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div id="owl-example-single" class="owl-carousel">
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item16.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>AROS SLIM HEAVY CHINO</h5></a>
-                                    <p>$ 181.00 <span><del>$ 212.00</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item13.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                    <span>-10%</span>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>men’s fashion blue jean coat</h5></a>
-                                    <p>$ 130.00 <span><del>$ 150</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item11.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>houndsmooth wool t-shirt</h5></a>
-                                    <p>$ 168<span><del>$ 212</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item12.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                    <span>-10%</span>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>structured collarless coat</h5></a>
-                                    <p>$ 133.20<span><del>$ 140.00</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item1.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                    <span>-10%</span>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>houndsmooth wool t-shirt</h5></a>
-                                    <p>$90.00 <span><del>$100</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item2.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                    <span>-10%</span>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>AROS SLIM HEAVY CHINO</h5></a>
-                                    <p>$90.00 <span><del>$100</del></span></p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item3.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>AROS SLIM HEAVY CHINO</h5></a>
-                                    <p>$90.00</p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item2.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>houndsmooth wool t-shirt</h5></a>
-                                    <p>$90.00</p>
-                                </div>
-                              </div>
-                              <div class="item">
-                                <div class="item-img">
-                                    <img src="images/t_item3.jpg" alt="" />
-                                    <div class="tr-add-cart">
-                                        <ul>
-                                            <li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li>
-                                            <li><a class="tr_text" href="#">ADD TO CART</a></li>
-                                            <li><a class="fa fa-heart tr_heart" href="#"></a></li>
-                                            <li><a class="fa fa-search tr_search" href="product-detail.html"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="item-new">
-                                    <p>New</p>
-                                    <span>-10%</span>
-                                </div>
-                                <div class="item-sub">
-                                    <a href="product-detail.html"><h5>AROS SLIM HEAVY CHINO</h5></a>
-                                    <p>$110.00 <span><del>$120</del></span></p>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> {% endcomment %}
-
 {% endblock %}
-

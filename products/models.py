@@ -232,6 +232,8 @@ class ProductListblog(models.Model):
         return self.title
 
     
+    def get_absolute_url(self):
+        return reverse('product_detail_blog', args=[self.pk])  
 
 class ActiveCommentsManager(models.Manager):
     def get_queryset(self):
@@ -276,13 +278,13 @@ class Comment(models.Model):
     def get_absolute_url(self):
         if Product:
            return reverse('product_detail', args=[self.product.id])
-class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=0)
-    date_added = models.DateTimeField(auto_now_add=True)
+# class CartItem(models.Model):
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField(default=0)
+#     date_added = models.DateTimeField(auto_now_add=True)
  
-    def __str__(self):
-        return f'{self.quantity} x {self.product.name}'
+#     def __str__(self):
+#         return f'{self.quantity} x {self.product.name}'
     # def get_absolute_url(self):
     #     return reverse('product_detail_childish', args=[self.product.id])
     

@@ -206,15 +206,6 @@ def add_to_cart_washing_view(request, product_id, page_id):
         messages.success(request, _('Product successfully added to cart'))
     return redirect('cart:cart_detail')  
 
-
-# def remove_from_cart(request, product_id, page_id):
-#     cart = Cart(request)
-
-#     product = get_object_or_404(Product, id=product_id, page_id=page_id)
-
-#     cart.remove(product)
-
-#     return redirect('cart:cart_detail')
 @require_POST 
 def remove_from_cart(request, product_id, page_id):
    
@@ -229,6 +220,66 @@ def remove_from_cart(request, product_id, page_id):
 
     request.session['cart'] = cart
 
+    return redirect('cart:cart_detail')
+
+
+@require_POST
+def add_to_cart_quantity_view(request, product_id, page_id, product_type):
+    cart = request.session.get('cart', {})
+    product_key = f"{product_id}_{page_id}"
+    
+    if product_type == "productlaptop":
+        product = get_object_or_404(ProductLaptop, id=product_id, page_id=page_id)
+    elif product_type == "productmen":
+        product = get_object_or_404(ProductMen, id=product_id, page_id=page_id)
+    elif product_type == "productfeminine":
+        product = get_object_or_404(ProductFeminine, id=product_id, page_id=page_id)
+    elif product_type == "productchildish":
+        product = get_object_or_404(ProductChildish, id=product_id, page_id=page_id)
+    elif product_type == "productwashing":
+        product = get_object_or_404(ProductWashing, id=product_id, page_id=page_id)
+    elif product_type == "productcooking":
+        product = get_object_or_404(ProductCooking, id=product_id, page_id=page_id)
+    elif product_type == "product":
+        product = get_object_or_404(Product, id=product_id, page_id=page_id)
+    elif product_type == "productheadphone":
+        product = get_object_or_404(ProductHeadphone, id=product_id, page_id=page_id)
+    elif product_type == "productoffice":
+        product = get_object_or_404(ProductOffice, id=product_id, page_id=page_id)
+    elif product_type == "productrefrigerator":
+        product = get_object_or_404(ProductRefriGerator, id=product_id, page_id=page_id)
+    else:
+        messages.error(request, _('Invalid product type'))
+        return redirect('cart:cart_detail')
+
+    form = AddToCartProductForm(request.POST)
+    if form.is_valid():
+        cleaned_data = form.cleaned_data
+        quantity = cleaned_data['quantity']
+        replace_current_quantity = cleaned_data['inplace']
+
+        if product_key in cart:
+            if replace_current_quantity:
+                cart[product_key]['quantity'] = quantity
+            else:
+                cart[product_key]['quantity'] += quantity
+        else:
+            cart[product_key] = {
+                'title': product.title, 
+                'price': product.price, 
+                'quantity': quantity, 
+                'image': product.image.url, 
+                'id': product.id, 
+                'page_id': product.page_id, 
+                'replace_current_quantity': replace_current_quantity, 
+                'product_type': product_type
+            }
+
+        request.session['cart'] = cart
+        messages.success(request, _('Product successfully added to cart'))
+    else:
+        messages.error(request, _('Failed to add product to cart'))
+    
     return redirect('cart:cart_detail')
 
 @require_POST

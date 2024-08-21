@@ -31,8 +31,9 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="header_left floatleft">
-                    <a class="fa fa-search" href="{% url 'product_list' %}"></a>
-                    <input type="text" placeholder="search"/>
+                    <form method="GET" action="{% url 'search' %}">
+						<input  class="fa fa-search" type="text" name="query" placeholder="search"/>
+			        </form> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-5 col-xs-12">

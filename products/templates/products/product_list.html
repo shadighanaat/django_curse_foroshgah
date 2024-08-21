@@ -10,7 +10,6 @@
 {% block title %}{% trans 'store' %}{% endblock title %}
 
 {% block content%}
-
 <div class="header_top">
     <div class="container">
         <div class="row">
@@ -39,8 +38,9 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="header_left floatleft">
-                    <a class="fa fa-search" href="{% url 'product_list' %}"></a>
-                    <input type="text" placeholder="search"/>
+					<form method="GET" action="{% url 'search' %}">
+						<input  class="fa fa-search" type="text" name="query" placeholder="search"/>
+			        </form> 
                 </div>
             </div>
             <div class="col-md-6 col-sm-5 col-xs-12">
@@ -64,7 +64,7 @@
 
 <section class="nav_area">
     <div class="container">
-              
+
         <div class="nav_left floatleft">
            <a href="category-1.html" dir="rtl" align="right">{% trans 'category' %}<i class="fa fa-bars"></i></a>
             <div class="cat_mega_menu"  dir="rtl" align="right">
@@ -101,11 +101,9 @@
                     </div>
             </div>
         </div>
-    
+
         <div class="nav_center">
-       
             <nav class="mainmenu">
-               
                 <ul id="nav">
                     <li class="current-page-item"><a href="{% url 'product_list' %}">{% trans 'Home' %}</a>
                         <ul id="sub-menu4">
@@ -133,13 +131,10 @@
             <a href=""{% url 'cart:cart_detail' %}""><img src="{% static 'images/bag.png' %}" alt="Bag" />{% trans 'cart' %}: {{ cart|length|translate_number }}</a>
             {% include 'cart/cart_sidebar.html' %}
         </div>
-        
-
     </div>
 </section>
 
 <!-- HOME SLIDER -->
-  
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 	  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -247,7 +242,7 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="trending_box">
-						<h2>Trending clothing</h2>
+						<h2>{% trans 'Trending clothing' %}</h2>
 						<div class="multi_line"></div>
 						
 						<div role="tabpanel">         
@@ -259,17 +254,9 @@
 								  <div class="item">
 									<div class="item-img">
 										{% if product.image %}
-												<img src="{{ product.image.url }}" alt="Products"  width="500" height="500">
+										<a href="{{ product.get_absolute_url }}">
+												<img src="{{ product.image.url }}" alt="Products"  width="500" height="500"></a>
 										{% endif %}
-										<div class="tr-add-cart">
-											<ul>
-												<li><a class="fa fa-shopping-cart tr_cart" href="#"></a></li> 
-												<li><a class="tr_text" href="{% url 'cart:cart_add' product.id product.page_id%}">{% trans 'ADD TO CART' %}</a></li>
-												{% comment %} <li><a class="fa fa-heart tr_heart" href="#"></a></li> {% endcomment %}
-												{% comment %} <li><a class="fa fa-search tr_search" href="{% url 'product_detail_feminine' product.id %}"></a></li> {% endcomment %}
-											</ul>
-											
-										</div>
 									</div>
 									<div class="item-new">
 										<p>{% trans 'New' %}</p>
@@ -281,7 +268,6 @@
 								  </div>
 								  {% endfor %}
 						  </div>
-
 						</div>
 					</div>
 				</div>
@@ -320,12 +306,11 @@
 								<div class="main_cat_item">
 									<div class="item">
 										<div class="item-img">
-											<img src="{% static 'images/4131cdc48dc3d9312ae78765209400da08fea133_1707233566.webp' %}" alt="" />
+											<img src="{% static 'images/4131cdc48dc3d9312ae78765209400da08fea133_1707233566.webp' %}" alt="" /></a>
 											
 										</div>
 										<div class="item-new">
-											<p>New</p>
-											<span>-10%</span>
+											<p>{% trans 'New' %}</p>
 										</div>
 										<div class="item-sub">
 											<a href="{% url 'product_list_childish' %}"><h5>{% trans 'Chromaki comfortable shoes' %}</h5></a>
@@ -342,8 +327,7 @@
 											
 										</div>
 										<div class="item-new">
-											<p>New</p>
-											<span>-10%</span>
+											<p>{% trans 'New' %}</p>
 										</div>
 										<div class="item-sub">
 											<a href="{% url 'product_list_cooking' %}"><h5>{% trans 'Cooking service 6 cloth Desini' %}</h5></a>

@@ -15,6 +15,8 @@ from .views import (cart_detail_view,
                     add_to_cart_office_view,
                     add_to_cart_view,
                     remove_from_cart,
+                    add_to_cart_quantity_view,
+                  
                   
                     # cart_add_view
                      )
@@ -38,4 +40,5 @@ urlpatterns = [
     # path('remove/<int:product_id>/<page_id>', remove_from_cart, name='cart_remove'),
     path('remove/<int:product_id>/<page_id>', remove_from_cart, name='cart_remove'),
     path('clear/', clear_cart, name='cart_clear'),
+    path('add-to-cart/<int:product_id>/<int:page_id>/<str:product_type>/', add_to_cart_quantity_view, name='cart_add_quantity')
    ]

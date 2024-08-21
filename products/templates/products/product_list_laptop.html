@@ -5,6 +5,7 @@
 {% load humanize %}
 
 {% load persian_translation_tags %}
+
 {% block title %}{% trans 'product laptop' %}{% endblock title %}
 
 {% block content%}
@@ -44,7 +45,7 @@
 											
 										</div>
 										<div class="item-new">
-											<p>Sale</p>
+											<p>{% trans 'Sale' %}</p>
 										</div>
 										<div class="item-sub">
 											<a href="{{ productlaptop.get_absolute_url }}">{{ productlaptop.title }}</a>

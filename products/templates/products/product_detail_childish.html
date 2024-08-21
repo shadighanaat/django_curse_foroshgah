@@ -31,6 +31,7 @@ childish{% extends '_base.html' %}
         </div>
     </div>
 </div>
+
 <section class="gray_tshirt_area">
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -43,32 +44,20 @@ childish{% extends '_base.html' %}
                            
                            <div class="img-zoom-container">
                                 <img id="myimage" src="{{ productchildish.image.url }}" width="450" height="240" alt="Girl">
-
-                                </div>
-                           
+                            </div> 
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                
+                <div class="col-md-6 col-sm-6 col-xs-12">             
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ productchildish.title }}</h3>
-                           <h3> {{ productchildish.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
-                            
+                           <h3> {{ productchildish.price|intcomma:False|translate_number }} {% trans '$' %} </h3>                     
                         </div>
                         <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
                             <h5>{% trans 'Review'%}{{ productchildish.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
-                    </div>
-                    
+                    </div>                
                     <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
@@ -83,8 +72,7 @@ childish{% extends '_base.html' %}
                             {{ productchildish.description|truncatechars:300 }}
                           </div>
                         </div>
-                     </div>
-                     
+                     </div>                
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
                           <h4 class="panel-title product_accordion_head">
@@ -98,20 +86,9 @@ childish{% extends '_base.html' %}
                             <div class="single_color sp_single_col">
                                 <div class="color_detail">
                                     <div class="panel-body colors_cat"> 
-                                      </div>
-                                    
+                                      </div>                                 
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                            </div>
-                            </div>
-                          
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="single_color">
                                     <div class="color_heading"><h5></h5></div>
                                     <div class="color_detail">
@@ -126,27 +103,19 @@ childish{% extends '_base.html' %}
                                         </button>
                                         <div class="size_heart">
                                             <a href=""><img src="{{ productchildish.image.url }}" alt="" /></a>
-                                        </div>
-                                       
+                                        </div>                                   
                                 </form>
                             </div> 
-                                
-                                
-                            </div>
-                            </div>
-                            
                           </div>
                         </div>
                      </div>
                    </div>
-                    
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 </section>
+
 <section class="product_page_tab_area" dir="rtl" align="right"> 
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -158,7 +127,6 @@ childish{% extends '_base.html' %}
                         <li role="presentation"><a href="#profile2" aria-controls="profile2" role="tab" data-toggle="tab">{% trans 'Specifications' %}</a></li>
                         <li role="presentation"><a href="#messages2" aria-controls="messages2" role="tab" data-toggle="tab">{% trans 'Review'%}:{{ productchildish.comments.all|only_active_comments|length|translate_number }} </a></li>
                       </ul>
-                  
                       <div class="tab-content tab-p-details">
                         <div role="tabpanel" class="tab-pane active" id="home2"><h2>{% trans 'Description' %}</h2>
                             <div class="multi_line"></div>
@@ -173,7 +141,6 @@ childish{% extends '_base.html' %}
                         <div role="tabpanel" class="tab-pane" id="messages2"><h2>{% trans 'review' %}</h2>
                             <div class="review_comments" dir="rtl" align="right">
                                 <div class="review_heading">
-                                   
                                         <div class="review_heading_right">
                                             </div>
                                         </div>       
@@ -194,16 +161,14 @@ childish{% extends '_base.html' %}
                                          {% trans 'To write your comment please ' %}
                                         <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
                                 {% endif %}
-                
-                                    {% for comment in productchildish.comments.all %}
-                                   
+                                    {% for comment in productchildish.comments.all %}   
                                     <div class="review_heading_left" dir="rtl" align="right">
                                         <span>{% trans 'review' %} </span> 
                                         <div class="multi_line"></div>
                                     </div>
                                     <div class="single_review_comment">
                                         <div class="single_review_img">
-                                            <img src="{{ product.image.url }}" alt="" />
+                                            <img src="{{ productchildish.image.url }}" alt="" />
                                         </div>
                                         <div class="single_review_text" dir="rtl" align="right">
                                             <h5>{{ comment.stars }}</h5>
@@ -216,12 +181,11 @@ childish{% extends '_base.html' %}
                                     </div>
                         </div>
                       </div>
-                    </div>
-                    
+                    </div> 
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endblock %}
 
+{% endblock %}

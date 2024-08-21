@@ -6,3 +6,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['body', 'stars', ]
 
+class CommentBlog(forms.ModelForm):
+     class Meta:
+        model = Comment
+        fields = ['body', ]

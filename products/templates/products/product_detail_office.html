@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <section class="gray_tshirt_area">
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -43,32 +44,20 @@
                            
                            <div class="img-zoom-container">
                                 <img id="myimage" src="{{ productoffice.image.url }}" width="450" height="240" alt="Girl">
-
-                                </div>
-                           
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                
                     <div class="product_detail_heading">
                         <div class="detail_heading_left">
                             <h3>{{ productoffice.title }}</h3>
                            <h3> {{ productoffice.price|intcomma:False|translate_number }} {% trans '$' %} </h3>
-                            
                         </div>
-                        <div class="detail_heading_right">
-                          <ul id="detail_star">
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o red" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                                <li><a class="fa fa-star-o" href=""></a></li>
-                            </ul> 
+                        <div class="detail_heading_right"> 
                             <h5>{% trans 'Review'%}{{ productoffice.comments.all|only_active_comments|length|translate_number }}</h5>
                         </div>
                     </div>
-                    
                     <div class="panel-group product_accordion" id="home-accordion-single" role="tablist" aria-multiselectable="true">
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingOneP">
@@ -84,7 +73,6 @@
                           </div>
                         </div>
                      </div>
-                     
                      <div class="panel panel-default product_default">
                         <div class="panel-heading product_accordion_heading" role="tab" id="headingThreeP">
                           <h4 class="panel-title product_accordion_head">
@@ -99,19 +87,8 @@
                                 <div class="color_detail">
                                     <div class="panel-body colors_cat"> 
                                       </div>
-                                    
                                 </div>
                             </div>
-                            <div class="single_color">
-                            <div class="color_detail">
-                            <div class="color_size_detail">
-                            </div>
-                            </div>
-                            </div>
-                          
-                                <div class="size_down">
-                                    
-                                </div>
                                 <div class="single_color">
                                     <div class="color_heading"><h5></h5></div>
                                     <div class="color_detail">
@@ -127,26 +104,18 @@
                                         <div class="size_heart">
                                             <a href=""><img src="{{ productoffice.image.url }}" alt="" /></a>
                                         </div>
-                                       
                                 </form>
-                            </div> 
-                                
-                                
                             </div>
-                            </div>
-                            
                           </div>
                         </div>
                      </div>
                    </div>
-                    
                 </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
 </section>
+
 <section class="product_page_tab_area" dir="rtl" align="right"> 
     <div class="container">
         <div class="row" dir="rtl" align="right">
@@ -217,11 +186,10 @@
                         </div>
                       </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endblock %}
 
+{% endblock %}

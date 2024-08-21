@@ -82,7 +82,8 @@
                                 <textarea name="{{ form.order_notes.name }}"  placeholder="{% trans 'If you have a note, enter it here. Otherwise, leave this place blank' %}" cols="30" rows="10"></textarea>
                            
                         </div>
-                        <button class="btn" type="submit">{% trans 'Submit' %}</button>
+                        <input type="submit" value={% trans "Place order now" %}/>
+                        {% comment %} <button class="btn" type="submit">{% trans 'Submit' %}</button> {% endcomment %}
                     </form>     
                     </div>
     
@@ -131,7 +132,7 @@
                         </div>
                         <div class="checkbox">
                         </div>
-                        <input type="submit" value={% trans "Place order now" %}/>
+                       
                     </div>
                 </div>
             </div>
