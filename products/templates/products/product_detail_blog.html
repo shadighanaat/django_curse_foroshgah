@@ -4,6 +4,7 @@
 
 {% load i18n %}
 {% load persian_translation_tags %}
+{% load jalali_tags %}
 
 {% block title %}{% trans 'detail blog' %}
 {% endblock title %}
@@ -88,7 +89,7 @@
                                 <div class="single_review_text" dir="rtl" align="right">
                                     <h4>{{ comment.body }}</h4>
                                     <div class="review_italic">
-                                        <p><span>{{ comment.datetime_created }}</span> {{ comment.author.username }}</p>
+                                        <p><span>{{ comment.datetime_created|to_jalali:'%y/%m/%d _ %H:%M:%S'|translate_number  }}</span> {{ comment.author.username }}</p>
                                     </div>
                                 </div>
                         {% endfor %}    

@@ -5,6 +5,7 @@
 
 {% load crispy_forms_tags %}
 {% load comment_tags %}
+{% load jalali_tags %}
 
 {% load humanize %}
 {% load persian_translation_tags %}
@@ -187,7 +188,7 @@
                                             <h5>{{ comment.stars }}</h5>
                                             <h4>{{ comment.body }}</h4>
                                             <div class="review_italic">
-                                                <p><span>{{ comment.datetime_created }}</span> {{ comment.author.username }}</p>
+                                                <p><span>{{ comment.datetime_created|to_jalali:'%y/%m/%d _ %H:%M:%S'|translate_number }}</span> {{ comment.author.username }}</p>
                                             </div>
                                         </div>
                                     {% endfor %}    

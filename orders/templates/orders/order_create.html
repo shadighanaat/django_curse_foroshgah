@@ -124,12 +124,23 @@
                             <p>{% trans 'Order Total' %} : </p>
                            
                         </div>
-                        <div class="c_payment">
+                          <div class="checkout-payment">
+                                <h2 class="py-5">روش پرداخت</h2>
+                                <form action="#" class="payment-form">
+                                    <div class="payment-group mb--10">
+                                        <div class="payment-radio">
+                                            <input type="radio" value="bank" name="payment-method" id="bank" checked>
+                                            <label class="payment-label" for="cheque">درگاه آنلاین زرین پال</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        {% comment %} <div class="c_payment">
                             <p>{% trans 'Select Payment Method' %}</p>
                             <select class="selectpicker sel_state">
                               <option>{% trans 'zarin pal' %}</option>
                             </select>
-                        </div>
+                        </div> {% endcomment %}
                         <div class="checkbox">
                         </div>
                        

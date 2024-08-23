@@ -29,7 +29,7 @@ def payment_process(request):
         'merchant_id': settings.ZARINPAL_MERCHANT_ID,
         'amount': rial_total_price,
         'description': f'#{order.id}: {order.user.first_name} {order.user.last_name}',
-        'callback_url': 'http://jetshoponline.com',
+        'callback_url': 'http://jetshop.com',
     }
 
     res = requests.post(url=zarinpal_request_url, data=json.dumps(request_data), headers=request_header)
@@ -76,7 +76,9 @@ def payment_process(request):
 #     }
 
 #     res = requests.post(url=zarinpal_request_url, data=json.dumps(request_data), headers=request_header)
-
+#     response_data = res.json()
+#     print(response_data) 
+  
 #     data = res.json()['data']
 #     authority = data['authority']
 #     order.authority = authority

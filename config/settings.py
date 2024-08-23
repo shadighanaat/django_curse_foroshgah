@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     
     # third party apps
-    # 'jalali_date',
+    'jalali_date',
     
     # local apps
     'accounts.apps.AccountsConfig',
