@@ -20,7 +20,6 @@ class TestProduct(TestCase):
     
     def setUp(cls):
 
-        # cls.user = User.objects.create(username='user1')
         cls.product1 = Product.objects.create(
             title='product1',
             description='this is car',
@@ -409,4 +408,44 @@ class TestProduct(TestCase):
           
     def test_product_blog_template_name(self): 
         response = self.client.get(reverse("product_list_blog"))
-        self.assertTemplateUsed(response, "products/product_list_blog.html")            
+        self.assertTemplateUsed(response, "products/product_list_blog.html")   
+
+    def test_product_men_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_men', args=[self.product2.id]))
+         self.assertEqual(response.status_code, 405)
+    
+    def test_product_feminine_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_feminine', args=[self.product3.id]))
+         self.assertEqual(response.status_code, 405)
+    
+    def test_product_childish_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_childish', args=[self.product4.id]))
+         self.assertEqual(response.status_code, 405)
+
+    def test_product_washing_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_washing', args=[self.product5.id]))
+         self.assertEqual(response.status_code, 405)
+
+    def test_product_office_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_office', args=[self.product6.id]))
+         self.assertEqual(response.status_code, 405)
+
+    def test_product_cooking_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_cooking', args=[self.product7.id]))
+         self.assertEqual(response.status_code, 405)               
+
+    def test_product_headphone_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_headphone', args=[self.product8.id]))
+         self.assertEqual(response.status_code, 405)     
+
+    def test_product_laptop_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_laptop', args=[self.product9.id]))
+         self.assertEqual(response.status_code, 405)     
+
+    def test_product_refrigerator_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_refrigerator', args=[self.product10.id]))
+         self.assertEqual(response.status_code, 405)     
+
+    def test_product_blog_detail_view_status_code(self):
+         response = self.client.post(reverse('product_detail_blog', args=[self.product11.id]))
+         self.assertEqual(response.status_code, 405)                                   

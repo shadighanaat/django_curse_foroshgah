@@ -29,66 +29,65 @@ class ProductListView(generic.ListView):
 
 
 class ProductListMenView(generic.ListView):
-    paginate_by = 4
     queryset = ProductMen.objects.filter(active=True)
     template_name = 'products/product_list_men.html'
     context_object_name = 'productmens'
-    
+    paginate_by = 8
    
 class ProductListFeminineView(generic.ListView):
     queryset = ProductFeminine.objects.filter(active=True)
     template_name = 'products/product_list_feminine.html'
     context_object_name = 'productfeminines'
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListChildishView(generic.ListView):
     queryset = ProductChildish.objects.filter(active=True)
     template_name = 'products/product_list_childish.html'
     context_object_name = 'productchildishs'
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListRefrigeratorView(generic.ListView):
     queryset = ProductRefriGerator.objects.filter(active=True)
     template_name = 'products/product_list_Refrigerator.html'
     context_object_name = 'products'
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListWashingView(generic.ListView):
     queryset = ProductWashing.objects.filter(active=True)
     template_name = 'products/product_list_washing machine.html'
     context_object_name = 'products'
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListCookingView(generic.ListView):
     queryset = ProductCooking.objects.filter(active=True)
     template_name = 'products/product_list_cooking.html'
     context_object_name = 'products'   
-    paginate_by = 4 
+    paginate_by = 8
 
 
 class ProductListLaptopView(generic.ListView):
     queryset = ProductLaptop.objects.filter(active=True)
     template_name = 'products/product_list_laptop.html'
     context_object_name = 'products'    
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListHeadphoneView(generic.ListView):
     queryset = ProductHeadphone.objects.filter(active=True)
     template_name = 'products/product_list_headphone.html'
     context_object_name = 'products'    
-    paginate_by = 4
+    paginate_by = 8
 
 
 class ProductListOfficeView(generic.ListView):
     queryset = ProductOffice.objects.filter(active=True)
     template_name = 'products/product_list_office.html'
     context_object_name = 'products'    
-    paginate_by = 4
+    paginate_by = 8
             
 
 
@@ -106,23 +105,6 @@ class ProductDetailBloglView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['comment_form_blog'] = CommentBlog()
         return context
-
-class CommentCreateView(generic.CreateView):
-    model = Comment
-    form_class = CommentForm
-
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.author = self.request.user
-
-        product_id = int(self.kwargs['product_id'])
-        if Product:
-           product = get_object_or_404(Product, id=product_id)
-           obj.product = product
-
-        messages.success(self.request, _('Comment successfully created'))
-
-        return super().form_valid(form)
 
 class ProductDetailView(generic.DetailView):
     model = Product
@@ -253,6 +235,25 @@ class ProductDeleteView(generic.ListView):
 class ContactView(generic.ListView):
     model = Product
     template_name = 'products/contact_list.html'
+
+
+class CommentCreateView(generic.CreateView):
+    model = Comment
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.author = self.request.user
+
+        product_id = int(self.kwargs['product_id'])
+        if Product:
+           product = get_object_or_404(Product, id=product_id)
+           obj.product = product
+
+        messages.success(self.request, _('Comment successfully created'))
+
+        return super().form_valid(form)
+    
     
 class CommentFeminineCreateView(generic.CreateView):
     model = Comment
@@ -474,3 +475,4 @@ def search_view(request):
         return redirect(reverse('product_list_blog'))
     else:
         return redirect(reverse('product_list')) 
+    

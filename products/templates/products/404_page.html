@@ -9,7 +9,6 @@
 
 {% block content%}
 {% include 'header.html' %} 
-{% include 'topheader.html' with header_name='404' %}
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
@@ -33,8 +32,9 @@
                     <img src="images/not_found.png" alt="" />
                     <h2>{% trans 'Ohh! Page Not Found' %}</h2>
                     <p>{% trans 'This file May Have Been Moved or Deleted. Be Sure to Check Your Spelling.' %}</p>
-                    <input type="text" placeholder="search again..." />
-                    <i class="fa fa-search"></i>
+                    <form method="GET" action="{% url 'search' %}">
+						<input class="fa fa-search" type="text" name="query" placeholder="search..."/>
+			        </form> 
                 </div>
             </div>
         </div>

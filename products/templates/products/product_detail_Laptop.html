@@ -14,8 +14,6 @@
 
 {% block content %}
 {% include 'header.html' %} 
-{% trans 'product detail' as 'product detail' %}
-{% include 'topheader.html' with header_name='product detail' %}
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
@@ -165,7 +163,6 @@
                                          {% trans 'To write your comment please ' %}
                                         <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
                                 {% endif %}
-                
                                     {% for comment in productlaptop.comments.all %}
                                    
                                     <div class="review_heading_left" dir="rtl" align="right">

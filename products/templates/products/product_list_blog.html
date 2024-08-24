@@ -9,8 +9,6 @@
 
 {% block content%}
 {% include 'header.html' %} 
-{% trans 'blog' as 'blog' %}
-{% include 'topheader.html' with header_name='blog' %}
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
@@ -29,34 +27,21 @@
 <section class="blog_page_area">
     <div class="container">
         <div class="row">
-            {% for product in products %} 
-            <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="single_blog_in_page">
-                    <div class="blog_img_l"><img src="{{ product.imag}}" alt="" /></div>
+            {% for productblog in products %} 
+            <div class="col-md-8 col-sm-8 col-xs-12" dir="rtl" align="right">
+                    <div class="blog_img_l"><img src="{{ productblog.image.url }}" alt="" /></div>
                     <div class="blog_date_in_page">
                     </div>
                     <div class="blog_text_in_page">
-                        <a href="single-blog.html"><h3>{{ product.title }}</h3></a>
-                        <p>{{ product.discreption }}</p>
+                        <a href="{% url 'product_detail_blog' productblog.id %}"><h3>{{ productblog.title }}</h3></a>
+                        <p>{{ productblog.discreption }}</p>
                         <div class="read_more">
-                            <a class="read_more_blog" href="{% url 'product_detail_blog' product.id %}">{% trans 'Read more' %}</a>
+                            <a class="read_more_blog" href="{% url 'product_detail_blog' productblog.id %}">{% trans 'Read more' %}</a>
                         </div>
-                    </div>
-                </div>
+                    </div>   
+            </div>
             {% endfor %} 
             </div>
-            <nav aria-label="Page navigation ">
-                <ul class="pagination justify-content-center mt-3">
-                    {% if page_obj.has_previous %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-                    {% endif %}
-                    <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
-                    {% if page_obj.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-           
         </div>
     </div>
 </section>

@@ -10,8 +10,6 @@
 
 {% block content%}
 {% include 'header.html' %} 
-{% trans 'chidish' as 'childish' %}
-{% include 'topheader.html' with header_name='childish' %}
 	<div class="breadcumb_area">
 		<div class="container">
 			<div class="row">
@@ -49,7 +47,7 @@
 										</div>
 										<div class="item-sub">
 											<a href="{{ productchildish.get_absolute_url }}">{{ productchildish.title }}</a>
-										<span class="money">{{ product.price|intcomma:False|translate_number }} {% translate '$' %}</span>
+										<span class="money">{{ productchildish.price|intcomma:False|translate_number }} {% translate '$' %}</span>
 										<form action="{% url 'cart:cart_add_childish' productchildish.id productchildish.page_id %}" method="POST">
 											{% csrf_token %}
 											<input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">

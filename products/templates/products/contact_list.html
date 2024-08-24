@@ -10,8 +10,6 @@
 
 {% block content%}
 {% include 'header.html' %} 
-{% trans 'contact' as 'contact' %}
-{% include 'topheader.html' with header_name='contact' %}
 <div class="breadcumb_area">
     <div class="container">
         <div class="row">
@@ -51,18 +49,6 @@
                             <a herf="{% url 'product_list' %}">
                             <input type="submit" name="submit" value="{% trans 'Submit form' %}" /></a>
                             </form>
-                        {% comment %} <form method="GET" action="">
-                            {% csrf_token %}
-                            <input  type="text" placeholder="{% trans 'Your Email' %} *" required name="email"/>
-                        </div>
-                        <div class="input_right">
-                            <textarea name="message" placeholder="{% trans 'Message' %}" required></textarea>
-                        </div>
-                    </div>
-                    <div class="submit_btn form-group submitRow">
-                        <a herf="{% url 'account_signup' %}">
-                        <input type="submit" name="submit" value="{% trans 'Submit form' %}" /></a>
-                        </form> {% endcomment %}
                     </div>
                     
                 </form>

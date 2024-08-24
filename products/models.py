@@ -4,16 +4,6 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 
-
-class Category(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.CharField(max_length=500, blank=True)
-    top_product = models.ForeignKey('Product', on_delete=models.SET_NULL, blank=True, null=True, related_name='+')
-
-    def __str__(self):
-        return self.title
-
-
 class Discount(models.Model):
     discount = models.FloatField()
     description = models.CharField(max_length=255)
@@ -53,12 +43,10 @@ class ProductMen(models.Model):
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(_('Product Image'), upload_to='product/product_cover/', blank=True, ) 
- 
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now_add=True)
     
-
     def __str__(self):
         return self.title
 
@@ -278,33 +266,3 @@ class Comment(models.Model):
     def get_absolute_url(self):
         if Product:
            return reverse('product_detail', args=[self.product.id])
-# class CartItem(models.Model):
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     quantity = models.PositiveIntegerField(default=0)
-#     date_added = models.DateTimeField(auto_now_add=True)
- 
-#     def __str__(self):
-#         return f'{self.quantity} x {self.product.name}'
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_childish', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_washing', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_cooking', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_laptop', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_headphone', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_refriGerator', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_office', args=[self.product.id])
-    
-    # def get_absolute_url(self):
-    #     return reverse('product_detail_blog', args=[self.product.id])

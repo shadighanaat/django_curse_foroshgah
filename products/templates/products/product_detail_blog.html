@@ -11,7 +11,7 @@
 
 {% block content %}
 {% include 'header.html' %} 
-{% trans 'detail blog' as 'detail blog' %}
+{% trans 'detail blog' as 'detail blog' %} 
 <section class="blog_slider_area">
     <div class="container">
         <div class="row">
@@ -44,14 +44,14 @@
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="single_blog_in_page">
-                    <div class="blog_img_l"><img src="" alt="" /></div>
+                    <div class="blog_img_l"  width="300" height="250"><img src="{{ productblog.image.url }}" alt="" /></div> 
                     <h2 dir="rtl" align="right">{% trans 'description' %} : </h2>
                     <div class="blog_date_in_page">
                     </div>  
             </div>
               
                     <div class="blog_detail_in_page">
-                        <p>{{ productblog.description}} </p>
+                        <p dir="rtl" align="right">{{ productblog.description }} </p>
                     </div>
                 </div>
                 <div class="comments">
@@ -66,8 +66,7 @@
                         <div class="review_comment_input"  cols="30" rows="10" dir="rtl" align="right">
                             <form action="{% url 'comment_create_blog' productblog.id %}" method="POST">
                                 {% csrf_token %}
-                                {{ comment_form_blog | crispy }}
-                                <a href={% url 'product_detail' productblog.id %}>
+                                {{ comment_form_blog|crispy }}
                                 <input type="submit" value="{% trans 'Submit' %}"></a>
                              </form>
                         </div>
@@ -89,50 +88,11 @@
                                 <div class="single_review_text" dir="rtl" align="right">
                                     <h4>{{ comment.body }}</h4>
                                     <div class="review_italic">
-                                        <p><span>{{ comment.datetime_created|to_jalali:'%y/%m/%d _ %H:%M:%S'|translate_number  }}</span> {{ comment.author.username }}</p>
+                                        <p><span>{{ comment.datetime_created|to_jalali:'%y/%m/%d _ %H:%M:%S'|translate_number }}</span> {{ comment.author.username }}</p>
                                     </div>
                                 </div>
                         {% endfor %}    
                             </div>
-                   {% comment %} <h2 dir="rtl" align="right">{% trans 'Comments' %}'</h2> {% endcomment %}
-                    {% comment %} <div class="multi_line"></div>
-                    <div class="single_comment">
-                        {% if user.is_authenticated %} {% endcomment %}
-                        {% comment %} <h3 dir="rtl" align="right">{% trans 'Write your review' %}</h3> {% endcomment %}
-                        {% comment %} <div class="multi_line"></div>
-                    </div>
-                    <p id="" class="invalid-feedback">
-                        <form dir="rtl" align="right" action="{% url 'comment_create_blog' productblog.id %}" method="POST">
-                            {% csrf_token %}
-                            {{ comment_form|crispy }}
-                            <input dir="rtl" align="right" type="submit" value="{% trans 'post comment' %}" /></a>
-                         </form>
-    
-                        {% else %}
-                     <p>
-                             {% trans 'To write your comment please ' %}
-                            <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
-                    {% endif %}
-                    </div>
-                    <div class="single_comment even">
-                        <div class="comment_img">
-                            <img src="images/comment1.png" alt="" />
-                        </div>
-                        <div class="comment_text">
-                            {% for comment in productblog.comments.all %}
-                            <div class="single_review_comment">
-                                <div class="single_review_img">
-                                    <img src="{{ productblog.image.url }}" alt="" />
-                                </div>
-                                <div class="single_review_text" dir="rtl" align="right">
-                                    <h4 dir="rtl" align="right">{{ comment.stars }}</h4>
-                                    <p dir="rtl" align="right">{{ comment.body }}</p>
-                                    <div class="review_italic" dir="rtl" align="right">
-                                        <p><span>{{ comment.author.username }}</span> {{ comment.datetime_created }}</p>
-                                    </div>
-                                </div>
-                            {% endfor %}    
-                            </div>  {% endcomment %}
                         </div>
                     </div>
                 </div>     
