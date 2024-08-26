@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-24 16:37+0330\n"
-"PO-Revision-Date: 2024-08-24 16:39+0330\n"
+"POT-Creation-Date: 2024-08-26 15:35+0330\n"
+"PO-Revision-Date: 2024-08-26 16:14+0330\n"
 "Last-Translator: شادی قناعتی <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -97,7 +97,6 @@ msgid "contact"
 msgstr "مخاطب"
 
 #: .\templates\products\contact_list.html:20
-#: .\templates\products\product_list.html:463
 msgid "Contact"
 msgstr "مخاطب"
 
@@ -424,7 +423,7 @@ msgstr "بلاگ"
 #: .\templates\products\product_list.html:77
 #: .\templates\products\product_list_childish.html:20
 msgid "childish"
-msgstr "بچه گانه"
+msgstr "بچگانه"
 
 #: .\templates\products\product_detail_cooking.html:25
 msgid "cooking"
@@ -493,7 +492,7 @@ msgstr "مد و پوشاک"
 #: .\templates\products\product_list.html:75
 #: .\templates\products\product_list_men.html:16
 msgid "Men"
-msgstr "مردان"
+msgstr "مردانه"
 
 #: .\templates\products\product_list.html:82
 msgid "Electric household appliances"
@@ -611,8 +610,8 @@ msgid "Chromaki comfortable shoes"
 msgstr "کفش راحتی کروماکی"
 
 #: .\templates\products\product_list.html:333
-msgid "Cooking service 6 cloth Desini"
-msgstr "سرویس آشپزی 6 پارچه دسینی"
+msgid "Microwave model MH8265-CLS"
+msgstr "مایکروویو مدل MH8265-CLS"
 
 #: .\templates\products\product_list.html:350
 msgid "Asmara womens shorts"
@@ -633,80 +632,6 @@ msgstr "دستگاه حضور و غیاب"
 #: .\templates\products\product_list.html:420
 msgid "Snowa washing machine"
 msgstr "ماشین لباس شویی"
-
-#: .\templates\products\product_list.html:438
-msgid "information"
-msgstr "اطلاعات"
-
-#: .\templates\products\product_list.html:441
-msgid "New Products"
-msgstr "محصولات جدید"
-
-#: .\templates\products\product_list.html:442
-msgid "product men"
-msgstr "محصولات مردان"
-
-#: .\templates\products\product_list.html:443
-#: .\templates\products\product_list_feminine.html:9
-msgid "product feminine"
-msgstr "محصولات زنان"
-
-#: .\templates\products\product_list.html:449
-msgid "my account"
-msgstr "حساب من"
-
-#: .\templates\products\product_list.html:452
-msgid "My Account"
-msgstr "حساب من"
-
-#: .\templates\products\product_list.html:453
-msgid "Personal Information"
-msgstr "اطلاعات شخصی"
-
-#: .\templates\products\product_list.html:454
-#: .\templates\products\product_list.html:474
-msgid "Addresses"
-msgstr "آدرس"
-
-#: .\templates\products\product_list.html:460
-msgid "customer service"
-msgstr "خدمات مشتری"
-
-#: .\templates\products\product_list.html:464
-msgid "Shipping & Taxes"
-msgstr "حمل و نقل و مالیات"
-
-#: .\templates\products\product_list.html:465
-msgid "about us"
-msgstr "درباره ما"
-
-#: .\templates\products\product_list.html:471
-msgid "contact Info"
-msgstr "صفحه تماس"
-
-#: .\templates\products\product_list.html:474
-msgid "Esfahan"
-msgstr "اصفهان"
-
-#: .\templates\products\product_list.html:476
-msgid "name"
-msgstr "نام"
-
-#: .\templates\products\product_list.html:476
-msgid "shadi ghanaati"
-msgstr "شادی قناعتی"
-
-#: .\templates\products\product_list.html:478
-msgid "Phone"
-msgstr "تلفن"
-
-#: .\templates\products\product_list.html:479
-msgid "Email"
-msgstr "ایمیل شما"
-
-#: .\templates\products\product_list.html:480
-msgid "github"
-msgstr "گیت هاب"
 
 #: .\templates\products\product_list_Refrigerator.html:9
 msgid "product Refrigerator freezer"
@@ -746,7 +671,7 @@ msgstr "قبلی"
 msgid "Next"
 msgstr "بعدی"
 
-#: .\templates\products\product_list_blog.html:39
+#: .\templates\products\product_list_blog.html:41
 msgid "Read more"
 msgstr "ادامه مطلب"
 
@@ -757,6 +682,10 @@ msgstr "صفحه ی بچه گانه"
 #: .\templates\products\product_list_cooking.html:9
 msgid "product Cooking utensils"
 msgstr "محصول لوازم پخت و پز"
+
+#: .\templates\products\product_list_feminine.html:9
+msgid "product feminine"
+msgstr "محصولات زنان"
 
 #: .\templates\products\product_list_headphone.html:9
 msgid "product headphone"
@@ -779,6 +708,60 @@ msgstr "محصول ماشین لباس شویی "
 #: .\views.py:446
 msgid "Comment successfully created"
 msgstr "نظر با موفقیت ایجاد شد"
+
+#~ msgid "Cooking service 6 cloth Desini"
+#~ msgstr "سرویس آشپزی 6 پارچه دسینی"
+
+#~ msgid "information"
+#~ msgstr "اطلاعات"
+
+#~ msgid "New Products"
+#~ msgstr "محصولات جدید"
+
+#~ msgid "product men"
+#~ msgstr "محصولات مردان"
+
+#~ msgid "my account"
+#~ msgstr "حساب من"
+
+#~ msgid "My Account"
+#~ msgstr "حساب من"
+
+#~ msgid "Personal Information"
+#~ msgstr "اطلاعات شخصی"
+
+#~ msgid "Addresses"
+#~ msgstr "آدرس"
+
+#~ msgid "customer service"
+#~ msgstr "خدمات مشتری"
+
+#~ msgid "Shipping & Taxes"
+#~ msgstr "حمل و نقل و مالیات"
+
+#~ msgid "about us"
+#~ msgstr "درباره ما"
+
+#~ msgid "contact Info"
+#~ msgstr "صفحه تماس"
+
+#~ msgid "Esfahan"
+#~ msgstr "اصفهان"
+
+#~ msgid "name"
+#~ msgstr "نام"
+
+#~ msgid "shadi ghanaati"
+#~ msgstr "شادی قناعتی"
+
+#~ msgid "Phone"
+#~ msgstr "تلفن"
+
+#~ msgid "Email"
+#~ msgstr "ایمیل شما"
+
+#~ msgid "github"
+#~ msgstr "گیت هاب"
 
 #~ msgid "product-detail"
 #~ msgstr "جزئیات محصول"

@@ -44,14 +44,14 @@
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-12">
                 <div class="single_blog_in_page">
-                    <div class="blog_img_l"  width="300" height="250"><img src="{{ productblog.image.url }}" alt="" /></div> 
+                    <div class="blog_img_l"  width="300" height="250"><img src="{{ productlistblog.image.url }}" alt="" /></div> 
                     <h2 dir="rtl" align="right">{% trans 'description' %} : </h2>
                     <div class="blog_date_in_page">
                     </div>  
             </div>
               
                     <div class="blog_detail_in_page">
-                        <p dir="rtl" align="right">{{ productblog.description }} </p>
+                        <p dir="rtl" align="right">{{ productlistblog.description }} </p>
                     </div>
                 </div>
                 <div class="comments">
@@ -64,7 +64,7 @@
                             <div class="multi_line"></div>
                         </div>
                         <div class="review_comment_input"  cols="30" rows="10" dir="rtl" align="right">
-                            <form action="{% url 'comment_create_blog' productblog.id %}" method="POST">
+                            <form action="{% url 'comment_create_blog' productlistblog.id %}" method="POST">
                                 {% csrf_token %}
                                 {{ comment_form_blog|crispy }}
                                 <input type="submit" value="{% trans 'Submit' %}"></a>
@@ -74,15 +74,15 @@
                             </div>
                                 <a href="{% url 'account_login' %}">{% trans 'Login' %}</a></p>
                         {% endif %}
-                        {% for comment in productblog.comments.all %}   
+                        {% for comment in productlistblog.comments.all %}   
                             <div class="review_heading_left" dir="rtl" align="right">
                                 <span>{% trans 'review' %} </span> 
                                 <div class="multi_line"></div>
                             </div>
                             <div class="single_review_comment">
                                 <div class="single_review_img">
-                                    {% if productblog.image %}
-                                    <img src="{{ productblog.image.url }}" alt="" />
+                                    {% if productlistblog.image %}
+                                    <img src="{{ productlistblog.image.url }}" alt="" />
                                     {% endif %}
                                 </div>
                                 <div class="single_review_text" dir="rtl" align="right">

@@ -99,7 +99,8 @@ class ProductBlogView(generic.ListView):
 class ProductDetailBloglView(generic.DetailView):
     model = ProductListblog
     template_name = 'products/product_detail_blog.html'
-    context_object_name = 'productblog'
+
+    context_object_name = 'productlistblog'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -421,7 +422,7 @@ class CommentBlogCreateView(generic.CreateView):
 
         product_id = int(self.kwargs['product_id'])
         product= get_object_or_404(ProductListblog, id=product_id)
-        obj.productblog = product
+        obj.productlistblog = product
 
         messages.success(self.request, _('Comment successfully created'))
 
@@ -450,29 +451,27 @@ class CommentOfficeCreateView(generic.CreateView):
 
 def search_view(request):
     query = request.GET.get('query', '').lower()
-
-    if 'home' in query:
+    if 'خانه' in query or 'home' in query:
         return redirect(reverse('product_list'))
-    elif 'men' in query:
+    elif 'مردانه' in query or 'men' in query:
         return redirect(reverse('product_list_men'))
-    elif 'feminine' in query:
+    elif 'زنانه' in query or 'feminine' in query:
         return redirect(reverse('product_list_feminine'))
-    elif 'childish' in query:
+    elif 'بچگانه' in query or 'childish' in query:
         return redirect(reverse('product_list_childish'))
-    elif 'cooking' in query:
+    elif 'پخت و پز' in query or 'cooking' in query:
         return redirect(reverse('product_list_cooking'))
-    elif 'office' in query:
+    elif 'اداری' in query or 'office' in query:
         return redirect(reverse('product_list_office'))
-    elif 'laptop' in query:
+    elif 'لپ‌تاپ' in query or 'laptop' in query:
         return redirect(reverse('product_list_laptop'))
-    elif 'headphone' in query:
+    elif 'هدفون' in query or 'headphone' in query:
         return redirect(reverse('product_list_headphone'))
-    elif 'refrigerator' in query:
+    elif 'یخچال' in query or 'refrigerator' in query:
         return redirect(reverse('product_list_refrigerator'))
-    elif 'washing' in query:
+    elif 'لباسشویی' in query or 'washing' in query:
         return redirect(reverse('product_list_washing'))
-    elif 'blog' in query:
+    elif 'وبلاگ' in query or 'blog' in query:
         return redirect(reverse('product_list_blog'))
     else:
-        return redirect(reverse('product_list')) 
-    
+        return redirect(reverse('product_list'))    

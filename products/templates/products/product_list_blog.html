@@ -27,16 +27,18 @@
 <section class="blog_page_area">
     <div class="container">
         <div class="row">
-            {% for productblog in products %} 
+            {% for productlistblog in products %} 
             <div class="col-md-8 col-sm-8 col-xs-12" dir="rtl" align="right">
-                    <div class="blog_img_l"><img src="{{ productblog.image.url }}" alt="" /></div>
+                   {% if productlistblog.image %}
+                    <div class="blog_img_l"><img src="{{ productlistblog.image.url }}" alt="" /></div>
+                    {% endif %}
                     <div class="blog_date_in_page">
                     </div>
                     <div class="blog_text_in_page">
-                        <a href="{% url 'product_detail_blog' productblog.id %}"><h3>{{ productblog.title }}</h3></a>
-                        <p>{{ productblog.discreption }}</p>
+                        <a href="{% url 'product_detail_blog' productlistblog.id %}"><h3>{{ productlistblog.title }}</h3></a>
+                        <p>{{ productlistblog.discreption }}</p>
                         <div class="read_more">
-                            <a class="read_more_blog" href="{% url 'product_detail_blog' productblog.id %}">{% trans 'Read more' %}</a>
+                            <a class="read_more_blog" href="{% url 'product_detail_blog' productlistblog.id %}">{% trans 'Read more' %}</a>
                         </div>
                     </div>   
             </div>
