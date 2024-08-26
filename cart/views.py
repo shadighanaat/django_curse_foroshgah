@@ -16,7 +16,7 @@ def cart_detail_view(request):
             'quantity': item['quantity'],
             'inplace': True,
         })
-    # cart = request.session.get('cart', {})
+
     return render(request, 'cart/cart_detail.html', {
         'cart': cart
     })

@@ -1,17 +1,27 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
-# Create your views here.
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
 from cart.cart import Cart
 from .forms import OrderForm
-from .models import OrderItem
-from products.models import Product, ProductMen, ProductFeminine, ProductChildish, ProductCooking, ProductHeadphone, ProductLaptop, ProductOffice, ProductRefriGerator, ProductWashing
-from django.http import Http404
 
+from .models import OrderItem
+from products.models import (Product,
+                            ProductMen,
+                            ProductFeminine, 
+                            ProductChildish, 
+                            ProductCooking, 
+                            ProductHeadphone, 
+                            ProductLaptop, 
+                            ProductOffice, 
+                            ProductRefriGerator, 
+                            ProductWashing,
+)
 
 @login_required
 def order_create_view(request):
@@ -59,12 +69,8 @@ def order_create_view(request):
                 product_type = item.get('product_type')
                
                 product_model = get_product_model(product_type)
-
-
-                
             
                 product = get_object_or_404(product_model , id=product_id, page_id=page_id)
-                # order_item = OrderItem.objects.get(id=product_id)
                
                 OrderItem.objects.create(
                     order=order_obj,
