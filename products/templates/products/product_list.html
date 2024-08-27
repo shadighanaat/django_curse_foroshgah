@@ -430,5 +430,64 @@
 			</div>
 		</div>
 </section>
-{% include 'footer.html' %}		
+
+<div class="footer_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="single_widget">
+                    <h5>{% trans 'information' %}</h5>
+                    <div class="wid_line"></div>
+                    <ul class="widget_nav">
+                        <li><a href="{% url 'product_list' %}">{% trans 'New Products' %}</a></li>
+                        <li><a href="{% url 'product_list_men' %}">{% trans 'product men' %}</a></li>
+                        <li><a href="{% url 'product_list_feminine'%}">{% trans 'product feminine' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="single_widget">
+                    <h5>{% trans 'my account' %}</h5>
+                    <div class="wid_line"></div>
+                    <ul class="widget_nav">
+                        <li><a href="{% url 'contact_list' %}">{% trans 'My Account' %}</a></li>
+                        <li><a href="">{% trans 'Personal Information' %}</a></li>
+                        <li><a href="{% url 'contact_list' %}">{% trans 'Addresses' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="single_widget">
+                    <h5>{% trans 'customer service' %}</h5>
+                    <div class="wid_line"></div>
+                    <ul class="widget_nav">
+                        <li><a href="">{% trans 'Contact' %}</a></li>
+                        <li><a href="">{% trans 'Shipping & Taxes' %}</a></li>
+                        <li><a href="">{% trans 'about us' %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="single_widget">
+                    <h5>{% trans 'contact Info' %}</h5>
+                    <div class="wid_line"></div>
+                    <address>
+                        {% trans 'Addresses' %} :  {% trans 'Esfahan' %}
+						<br>
+                        {% trans 'name' %} :  {% trans 'shadi ghanaati' %} 
+						<br>
+                        {{ 09132880557|translate_number }} :  {% trans 'Phone' %}
+                        shadighanaati@gmail.com :  {% trans 'Email' %}
+                        shadighanaat/django_curse_foroshgah : {% trans 'github' %}
+                    </address>
+                    <ul class="wid_social">
+                        <li><a class="fa fa-github" href="https://github.com/shadighanaat/django_curse_foroshgah"></a></li>
+                        <li><a class="fa fa-google-plus" href="https://google.com/"></a></li>
+                        <li><a class="fa fa-linkedin" href="https://www.linkedin.com/in/shadi-ghanaati-b2880229a"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
 {% endblock content %}

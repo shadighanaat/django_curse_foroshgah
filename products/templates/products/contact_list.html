@@ -33,28 +33,22 @@
                     <h4>{% trans 'Leave A message' %}</h4>
                     <div class="multi_line"></div>
                 </div>
-                <form action="" method="post">
-                    <div class="input_form">
-                       
                         <div class="input_left">
-                            <form action="" method="post" dir="rtl" align="right">
+                            <form action="{% url 'submit_form' %}" method="post" dir="rtl" align="right">
                                 {% csrf_token %}
                                 <input  type="text" placeholder="{% trans 'Your Email' %} *" required name="email"/>
                             </div>
                             <div class="input_right">
                                 <textarea name="message" placeholder="{% trans 'Message' %}" required></textarea>
+                                <div class="submit_btn form-group submitRow">
+                                <input type="submit" name="submit" value="{% trans 'Submit form' %}" />
                             </div>
-                        </div>
-                        <div class="submit_btn form-group submitRow">
-                            <a herf="{% url 'product_list' %}">
-                            <input type="submit" name="submit" value="{% trans 'Submit form' %}" /></a>
+                        </div>  
                             </form>
                     </div>
-                    
-                </form>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="contact_box_right">
+                <div class="contact_box_right" class=dir="rtl" align="right">
                     <h5>{% trans 'Address' %}</h5>
                     <p>{% trans 'esfahan' %} <br>{% trans 'Iran' %}</p>
                     <div class="dotted_line"></div>

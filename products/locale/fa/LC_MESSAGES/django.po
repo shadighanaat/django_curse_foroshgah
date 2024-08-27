@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-26 15:35+0330\n"
-"PO-Revision-Date: 2024-08-26 16:14+0330\n"
+"POT-Creation-Date: 2024-08-27 14:40+0330\n"
+"PO-Revision-Date: 2024-08-27 14:45+0330\n"
 "Last-Translator: شادی قناعتی <shadighanaati@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -77,7 +77,7 @@ msgstr "404"
 #: .\templates\products\product_list_feminine.html:19
 #: .\templates\products\product_list_headphone.html:19
 #: .\templates\products\product_list_laptop.html:19
-#: .\templates\products\product_list_men.html:15
+#: .\templates\products\product_list_men.html:16
 #: .\templates\products\product_list_office.html:19
 #: .\templates\products\product_list_washing machine.html:18
 msgid "home"
@@ -97,6 +97,7 @@ msgid "contact"
 msgstr "مخاطب"
 
 #: .\templates\products\contact_list.html:20
+#: .\templates\products\product_list.html:463
 msgid "Contact"
 msgstr "مخاطب"
 
@@ -104,39 +105,39 @@ msgstr "مخاطب"
 msgid "Leave A message"
 msgstr "پیام بگذارید"
 
-#: .\templates\products\contact_list.html:42
+#: .\templates\products\contact_list.html:39
 msgid "Your Email"
 msgstr "ایمیل شما"
 
-#: .\templates\products\contact_list.html:45
+#: .\templates\products\contact_list.html:42
 msgid "Message"
 msgstr "پیام"
 
-#: .\templates\products\contact_list.html:50
+#: .\templates\products\contact_list.html:44
 msgid "Submit form"
 msgstr "ارسال"
 
-#: .\templates\products\contact_list.html:58
+#: .\templates\products\contact_list.html:52
 msgid "Address"
 msgstr "آدرس"
 
-#: .\templates\products\contact_list.html:59
+#: .\templates\products\contact_list.html:53
 msgid "esfahan"
 msgstr "اصفهان"
 
-#: .\templates\products\contact_list.html:59
+#: .\templates\products\contact_list.html:53
 msgid "Iran"
 msgstr "ایران"
 
-#: .\templates\products\contact_list.html:62
+#: .\templates\products\contact_list.html:56
 msgid "Contact info"
 msgstr "صفحه تماس"
 
-#: .\templates\products\contact_list.html:67
+#: .\templates\products\contact_list.html:61
 msgid "Working hours"
 msgstr "ساعات کاری"
 
-#: .\templates\products\contact_list.html:68
+#: .\templates\products\contact_list.html:62
 msgid "Full-time"
 msgstr "تمام وقت"
 
@@ -177,7 +178,7 @@ msgstr "جزئیات محصول"
 #: .\templates\products\product_list_feminine.html:50
 #: .\templates\products\product_list_headphone.html:50
 #: .\templates\products\product_list_laptop.html:50
-#: .\templates\products\product_list_men.html:46
+#: .\templates\products\product_list_men.html:47
 #: .\templates\products\product_list_office.html:50
 #: .\templates\products\product_list_washing machine.html:49
 msgid "$"
@@ -249,7 +250,7 @@ msgstr "تحویل و بازگشت"
 #: .\templates\products\product_list_feminine.html:56
 #: .\templates\products\product_list_headphone.html:56
 #: .\templates\products\product_list_laptop.html:56
-#: .\templates\products\product_list_men.html:52
+#: .\templates\products\product_list_men.html:53
 #: .\templates\products\product_list_office.html:56
 #: .\templates\products\product_list_washing machine.html:55
 msgid "Add to Cart"
@@ -490,7 +491,7 @@ msgid "clothing"
 msgstr "مد و پوشاک"
 
 #: .\templates\products\product_list.html:75
-#: .\templates\products\product_list_men.html:16
+#: .\templates\products\product_list_men.html:17
 msgid "Men"
 msgstr "مردانه"
 
@@ -633,6 +634,80 @@ msgstr "دستگاه حضور و غیاب"
 msgid "Snowa washing machine"
 msgstr "ماشین لباس شویی"
 
+#: .\templates\products\product_list.html:438
+msgid "information"
+msgstr "اطلاعات"
+
+#: .\templates\products\product_list.html:441
+msgid "New Products"
+msgstr "محصولات جدید"
+
+#: .\templates\products\product_list.html:442
+msgid "product men"
+msgstr "محصولات مردان"
+
+#: .\templates\products\product_list.html:443
+#: .\templates\products\product_list_feminine.html:9
+msgid "product feminine"
+msgstr "محصولات زنان"
+
+#: .\templates\products\product_list.html:449
+msgid "my account"
+msgstr "حساب من"
+
+#: .\templates\products\product_list.html:452
+msgid "My Account"
+msgstr "حساب من"
+
+#: .\templates\products\product_list.html:453
+msgid "Personal Information"
+msgstr "اطلاعات شخصی"
+
+#: .\templates\products\product_list.html:454
+#: .\templates\products\product_list.html:474
+msgid "Addresses"
+msgstr "آدرس"
+
+#: .\templates\products\product_list.html:460
+msgid "customer service"
+msgstr "خدمات مشتری"
+
+#: .\templates\products\product_list.html:464
+msgid "Shipping & Taxes"
+msgstr "حمل و نقل و مالیات"
+
+#: .\templates\products\product_list.html:465
+msgid "about us"
+msgstr "درباره ما"
+
+#: .\templates\products\product_list.html:471
+msgid "contact Info"
+msgstr "صفحه تماس"
+
+#: .\templates\products\product_list.html:474
+msgid "Esfahan"
+msgstr "اصفهان"
+
+#: .\templates\products\product_list.html:476
+msgid "name"
+msgstr "نام"
+
+#: .\templates\products\product_list.html:476
+msgid "shadi ghanaati"
+msgstr "شادی قناعتی"
+
+#: .\templates\products\product_list.html:478
+msgid "Phone"
+msgstr "تلفن"
+
+#: .\templates\products\product_list.html:479
+msgid "Email"
+msgstr "ایمیل شما"
+
+#: .\templates\products\product_list.html:480
+msgid "github"
+msgstr "گیت"
+
 #: .\templates\products\product_list_Refrigerator.html:9
 msgid "product Refrigerator freezer"
 msgstr "محصول یخچال فریزر"
@@ -643,7 +718,7 @@ msgstr "محصول یخچال فریزر"
 #: .\templates\products\product_list_feminine.html:46
 #: .\templates\products\product_list_headphone.html:46
 #: .\templates\products\product_list_laptop.html:46
-#: .\templates\products\product_list_men.html:42
+#: .\templates\products\product_list_men.html:43
 #: .\templates\products\product_list_office.html:46
 #: .\templates\products\product_list_washing machine.html:45
 msgid "Sale"
@@ -654,7 +729,6 @@ msgstr "فروش"
 #: .\templates\products\product_list_feminine.html:69
 #: .\templates\products\product_list_headphone.html:69
 #: .\templates\products\product_list_laptop.html:69
-#: .\templates\products\product_list_men.html:65
 #: .\templates\products\product_list_office.html:69
 #: .\templates\products\product_list_washing machine.html:68
 msgid "Previous"
@@ -665,7 +739,6 @@ msgstr "قبلی"
 #: .\templates\products\product_list_feminine.html:73
 #: .\templates\products\product_list_headphone.html:73
 #: .\templates\products\product_list_laptop.html:73
-#: .\templates\products\product_list_men.html:69
 #: .\templates\products\product_list_office.html:73
 #: .\templates\products\product_list_washing machine.html:72
 msgid "Next"
@@ -683,10 +756,6 @@ msgstr "صفحه ی بچه گانه"
 msgid "product Cooking utensils"
 msgstr "محصول لوازم پخت و پز"
 
-#: .\templates\products\product_list_feminine.html:9
-msgid "product feminine"
-msgstr "محصولات زنان"
-
 #: .\templates\products\product_list_headphone.html:9
 msgid "product headphone"
 msgstr "محصول هدفون"
@@ -703,65 +772,18 @@ msgstr "محصول ماشین های اداری"
 msgid "product washing machine"
 msgstr "محصول ماشین لباس شویی "
 
-#: .\views.py:253 .\views.py:273 .\views.py:292 .\views.py:311 .\views.py:330
-#: .\views.py:350 .\views.py:369 .\views.py:388 .\views.py:407 .\views.py:426
-#: .\views.py:446
+#: .\views.py:254 .\views.py:274 .\views.py:293 .\views.py:312 .\views.py:331
+#: .\views.py:351 .\views.py:370 .\views.py:389 .\views.py:408 .\views.py:427
+#: .\views.py:447
 msgid "Comment successfully created"
 msgstr "نظر با موفقیت ایجاد شد"
 
+#: .\views.py:456
+msgid "messages successfully created"
+msgstr "  پیام با موفقیت ایجاد شد"
+
 #~ msgid "Cooking service 6 cloth Desini"
 #~ msgstr "سرویس آشپزی 6 پارچه دسینی"
-
-#~ msgid "information"
-#~ msgstr "اطلاعات"
-
-#~ msgid "New Products"
-#~ msgstr "محصولات جدید"
-
-#~ msgid "product men"
-#~ msgstr "محصولات مردان"
-
-#~ msgid "my account"
-#~ msgstr "حساب من"
-
-#~ msgid "My Account"
-#~ msgstr "حساب من"
-
-#~ msgid "Personal Information"
-#~ msgstr "اطلاعات شخصی"
-
-#~ msgid "Addresses"
-#~ msgstr "آدرس"
-
-#~ msgid "customer service"
-#~ msgstr "خدمات مشتری"
-
-#~ msgid "Shipping & Taxes"
-#~ msgstr "حمل و نقل و مالیات"
-
-#~ msgid "about us"
-#~ msgstr "درباره ما"
-
-#~ msgid "contact Info"
-#~ msgstr "صفحه تماس"
-
-#~ msgid "Esfahan"
-#~ msgstr "اصفهان"
-
-#~ msgid "name"
-#~ msgstr "نام"
-
-#~ msgid "shadi ghanaati"
-#~ msgstr "شادی قناعتی"
-
-#~ msgid "Phone"
-#~ msgstr "تلفن"
-
-#~ msgid "Email"
-#~ msgstr "ایمیل شما"
-
-#~ msgid "github"
-#~ msgstr "گیت هاب"
 
 #~ msgid "product-detail"
 #~ msgstr "جزئیات محصول"

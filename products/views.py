@@ -448,6 +448,13 @@ class CommentOfficeCreateView(generic.CreateView):
 
         return super().form_valid(form)
 
+def submit_form(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+       
+        messages.success(request, _('messages successfully created'))
+    return redirect('contact_list') 
 
 def search_view(request):
     query = request.GET.get('query', '').lower()
