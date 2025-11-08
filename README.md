@@ -31,32 +31,42 @@
 تکنولوژی‌ها
 
 Python
+
 Django
+
 Django REST Framework (DRF)
+
 PostgreSQL
+
 Docker & Docker Compose 
+
 HTML, CSS, JavaScript
 
 راه‌اندازی سریع
 با Docker Compose
 git clone <repo-link>
+
 cd shop-project
+
 cp .env.example .env
+
 docker-compose up --build
 
 بدون Docker
 python -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt
+
 python manage.py migrate
+
 python manage.py runserver
 
 اجرای تست‌ها
 
 تمام تست‌ها در پوشهٔ tests/ قرار دارند. برای اجرا:
 python manage.py test
-# یا pytest
-pytest
 
 ساختار پروژه
 
