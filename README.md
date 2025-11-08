@@ -1,55 +1,89 @@
-<div align="center">
-  <a href="https://instagram.com/m.hadi.hajihosseini">
-    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" width="100"/>
-  </a>
-  <a href="https://codingyar.com">
-    <img src="https://img.shields.io/badge/website-blue?style=for-the-badge&logo=About.me&logoColor=white" width="100"/>
-  </a>
-  <a href="https://t.me/hajihosseini_cy">
-    <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" width="100"/>
-  </a>
-</div>
+
+پروژه طوری طراحی شده که بتواند تجربه خرید آنلاین را شبیه یک فروشگاه واقعی ارائه دهد. بخش‌های اصلی شامل:
+
+مدیریت محصولات با جزئیات کامل و چندگانه
+
+اضافه کردن محصول به سبد خرید و تغییر تعداد آن
+
+ثبت سفارش و مشاهده سفارش‌های کاربر
+
+امکان نوشتن و مشاهده کامنت برای محصولات
+
+تمامی بخش‌ها با Django و DRF ساخته شده و بک‌اند پروژه کاملاً تست شده است.
+
+قابلیت‌های اصلی
+
+نمایش محصولات و جزئیات آنها
+
+سبد خرید با امکان تغییر تعداد محصول
+
+ثبت سفارش و مدیریت سفارش‌های کاربر
+
+امکان نوشتن و مشاهده کامنت برای محصولات
+
+مدیریت بخش‌های مختلف فروشگاه از طریق پنل ادمین
+
+تست‌های اولیه برای مدل‌ها و ویوها نوشته شده
+
+قابلیت اجرای مستقل با Docker
 
 
-# What is this project?
-<span><img src="https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=green" /></span>
-<span><img src="https://img.shields.io/badge/Docker-2CA5E0?style=flat&logo=docker&logoColor=white" /></span>
-<span><img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" /></span>
+تکنولوژی‌ها
 
-This is a boilerplate to start a django project with postgresql as database running on docker.
+Python
+Django
+Django REST Framework (DRF)
+PostgreSQL
+Docker & Docker Compose 
+HTML, CSS, JavaScript
 
-# How to use?
-
-<strong>If you want to get notified about the future changes Follow my github account.</strong>
-
-First clone the project.
-
-```bash
-git clone https://github.com/hadiMh/Django_Docker_with_PostgreSql.git
-```
-
-Then make sure Docker is running.
-* If you are on windows click on the Docker Desktop icon and wait for about a minute.
-
-Then in the project directory run this command:
-
-```bash
+راه‌اندازی سریع
+با Docker Compose
+git clone <repo-link>
+cd shop-project
+cp .env.example .env
 docker-compose up --build
-```
 
-It will create two containers:
-One for Django and one for PostgreSql as the database for the project.
-All the required packages will be installed.
+بدون Docker
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
 
-### Install a new package.
-* Attention:
-If you want to install a package for django project you should run this command:
+اجرای تست‌ها
 
-```bash
-docker-compose exec web pip install <package-name>
-``` 
+تمام تست‌ها در پوشهٔ tests/ قرار دارند. برای اجرا:
+python manage.py test
+# یا pytest
+pytest
 
-Don't forget to add the new package to requirements.txt for further use:
-```bash
-docker-compose exec web pip freeze > requirements.txt
-```
+ساختار پروژه
+
+accounts/ → مدیریت کاربران و احراز هویت
+
+products/ → مدیریت محصولات و جزئیات آنها
+
+cart/ → سبد خرید
+
+orders/ → ثبت و مدیریت سفارش‌ها
+
+payment/ → بخش پرداخت
+
+templates/ → قالب‌های HTML
+
+persian_translate/ → بخش ترجمه فارسی
+
+وضعیت پروژه
+
+پروژه کامل و آماده اجرا است
+
+امکان توسعه و ادغام با ماژول‌های دیگر وجود دارد
+
+کانفیگ Docker برای اجرای مستقل موجود است
+
+نکات قبل از عمومی کردن ریپو
+
+فایل‌های .env را حذف یا به .env.example تبدیل کنید
+
+داده‌های حساس در پوشه‌ی media/ پاک یا نمونه‌سازی شوند
